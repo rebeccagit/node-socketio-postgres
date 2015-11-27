@@ -1,7 +1,9 @@
 .jumbotron {
   background: #ccccff;
   color: #e3d9f2;
-  padding-bottom: 40px; }
+  padding-bottom: 40px; 
+  font-size: 16px;
+  font-family: verdana;}
   .jumbotron .btn-primary {
     background: #ccccff;
     border-color: #845ac7; }
@@ -13,7 +15,7 @@
     margin: 1em auto 2em; }
   .navbar + .jumbotron {
     margin-top: -20px; 
-	background-color: #331a00;
+	background-color: #003366;
 	color:#e3d9f2;
 	}
   .jumbotron .lang-logo {
