@@ -19,6 +19,7 @@
 	color:#e3d9f2;
 	}
   .jumbotron .lang-logo {
+	color: #ffffff;
     display: block;
     background: #B01302;
     border-radius: 15%;
@@ -26,6 +27,7 @@
     width: 100px;
     height: 100px;
     margin: auto;
+	padding: 10px;
     border: 2px solid white; }
     .jumbotron .lang-logo img {
       max-width: 100%; }
