@@ -8,7 +8,7 @@ var favicon = require('serve-favicon');
 app.use(express.static('public'));
 app.use(helmet());
 app.use(express.static(__dirname + '/public'));
-app.use(favicon(__dirname + '/public/images/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 app.disable('x-powered-by');
 
