@@ -37,7 +37,7 @@ function displayQ(){
 		views.innerHTML += "<input type='radio' name='choices' value='A'> "+ A +"<br>";
 		views.innerHTML += "<input type='radio' name='choices' value='B'> "+ B +"<br>";
 		views.innerHTML += "<input type='radio' name='choices' value='C'> "+ C +"<br><br>";
-		views.innerHTML += "<button class="button" onclick='results()'>Enter</button>" + "<br><br>";
+		views.innerHTML += "<button onclick='results()' class="'button'">Enter</button>" + "<br><br>";
 		views.innerHTML += "<img src=images/" + pic + ">" + "<br><br>";
 		
 		
