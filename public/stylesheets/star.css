@@ -15,6 +15,7 @@ font-size:16px;
 background-image:url('https://secure-inlet-7727.herokuapp.com/images/starwarsbg.jpg');
 background-repeat:repeat-x;
 background-position:0px 100px;
+background-size:100%;
 }
 
 div#view{ 
@@ -24,6 +25,7 @@ border: 5px solid #FFE81F;
 padding-top:50px;
 padding-bottom:50px;
 padding-left:15%;
+margin-right:25%;
 width:75%;
 }
 
@@ -37,6 +39,7 @@ padding-left:15%;
 padding-right:15%;
 margin-top:15px;
 margin-bottom:15px;
+margin-right:25%;
 width:75%;
 }
 
@@ -52,6 +55,7 @@ border: 5px solid #FFE81F;
 padding-top:5px;
 padding-bottom:10px;
 margin-bottom:10px;
+margin-right:25%;
 width:75%;
 }
 
@@ -61,6 +65,7 @@ border-radius: 25px;
 border: 5px solid #FFE81F;
 padding:0px;
 margin-bottom:10px;
+margin-right:25%;
 width:75%;
 }
 
