@@ -9,12 +9,12 @@ padding:0px;
 padding-top:50px;
 padding-bottom:50px;
 margin:0 auto;
-width: 80%;
-margin-left:15%;
+width: 100%;
+margin-left:0%;
 font-size:16px;
 background-image:url('https://secure-inlet-7727.herokuapp.com/images/starwarsbg.jpg');
 background-repeat:repeat-x;
-background-position:0px 86px;
+background-position:0px 100px;
 }
 
 div#view{ 
