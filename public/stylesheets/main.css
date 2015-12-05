@@ -15,9 +15,11 @@
     margin: 1em auto 2em; }
   .navbar + .jumbotron {
     margin-top: -20px; 
-	background-color: #ffffff;
+	background-color: #003366;
 	color:#e3d9f2;
 	}
+	.navbar {
+	background-color:#ccccff;}
  /* .jumbotron .lang-logo {
 	color: #ffffff;
     display: block;
