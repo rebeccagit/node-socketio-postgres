@@ -1,5 +1,5 @@
 .jumbotron {
-  background: #000000;
+  background: #ccccff;
   color: #e3d9f2;
   padding-bottom: 40px; 
   font-size: 16px;
@@ -20,7 +20,6 @@
 	}
 	.navbar {
 	background-color:#8B1C18;
-	color:#000000;
 	}
  /* .jumbotron .lang-logo {
 	color: #ffffff;
