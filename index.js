@@ -18,6 +18,9 @@ app.set('port', (process.env.PORT || 5000));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+
+
+//pages follow
 app.get('/', function(request, response) {
   response.render('pages/index');
 });
@@ -26,8 +29,8 @@ app.get('/aboutme', function(request, response) {
   response.render('pages/aboutme');
 });
 
-app.get('/practiceindex', function(request, response) {
-  response.render('pages/practiceindex');
+app.get('/makingsite', function(request, response) {
+  response.render('pages/makingsite');
 });
 
 app.get('/aboutme', function(request, response) {
@@ -36,7 +39,7 @@ app.get('/aboutme', function(request, response) {
 
 
 
-//database is a wip atm
+//database - a wip atm
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM test_table', function(err, result) {
