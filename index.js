@@ -39,7 +39,7 @@ app.get('/aboutme', function(request, response) {
 
 
 
-//database - a wip atm
+//database - a wip atm or whatever
 //app.get('/db', function (request, response) {
 //  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 //    client.query('SELECT * FROM test_table', function(err, result) {
