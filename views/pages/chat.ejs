@@ -15,7 +15,6 @@
 
 </script>
 
-    <title>Socket.IO chat</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
@@ -46,8 +45,14 @@ Mad Hatter's Chat Room Coming Soon! ...
     </form>
 </div></div>
 <script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
   var socket = io();
+  $('form').submit(function(){
+    socket.emit('chat message', $('#m').val());
+    $('#m').val('');
+    return false;
+  });
 </script>
 </body>
 </html>

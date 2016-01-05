@@ -46,6 +46,12 @@ app.get('/chat', function(request, response) {
   response.render('pages/chat');
 });
 
+//socket
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    console.log('message: ' + msg);
+  });
+});
 
 //database - a wip atm or whatever --- :p
 //app.get('/db', function (request, response) {
