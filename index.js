@@ -63,7 +63,7 @@ app.listen(app.get('port'), function() {
 });
 
 //socket
-http.listen('port', function(){
+http.listen(app.get('port'), function(){
   console.log('listening on *:3000');
 });
 
