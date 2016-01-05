@@ -40,8 +40,10 @@ app.get('/makingsite', function(request, response) {
   response.render('pages/makingsite');
 });
 
+
+//socket
 app.get('/chat', function(request, response) {
-  response.sendFile('pages/chat');
+  response.render('pages/chat');
 });
 
 
@@ -64,6 +66,6 @@ app.listen(app.get('port'), function() {
 
 //socket
 http.listen(app.get('port'), function(){
-  console.log('listening on *:3000');
+  console.log('listening on *:5000');
 });
 
