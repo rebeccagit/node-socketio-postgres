@@ -8,7 +8,7 @@ var favicon = require('serve-favicon');
 
 //begin socket server
 var http = require('http').Server(app);
-
+var io = require('socket.io')(http);
 //end socket server
 
 
