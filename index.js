@@ -65,7 +65,7 @@ app.listen(app.get('port'), function() {
 });
 
 //socket
-http.listen(app.get('port'), function(){
-  console.log('listening on *:5000');
-});
+//http.listen(app.get('port'), function(){
+//  console.log('listening on *:5000');
+//});
 
