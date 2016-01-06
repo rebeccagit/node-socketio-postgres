@@ -28,7 +28,7 @@ app.set('view engine', 'ejs');
 
 //pages follow
 app.get('/', function(req, res) {
-  res.sendfile('pages/index');
+  res.sendfile('pages/index.ejs');
 });
 
 
