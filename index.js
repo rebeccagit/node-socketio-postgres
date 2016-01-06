@@ -33,8 +33,8 @@ app.get('/makingsite', function(request, response) {
   response.render('pages/makingsite');
 });
 
-app.get('/aboutme', function(request, response) {
-  response.render('pages/anotherpage2');
+app.get('/chat', function(request, response) {
+  response.render('pages/chat');
 });
 
 
