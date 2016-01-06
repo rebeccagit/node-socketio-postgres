@@ -19,7 +19,7 @@ io.on('connection', function(socket){
 
 app.set('port', (process.env.PORT || 5000));
 
-http.listen(3000, function(){
+http.listen(app.get('port'), function(){
   console.log('listening on *:3000');
 });
 
