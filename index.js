@@ -1,5 +1,4 @@
-var express = require('express');
-var app = express();
+var app = require('express')();
 var pg = require('pg');
 var cons = require('consolidate'); // Templating library adapter for Express
 var helmet = require('helmet');
@@ -66,8 +65,8 @@ io.on('connection', function(socket){
 //  });
 //})
 
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+http.listen(app.get('port'), function() {
+  //console.log('Node app is running on port', app.get('port'));
 });
 
 //socket
