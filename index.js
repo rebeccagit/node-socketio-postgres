@@ -11,9 +11,9 @@ var io = require('socket.io')(http);
 //end socket server
 
 
-app.use(express.static('public'));
+app.use(app.static('public'));
 app.use(helmet());
-app.use(express.static(__dirname + '/public'));
+app.use(app.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 
 app.disable('x-powered-by');
