@@ -5,6 +5,9 @@ var cons = require('consolidate'); // Templating library adapter for Express
 var helmet = require('helmet');
 var favicon = require('serve-favicon');
 
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
 app.use(express.static('public'));
 app.use(helmet());
 app.use(express.static(__dirname + '/public'));
@@ -52,7 +55,7 @@ app.get('/chat', function(request, response) {
 //  });
 //})
 
-app.listen(app.get('port'), function() {
+http.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
