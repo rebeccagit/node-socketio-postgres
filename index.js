@@ -31,19 +31,6 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
-app.get('/aboutme', function(request, response) {
-  response.render('pages/aboutme');
-});
-
-app.get('/makingsite', function(request, response) {
-  response.render('pages/makingsite');
-});
-
-
-//socket
-app.get('/chat', function(request, response) {
-  response.render('pages/chat');
-});
 
 //socket
 io.on('connection', function(socket){
