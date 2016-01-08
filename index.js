@@ -47,10 +47,6 @@ io.on('connection', function(socket){
   });
 });  
 
-io.on('user joined', function (data) {
-    log(data.username + ' joined');
-    addParticipantsMessage(data);
-  });
 
 
 
