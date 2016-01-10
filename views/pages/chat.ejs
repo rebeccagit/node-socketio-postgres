@@ -171,17 +171,16 @@ Mad Hatter's Chat Room Coming Soon! ...
   var $chatPage = $('.chat.page'); // The chatroom page
   var $currentInput = $usernameInput.focus();
   var $inputMessage = $('.m'); 
+  
+   function cleanInput (input) {
+    return $('<div/>').text(input).text();
+    };
 
-  var socket = io();
-  $('form').submit(function(){
-    socket.emit('chat message', $('#m').val());
-    $('#m').val('');
-    return false;
-  });
   
     function setUsername () {
     username = cleanInput($usernameInput.val().trim());
 
+	
     // If the username is valid
     if (username) {
       $loginPage.fadeOut();
@@ -198,6 +197,12 @@ Mad Hatter's Chat Room Coming Soon! ...
     $('#messages').append($('<li>').text(msg));
   });
   
+    var socket = io();
+  $('form').submit(function(){
+    socket.emit('chat message', $('#m').val());
+    $('#m').val('');
+    return false;
+  });
 
 
 </script>
