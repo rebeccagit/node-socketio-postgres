@@ -166,10 +166,11 @@ Mad Hatter's Chat Room Coming Soon! ...
 
 
  <script>
+  var username;
   var $loginPage = $('.login.page'); // The login page
   var $chatPage = $('.chat.page'); // The chatroom page
   var $currentInput = $usernameInput.focus();
-
+  var $inputMessage = $('.m'); 
 
   var socket = io();
   $('form').submit(function(){
@@ -191,7 +192,7 @@ Mad Hatter's Chat Room Coming Soon! ...
       // Tell the server your username
       socket.emit('add user', username);
     }
-  }
+  };
   
   socket.on('chat message', function(msg){
     $('#messages').append($('<li>').text(msg));
