@@ -22,7 +22,7 @@
       form button { background:#8B1C18; border-radius:10px; padding: 10px; color:#fff; }
     
 	  
-	  .pages {
+.pages {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -123,10 +123,7 @@
   text-align: right;
 }
 
-
-	
-	
-    </style>
+</style>
 
 </head>
 
@@ -146,16 +143,16 @@ Mad Hatter's Chat Room Coming Soon! ...
 <ul class="pages">
     <li class="chat page">
       <div class="chatArea">
-		<ul id="messages"></ul>
+	<ul id="messages"></ul>
 	  </div>
-		<form action="">
-			<input id="m" autocomplete="off" placeholder="Type message here."	/><button>Send</button>
+	<form action="">
+		<input id="m" autocomplete="off" placeholder="Type message here."	/><button>Send</button>
 		</form>
     </li>
 	<li class="login page">
       <div class="form">
-        <h3 class="title">What's your nickname?</h3>
-			<input class="usernameInput" type="text" maxlength="14" />
+	 <h3 class="title">What's your nickname?</h3>
+	  <input class="usernameInput" type="text" maxlength="14" />
 	  </div>
     </li>
 </ul>
@@ -164,46 +161,7 @@ Mad Hatter's Chat Room Coming Soon! ...
  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 
-
- <script>
-  var username;
-  var $loginPage = $('.login.page'); // The login page
-  var $chatPage = $('.chat.page'); // The chatroom page
-  var $currentInput = $usernameInput.focus();
-  var $inputMessage = $('.m'); 
-  
-   function cleanInput (input) {
-    return $('<div/>').text(input).text();
-    };
-
-  
-    function setUsername () {
-    username = cleanInput($usernameInput.val().trim());
-
-	
-    // If the username is valid
-    if (username) {
-      $loginPage.fadeOut();
-      $chatPage.show();
-      $loginPage.off('click');
-      $currentInput = $m.focus();
-
-      // Tell the server your username
-      //socket.emit('add user', username);
-    }
-  };
-  
-  socket.on('chat message', function(msg){
-    $('#messages').append($('<li>').text(msg));
-  });
-  
-    var socket = io();
-  $('form').submit(function(){
-    socket.emit('chat message', $('#m').val());
-    $('#m').val('');
-    return false;
-  });
-
+<script src="myscripts/main.js"></script>
 
 </script>
 </body>
