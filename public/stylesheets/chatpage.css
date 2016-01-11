@@ -64,6 +64,8 @@
   display: none;
 }
 
+ul {list-style-type:none;}
+
 /* Font */
 
 .messages {
