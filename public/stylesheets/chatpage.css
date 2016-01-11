@@ -22,11 +22,12 @@
 }
 
 .login.page .form {
+  height:100px;
   position: absolute;
   text-align: center;
   top: 50%;
   width: 100%;
-  padding-top:50px;
+  padding-top:0px;
   background-color:#000;
   padding-bottom:50px;
 }
