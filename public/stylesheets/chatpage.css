@@ -87,7 +87,7 @@ ul {list-style-type:none;}
 
 /* Messages */
 
-.inputarea { margin:0%; padding:0%; height:10%;}
+.inputarea { margin:0%; padding:0%; margin-bottom:10%; height:10%;}
 
 .chatboxarea {height:70%; width:100; margin:0%; padding:0%; position:fixed;}
 
