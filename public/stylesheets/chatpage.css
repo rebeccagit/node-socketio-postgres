@@ -89,17 +89,17 @@ ul {list-style-type:none;}
 
 .inputarea { margin:0%; padding:0%; height:10%;}
 
+.chatboxarea {height:70%; width:100; margin:0%; padding:0%; position:fixed;}
+
 .chatArea {
   
   padding-bottom: 10%;
   height:70%;
-  overflow: scroll;
 }
 
 .messages {
   float: left;
   width:100%;
-  height: 75%;
   margin: 0;
   overflow: scroll;
   padding: 10px 20px 10px 20px;
