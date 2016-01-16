@@ -92,6 +92,8 @@ ul {list-style-type:none;}
 .chatArea {
   
   padding-bottom: 10%;
+  height:70%;
+  overflow: scroll;
 }
 
 .messages {
