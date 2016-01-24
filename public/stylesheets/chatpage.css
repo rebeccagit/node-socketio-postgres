@@ -100,15 +100,15 @@ ul {list-style-type:none;}
 .chatArea {
   
   padding-bottom: 0%;
-  height:70%;
-  width:80%;
+  height:90%;
+  width:90%;
   overflow:auto;
 }
 
 .messages {
   float: left;
   width:100%;
-  height:250px;
+  height:300px;
   margin: 0;
   overflow: scroll;
   padding: 10px 20px 10px 20px;
