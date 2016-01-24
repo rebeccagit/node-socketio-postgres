@@ -102,6 +102,7 @@ ul {list-style-type:none;}
   padding-bottom: 0%;
   height:70%;
   width:80%;
+  overflow:auto;
 }
 
 .messages {
