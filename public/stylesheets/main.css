@@ -13,7 +13,8 @@ html, body { font: 13px Tahoma, Arial;color:#000;background:#fff;  height: 100%;
   .jumbotron p {
     color: #d9ccee;
     max-width: 75%;
-    margin: 1em auto 2em; }
+    margin: 1em auto 2em; 
+	background-color: #000000;}
   .navbar + .jumbotron {
     margin-top: -20px; 
 	background-color: #000000;
