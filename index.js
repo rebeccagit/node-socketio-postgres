@@ -1,25 +1,31 @@
 var express = require('express');
 var app = express();
+
 //var pg = require('pg');
 var cons = require('consolidate'); // Templating library adapter for Express
+
 var helmet = require('helmet');
 var favicon = require('serve-favicon');
 
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-app.use(express.static('public'));
-app.use(helmet());
-app.use(express.static(__dirname + '/public'));
-app.use(favicon(__dirname + '/public/favicon.ico'));
 
 app.disable('x-powered-by');
+app.use(helmet());
 
-app.set('port', (process.env.PORT || 5000));
+//app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+
+
+app.set('port', (process.env.PORT || 5000));
+
+
 
 
 
