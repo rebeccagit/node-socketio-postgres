@@ -1,6 +1,6 @@
 body,button{ background-color:#000;} 
 button,div#header{text-align:center}
-div#container{padding:50px 0;margin:0 auto 0 0;width:100%;font-size:16px;background-image:url(https://secure-inlet-7727.herokuapp.com/images/starwarsbg.jpg);background-repeat:repeat-x; 100px;background-size:100%}
+div#container{padding:50px 0;margin:0 auto 0 0;width:100%;font-size:16px; background-color:#000; background-image:url(https://secure-inlet-7727.herokuapp.com/images/starwarsbg.jpg);background-repeat:repeat-x;background-position:0; 100px;background-size:100%}
 div#view{background:#d6d6c2;border-radius:25px;border:5px solid #990000;padding-top:50px;padding-bottom:50px;padding-left:15%;margin-left:20%;width:60%}
 div#backstory,div#header{background:#d6d6c2;border-radius:25px;margin-left:20%;width:60%}
 div#backstory{border:5px solid #990000;margin-top:15px;margin-bottom:15px;padding:50px 15%}
