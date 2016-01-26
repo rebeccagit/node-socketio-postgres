@@ -3,6 +3,8 @@ html, body { font: 13px Tahoma, Arial;color:#000;background:#fff;  height: 100%;
 .jumbotron {
   background: #ccccff;
   color: #e3d9f2;
+  margin: 0;
+  padding: 0;
 }
   .jumbotron .btn-primary {
     background: #ccccff;
@@ -13,7 +15,6 @@ html, body { font: 13px Tahoma, Arial;color:#000;background:#fff;  height: 100%;
     color: #d9ccee;
     max-width: 75%;
     margin: 1em auto 2em; 
-	height:100%;
 	background-color: #000000;}
   .navbar + .jumbotron {
     margin-top: -20px; 
