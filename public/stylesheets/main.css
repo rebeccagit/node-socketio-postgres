@@ -3,7 +3,6 @@ html, body { font: 13px Tahoma, Arial;color:#000;background:#fff;  height: 100%;
 .jumbotron {
   background: #ccccff;
   color: #e3d9f2;
-  padding-bottom: 40px; 
 }
   .jumbotron .btn-primary {
     background: #ccccff;
