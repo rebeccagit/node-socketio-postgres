@@ -3,3 +3,5 @@ node_modules
 Dockerfile
 docker-compose.yml
 starwars-original-script.js
+movies.csv
+movies.txt
