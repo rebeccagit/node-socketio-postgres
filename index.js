@@ -115,7 +115,7 @@ io.on('connection', function (socket) {
 });
 
 //db config test
-app.get('/config', function sendResponse(req,res) {
+app.get('/config/default.json', function sendResponse(req,res) {
     res.json({"db.host": config.get('db.host'),
         "db.port": config.get('db.port'),
         "db.name": config.get('db.name'),
