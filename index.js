@@ -10,6 +10,8 @@ var favicon = require('serve-favicon');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+var config = require('config');
+
 
 app.disable('x-powered-by');
 app.use(helmet());
