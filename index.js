@@ -114,15 +114,7 @@ io.on('connection', function (socket) {
   });
 });
 
-//db config test
-app.get('/config/default.json', function sendResponse(req,res) {
-    res.json({"db.host": config.get('db.host'),
-        "db.port": config.get('db.port'),
-        "db.name": config.get('db.name'),
-        "db.user": config.get('db.user'),
-        "db.pass": config.get('db.pass'),
-    });
-});
+
 
 
 //database - a wip atm
