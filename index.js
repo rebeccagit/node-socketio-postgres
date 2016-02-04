@@ -46,6 +46,9 @@ app.get('/chat', function(request, response) {
   response.render('pages/chat');
 });
 
+app.get('/db', function(request, response) {
+  response.render('pages/db');
+});
 
 // Chatroom
 

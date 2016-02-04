@@ -3,6 +3,7 @@
   "version": "0.1.5",
   "description": "Experiment to see how Node, Express and Heroku work together.",
   "main": "index.js",
+  "private": "true",
   "scripts": {
     "start": "node index.js"
   },
@@ -30,7 +31,9 @@
   "keywords": [
     "node",
     "heroku",
+	"socketio",
     "express"
   ],
+  "author": "Rebecca Avendano",
   "license": "MIT"
 }
