@@ -137,12 +137,13 @@ var dbt = pgp(cn);
 app.get('/db', function (request, response) {
   pgp.cn(process.env.DATABASE_URL, function(err, client, done) {
     query('SELECT * FROM moviereview', function(err, result) {
-		if (err)
-		{ console.error(err); response.send("Error " + err) };
-		else
-		{ response.render('pages/db', {column: '} )};
+
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { response.render('pages/db', {column: '} )};
 	)};
-  )};
+  });
 });
 
 http.listen(app.get('port'), function() {
