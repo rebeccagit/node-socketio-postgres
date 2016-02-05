@@ -136,7 +136,7 @@ var dbt = pgp(cn);
 //database - a wip atm
 app.get('/db', function (request, response) {
   pgp.cn(process.env.DATABASE_URL, function(err, client, done) {
-	dbt.one("SELECT $1 AS value", 123)
+	pgp.cn.one("SELECT $1 AS value", 123)
     .then(function (data) {
         console.log("DATA:", data.value);
     })
