@@ -136,15 +136,15 @@ var dbt = pgp(cn);
 //database - a wip atm
 app.get('/db', function (request, response) {
   pgp.cn(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('SELECT * FROM moviereview', function(err, result) {
-      done();
-      if (err)
-       { console.error(err); response.send("Error " + err); }
-      else
-       { response.render('pages/db', {results: result.rows} ); }
+	dbt.one("SELECT $1 AS value", 123)
+    .then(function (data) {
+        console.log("DATA:", data.value);
+    })
+    .catch(function (error) {
+        console.log("ERROR:", error);
     });
-  });
-})
+  )};
+});
 
 http.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
