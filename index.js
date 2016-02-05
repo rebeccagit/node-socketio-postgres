@@ -119,13 +119,23 @@ io.on('connection', function (socket) {
 
 
 var pg = require('pg');
+var pgp = require('pg-promise')({
+    // Initialization Options
+});
 
+var cn = {
+    host: 'ec2-54-83-199-54.compute-1.amazonaws.com', // server name or IP address;
+    port: 5432,
+    database: 'dbt8cnjfb1iggg',
+    user: 'ounefajfybheww',
+    password: 'e4Wir2p51_lNHwzRYxLdPX54rC'
+};
 
-
+var dbt = pgp(cn);
 
 //database - a wip atm
 app.get('/db', function (request, response) {
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+  pgp.cn(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM moviereview', function(err, result) {
       done();
       if (err)
