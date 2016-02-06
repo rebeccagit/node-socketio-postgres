@@ -122,21 +122,24 @@ io.on('connection', function (socket) {
 
 
 
-var connection = process.env.DATABASE_URL || 'postgres://localhost:5432/todo';
+var connection = {
+  host: 'ec2-54-83-199-54.compute-1.amazonaws.com', // server name or IP address;
+  port: 5432,
+  database: 'dbt8cnjfb1iggg',
+  user: 'ounefajfybheww',
+  password: 'e4Wir2p51_lNHwzRYxLdPX54rC'
+};
 
 
+var connectionString = "postgres://ounefajfybheww:e4Wir2p51_lNHwzRYxLdPX54rC@ec2-54-83-199-54.compute-1.amazonaws.com:5432:/dbt8cnjfb1iggg"
 
-pg.connect(connection, function(err, client, done){
-  if(err) {
-    return console.error('error fetching client from pool', err);
-  }
-  
-  //var query = client.query('SELECT review FROM moviereview);
-  
-  //query.on('row', function(row) {
-   //   console.log('Written opinion "%s" and rating %d stars', row.review, row.rating);
-   // });
-  });
+pg.connect(connectionString, function(err, client, done) {
+   client.query('SELECT * FROM moviereview', function(err, result) {
+      done();
+      if(err) return console.error(err);
+      console.log(result.rows);
+   });
+});
 
 
 
