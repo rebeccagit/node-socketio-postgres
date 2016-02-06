@@ -139,7 +139,7 @@ pg.connect(connectionString, function(err, client, done) {
   console.log('Connected to postgres! Getting schemas...');
 
   client
-    .query('SELECT * FROM moviereview;')
+    .query('SELECT rating FROM moviereview;')
     .on('row', function(row) {
       console.log(JSON.stringify(row));
     });
