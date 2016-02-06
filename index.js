@@ -135,11 +135,11 @@ pg.connect(connection, function(err, client, done){
     return console.error('error fetching client from pool', err);
   }
   
-  var query = client.query('SELECT review FROM moviereview);
+  //var query = client.query('SELECT review FROM moviereview);
   
-  query.on('row', function(row) {
-      console.log('Written opinion "%s" and rating %d stars', row.review, row.rating);
-    });
+  //query.on('row', function(row) {
+   //   console.log('Written opinion "%s" and rating %d stars', row.review, row.rating);
+   // });
   });
 
 
