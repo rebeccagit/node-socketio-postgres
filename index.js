@@ -118,22 +118,21 @@ io.on('connection', function (socket) {
 
 
 
-var pg = require('pg');
-//var pgp = require('pg-promise')({
+//var pg = require('pg');
+var pgp = require('pg-promise')({
     // Initialization Options
-//});
+});
 
-//var cn = {
-  //  host: 'ec2-54-83-199-54.compute-1.amazonaws.com', // server name or IP address;
-    //port: 5432,
-    //database: 'dbt8cnjfb1iggg',
-    //user: 'ounefajfybheww',
-    //password: 'e4Wir2p51_lNHwzRYxLdPX54rC'
-//};
+var cn = {
+  host: 'ec2-54-83-199-54.compute-1.amazonaws.com', // server name or IP address;
+  port: 5432,
+  database: 'dbt8cnjfb1iggg',
+  user: 'ounefajfybheww',
+  password: 'e4Wir2p51_lNHwzRYxLdPX54rC'
+};
 
-var bb = "postgres://ounefajfybheww:e4Wir2p51_lNHwzRYxLdPX54rC@ec2-54-83-199-54.compute-1.amazonaws.com/dbt8cnjfb1iggg";
 
-var dbt = pg.Client(bb);
+var db = pgp(cn);
 
 
 
