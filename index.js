@@ -118,12 +118,10 @@ io.on('connection', function (socket) {
 
 
 
-//var pg = require('pg');
-var pgp = require('pg-promise')({
-    // Initialization Options
-});
+var pg = require('pg');
 
-var cn = {
+
+var connnection = {
   host: 'ec2-54-83-199-54.compute-1.amazonaws.com', // server name or IP address;
   port: 5432,
   database: 'dbt8cnjfb1iggg',
@@ -132,10 +130,8 @@ var cn = {
 };
 
 
-var db = pgp(cn);
+var db = pg(connection);
 
-result = db.any("select * from moviereview");
-console.log(result)
 
 
 
