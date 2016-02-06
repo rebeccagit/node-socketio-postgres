@@ -145,7 +145,7 @@ pg.connect(connectionString, function(err, client, done) {
     .on('row', function(row) {
       //console.log(JSON.stringify(row.name));
 	  results.push(row);
-	  return res.json(results);
+	  //return res.json(results);
     });
 });
 
