@@ -131,7 +131,7 @@ var connection = {
 };
 
 
-var connectionString = "postgres://ounefajfybheww:e4Wir2p51_lNHwzRYxLdPX54rC@ec2-54-83-199-54.compute-1.amazonaws.com:5432:/dbt8cnjfb1iggg"
+var connectionString = "postgres://ounefajfybheww:e4Wir2p51_lNHwzRYxLdPX54rC@ec2-54-83-199-54.compute-1.amazonaws.com:5432/dbt8cnjfb1iggg"
 
 pg.connect(connectionString, function(err, client, done) {
    client.query('SELECT * FROM moviereview', function(err, result) {
