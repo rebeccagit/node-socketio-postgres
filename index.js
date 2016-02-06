@@ -134,6 +134,9 @@ var cn = {
 
 var db = pgp(cn);
 
+result = db.any("select * from moviereview");
+console.log(result)
+
 
 
 
