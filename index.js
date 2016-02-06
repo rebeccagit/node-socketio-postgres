@@ -132,14 +132,14 @@ io.on('connection', function (socket) {
 
 var connectionString = "postgres://ounefajfybheww:e4Wir2p51_lNHwzRYxLdPX54rC@ec2-54-83-199-54.compute-1.amazonaws.com:5432/dbt8cnjfb1iggg"
 
-var client = new Client('connectionString');
+//var client = new Client('connectionString');
 
 pg.connect(connectionString, function(err, client, done) {
-   client.query('SELECT * FROM moviereview', function(err, result) {
-      done();
+  // client.query('SELECT * FROM moviereview', function(err, result) {
+  //    done();
       if(err) return console.error(err);
-      console.log(result.rows);
-   });
+  //    console.log(result.rows);
+  // });
 });
 
 
