@@ -134,16 +134,17 @@ var cn = {
 var dbt = pg.Client(cn);
 
 dbt.connect(function(err) {
-	if(err) {
-		return console.error('Could not connect to postgress', err);
-	}
-	  dbt.query('SELECT NOW() AS "theTime"', function(err, result) {
+  if(err) {
+    return console.error('could not connect to postgres', err);
+  }
+  dbt.query('SELECT NOW() AS "theTime"', function(err, result) {
     if(err) {
       return console.error('error running query', err);
     }
-		console.log(result.rows[0].theTime);
-		dbt.end();
-	});
+    console.log(result.rows[0].theTime);
+    //output: Tue Jan 15 2013 19:12:47 GMT-600 (CST)
+    dbt.end();
+  });
 });
 
 //database - a wip atm
