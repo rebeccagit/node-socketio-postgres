@@ -121,16 +121,18 @@ io.on('connection', function (socket) {
 
 
 
-var connection = {
-  host: 'ec2-54-83-199-54.compute-1.amazonaws.com', // server name or IP address;
-  port: 5432,
-  database: 'dbt8cnjfb1iggg',
-  user: 'ounefajfybheww',
-  password: 'e4Wir2p51_lNHwzRYxLdPX54rC'
-};
+//var connection = {
+//  host: 'ec2-54-83-199-54.compute-1.amazonaws.com', // server name or IP address;
+//  port: 5432,
+//  database: 'dbt8cnjfb1iggg',
+//  user: 'ounefajfybheww',
+//  password: 'e4Wir2p51_lNHwzRYxLdPX54rC'
+//};
 
 
 var connectionString = "postgres://ounefajfybheww:e4Wir2p51_lNHwzRYxLdPX54rC@ec2-54-83-199-54.compute-1.amazonaws.com:5432/dbt8cnjfb1iggg"
+
+var client = new Client({user:'ounefajfybheww', database:'dbt8cnjfb1iggg'});
 
 pg.connect(connectionString, function(err, client, done) {
    //client.query('SELECT * FROM moviereview', function(err, result) {
