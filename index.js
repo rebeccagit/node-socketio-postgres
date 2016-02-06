@@ -14,7 +14,6 @@ var config = require('config');
 
 var router = express.Router();
 var pg = require('pg');
-var connectionString = require(path.join(__dirname, '../', '../', 'config'));
 
 app.disable('x-powered-by');
 app.use(helmet());
