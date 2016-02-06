@@ -135,11 +135,11 @@ var connectionString = "postgres://ounefajfybheww:e4Wir2p51_lNHwzRYxLdPX54rC@ec2
 var client = new Client({user:'ounefajfybheww', database:'dbt8cnjfb1iggg'});
 
 pg.connect(connectionString, function(err, client, done) {
-   //client.query('SELECT * FROM moviereview', function(err, result) {
-   //   done();
+   client.query('SELECT * FROM moviereview', function(err, result) {
+      done();
       if(err) return console.error(err);
-   //   console.log(result.rows);
-   //});
+      console.log(result.rows);
+   });
 });
 
 
