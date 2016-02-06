@@ -135,11 +135,14 @@ var connectionString = "postgres://ounefajfybheww:e4Wir2p51_lNHwzRYxLdPX54rC@ec2
 //var client = new Client('connectionString');
 
 pg.connect(connectionString, function(err, client, done) {
-  // client.query('SELECT * FROM moviereview', function(err, result) {
-  //    done();
-      if(err) return console.error(err);
-  //    console.log(result.rows);
-  // });
+  if (err) throw err;
+  console.log('Connected to postgres! Getting schemas...');
+
+  client
+    .query('SELECT * FROM moviereview;')
+    .on('row', function(row) {
+      console.log(JSON.stringify(row));
+    });
 });
 
 
