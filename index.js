@@ -131,19 +131,17 @@ var cn = {
     password: 'e4Wir2p51_lNHwzRYxLdPX54rC'
 };
 
-var dbt = pg.Client(cn);
+//var dbt = pg.Client(cn);
 
-dbt.connect(function(err) {
-	if(err) {
-		return console.error('Could not connect to postgress', err);
-	}
-	  dbt.query('SELECT NOW() AS "theTime"', function(err, result) {
-    if(err) {
-      return console.error('error running query', err);
-    }
-		console.log(result.rows[0].theTime);
-		dbt.end();
-	});
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+  if (err) throw err;
+  console.log('Connected to postgres! Getting schemas...');
+
+  client
+    .query('SELECT table_schema,table_name FROM information_schema.tables;')
+    .on('row', function(row) {
+      console.log(JSON.stringify(row));
+    });
 });
 
 //database - a wip atm
