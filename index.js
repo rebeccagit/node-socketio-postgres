@@ -141,7 +141,7 @@ pg.connect(connectionString, function(err, client, done) {
   client
     .query('SELECT * FROM moviereview;')
     .on('row', function(row) {
-      console.log(JSON.stringify(row));
+      console.log(JSON.stringify(row.name));
     });
 });
 
