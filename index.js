@@ -121,7 +121,7 @@ io.on('connection', function (socket) {
 var pg = require('pg');
 
 
-var connnection = {
+var connection = {
   host: 'ec2-54-83-199-54.compute-1.amazonaws.com', // server name or IP address;
   port: 5432,
   database: 'dbt8cnjfb1iggg',
@@ -130,9 +130,21 @@ var connnection = {
 };
 
 
-var db = pg(connection);
+pg.connect(connection, function(err, client, done){
+  if(err) {
+    return console.error('error fetching client from pool', err);
+  }
+  client.query('SELECT $1::int AS number', ['1'], function(err, result) {
+    //call `done()` to release the client back to the pool
+    done();
 
-
+    if(err) {
+      return console.error('error running query', err);
+    }
+    console.log(result.rows[0].number);
+    //output: 1
+  });
+});
 
 
 
