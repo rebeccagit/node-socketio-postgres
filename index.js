@@ -12,6 +12,9 @@ var io = require('socket.io')(http);
 
 var config = require('config');
 
+var router = express.Router();
+var pg = require('pg');
+var connectionString = require(path.join(__dirname, '../', '../', 'config'));
 
 app.disable('x-powered-by');
 app.use(helmet());
@@ -118,16 +121,9 @@ io.on('connection', function (socket) {
 
 
 
-var pg = require('pg');
 
+var connection = process.env.DATABASE_URL || 'postgres://localhost:5432/todo';
 
-var connection = {
-  host: 'ec2-54-83-199-54.compute-1.amazonaws.com', // server name or IP address;
-  port: 5432,
-  database: 'dbt8cnjfb1iggg',
-  user: 'ounefajfybheww',
-  password: 'e4Wir2p51_lNHwzRYxLdPX54rC'
-};
 
 
 pg.connect(connection, function(err, client, done){
