@@ -119,9 +119,9 @@ io.on('connection', function (socket) {
 
 
 var pg = require('pg');
-var pgp = require('pg-promise')({
+//var pgp = require('pg-promise')({
     // Initialization Options
-});
+//});
 
 var cn = {
     host: 'ec2-54-83-199-54.compute-1.amazonaws.com', // server name or IP address;
@@ -131,7 +131,20 @@ var cn = {
     password: 'e4Wir2p51_lNHwzRYxLdPX54rC'
 };
 
-var dbt = pgp(cn);
+var dbt = pg.Client(cn);
+
+dbt.connect(function(err) {
+	if(err) {
+		return console.error('Could not connect to postgress', err);
+	}
+	  dbt.query('SELECT NOW() AS "theTime"', function(err, result) {
+    if(err) {
+      return console.error('error running query', err);
+    }
+		console.log(result.rows[0].theTime);
+		dbt.end();
+	});
+});
 
 //database - a wip atm
 
