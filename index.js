@@ -140,8 +140,8 @@ db.connect();
 var results = [];
 
 app.get('/db', function(request,response) {
-	response.render('pages/db');
-	response.write("first!First!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\nFirst!\n");
+	//response.render('pages/db');
+	response.write("first!");
 });
 
 
