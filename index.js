@@ -50,9 +50,9 @@ app.get('/chat', function(request, response) {
   response.render('pages/chat');
 });
 
-app.get('/db', function(request, response) {
-  response.render('pages/db');
-});
+//app.get('/db', function(request, response) {
+//  response.render('pages/db');
+//});
 
 
 
@@ -130,28 +130,21 @@ io.on('connection', function (socket) {
 //};
 
 
-var connectionString = "postgres://ounefajfybheww:e4Wir2p51_lNHwzRYxLdPX54rC@ec2-54-83-199-54.compute-1.amazonaws.com:5432/dbt8cnjfb1iggg"
+var DB_URL = "postgres://ounefajfybheww:e4Wir2p51_lNHwzRYxLdPX54rC@ec2-54-83-199-54.compute-1.amazonaws.com:5432/dbt8cnjfb1iggg"
+
+var db = new pg.Client(DB_URL);
+db.connect();
 
 //var client = new Client('connectionString');
 
 var results = [];
 
-pg.connect(connectionString, function(err, client, done) {
-  if (err) throw err;
-  console.log('Connected to postgres! Getting schemas...');
-
-  client
-    .query('SELECT * FROM moviereview;')
-    .on('row', function(row) {
-      //console.log(JSON.stringify(row.name));
-	  results.push(row);
-    })
-	.on('end', function() {
-            done();
-			console.log(results);
-            //return res.json(results);
-        });
+app.get('/db', function(request,response) {
+	
+	response.write("first!");
 });
+
+
 
 
 

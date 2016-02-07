@@ -5,3 +5,6 @@ docker-compose.yml
 starwars-original-script.js
 movies.csv
 movies.txt
+db.txt
+db.csv
+originaldbconnect.txt
