@@ -145,10 +145,10 @@ pg.connect(connectionString, function(err, client, done) {
     .on('row', function(row) {
       //console.log(JSON.stringify(row.name));
 	  results.push(row);
-	  console.log(results);
     })
 	.on('end', function() {
             done();
+			console.log(results);
             //return res.json(results);
         });
 });
