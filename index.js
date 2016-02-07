@@ -142,6 +142,18 @@ var results = [];
 app.get('/db', function(request,response) {
 	//response.render('pages/db');
 	response.write("first!");
+	var i = 0;
+	var query = db.query("SELECT * FROM moviereview");
+		
+		query.on('row', function(row) {
+			console.log(row);
+			i++;
+			response.write(String(row) + "\n");
+		});
+		query.on('end', function () {
+			response.write("\nHello db; variable i=" + i + "!");
+			response.end();
+		});
 });
 
 
