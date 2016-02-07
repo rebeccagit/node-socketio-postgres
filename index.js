@@ -146,8 +146,11 @@ pg.connect(connectionString, function(err, client, done) {
       //console.log(JSON.stringify(row.name));
 	  results.push(row);
 	  console.log(results);
-      //return res.json(results);
-    });
+    })
+	.on('end', function() {
+            done();
+            //return res.json(results);
+        });
 });
 
 
