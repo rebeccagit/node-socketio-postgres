@@ -141,7 +141,7 @@ var results = [];
 
 app.get('/db', function(request,response) {
 	//response.render('pages/db');
-	response.write("first!" + "\n");
+	response.write("My Movie Reviews.  I promise to be unfair, biased and have my own unpredictable, yet chaotic, stanards!" + "\n");
 	var i = 0;
 	var query = db.query("SELECT * FROM moviereview");
 		
@@ -151,7 +151,7 @@ app.get('/db', function(request,response) {
 			response.write(String(row.name + row.rating + "   " + row.review) + "\n");
 		});
 		query.on('end', function () {
-			response.write("\nHello db; variable i=" + i + "!");
+			response.write("\nHope you enjoyed!; variable i=" + i + "!");
 			response.end();
 		});
 });
