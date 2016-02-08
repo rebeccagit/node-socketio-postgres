@@ -143,9 +143,9 @@ app.get('/db', function(request,response) {
 	//response.render('pages/db');
 	response.write("first!");
 	var i = 0;
-	var query = db.query(JSON.stringify("SELECT * FROM moviereview"));
+	var query = db.query("SELECT * FROM moviereview");
 		
-		query.on('row', function(row) {
+		query.on('row', function(row.name) {
 			console.log(row);
 			i++;
 			response.write(String(row) + "\n");
