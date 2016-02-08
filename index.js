@@ -146,7 +146,7 @@ app.get('/db', function(request,response) {
 	var query = db.query("SELECT * FROM moviereview");
 		
 		query.on('row', function(row) {
-			console.log(row);
+			console.log(row.name);
 			i++;
 			response.write(String(row) + "\n");
 		});
