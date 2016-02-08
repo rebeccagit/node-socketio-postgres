@@ -141,7 +141,7 @@ var results = [];
 
 app.get('/db', function(request,response) {
 	//response.render('pages/db');
-	response.write("My Movie Reviews.  I promise to be unfair, biased and have my own unpredictable, yet chaotic, standards!" + "\n\n\n"");
+	response.write("My Movie Reviews.  I promise to be unfair, biased and have my own unpredictable, yet chaotic, standards!" + "\n\n\n");
 	var i = 0;
 	var query = db.query("SELECT * FROM moviereview");
 		
