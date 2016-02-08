@@ -148,7 +148,7 @@ app.get('/db', function(request,response) {
 		query.on('row', function(row) {
 			console.log(row.name);
 			i++;
-			response.write(string(row.name + "   " + row.rating + "   " + row.review) + "\n");
+			response.write(string(row.name + row.rating + "   " + row.review) + "\n");
 		});
 		query.on('end', function () {
 			response.write("\nHello db; variable i=" + i + "!");
