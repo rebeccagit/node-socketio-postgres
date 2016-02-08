@@ -141,14 +141,14 @@ var results = [];
 
 app.get('/db', function(request,response) {
 	//response.render('pages/db');
-	response.write("first!" + "\n");
+	response.write("first!");
 	var i = 0;
 	var query = db.query("SELECT * FROM moviereview");
 		
 		query.on('row', function(row) {
 			console.log(row.name);
 			i++;
-			response.write(string(row.name + row.rating + "   " + row.review) + "\n");
+			response.write(String(row.name + row.rating + row.review) + "\n");
 		});
 		query.on('end', function () {
 			response.write("\nHello db; variable i=" + i + "!");
