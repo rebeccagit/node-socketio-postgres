@@ -153,6 +153,9 @@ app.get('/db', function(request,response) {
 		});
 		query.on('end', function () {
 			response.write("\nHope you enjoyed!; variable i=" + i + "!");
+			response.write('<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Today&#39;s <a href="https://twitter.com/hashtag/501stPicOfTheDay?src=hash">#501stPicOfTheDay</a> comes to us from the <a href="https://twitter.com/501stIreland">@501stIreland</a> <a href="https://t.co/XbT1eCoawH">pic.twitter.com/XbT1eCoawH</a></p>&mdash; 501st Legion (@501stLegion) <a href="https://twitter.com/501stLegion/status/697587293155127297">February 11, 2016</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>')
+
 			response.end();
 		});
 });
