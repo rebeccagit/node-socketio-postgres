@@ -14,7 +14,7 @@ var config = require('config');
 var router = express.Router();
 var pg = require('pg');
 
-var maindb = require('./what')
+var maindb = require('./database')
 
 app.disable('x-powered-by');
 app.use(helmet());
