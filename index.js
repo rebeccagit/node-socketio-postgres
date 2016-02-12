@@ -152,7 +152,7 @@ app.get('/db', function(request,response) {
 			response.write(String(row.name + row.rating + "   " + row.review) + "\n");
 		});
 		query.on('end', function () {
-			response.write("\nHope you enjoyed!; variable i=" + i + "!");
+			response.write("\nHope you enjoyed!  Number of reviews =" + i + "!");
 			
 			response.end();
 		});
