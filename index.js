@@ -147,7 +147,7 @@ var results = [];
 app.get('/db', function(request,response) {
 	//response.render('pages/db');
 	
-response.writeHead(200, {"Content-Type": "text/plain"});
+	response.writeHead(200, {"Content-Type": "text/plain"});
 	response.write("My Movie Reviews.  I promise to be unfair, biased and have my own unpredictable, yet unchaotic, standards!" + "\n\n\n");
 	var i = 0;
 	var query = db.query("SELECT * FROM moviereview");
