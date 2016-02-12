@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 
+//var pg = require('pg');
 var cons = require('consolidate'); // Templating library adapter for Express
 
 var helmet = require('helmet');
@@ -13,7 +14,6 @@ var config = require('config');
 
 var router = express.Router();
 var pg = require('pg');
-
 
 app.disable('x-powered-by');
 app.use(helmet());
@@ -28,7 +28,6 @@ app.set('view engine', 'ejs');
 
 
 app.set('port', (process.env.PORT || 5000));
-
 
 
 
@@ -146,7 +145,6 @@ var results = [];
 
 app.get('/db', function(request,response) {
 	//response.render('pages/db');
-	
 	response.writeHead(200, {"Content-Type": "text/plain"});
 	response.write("My Movie Reviews.  I promise to be unfair, biased and have my own unpredictable, yet unchaotic, standards!" + "\n\n\n");
 	var i = 0;
@@ -162,9 +160,6 @@ app.get('/db', function(request,response) {
 			
 			response.end();
 		});
-};
-
-	
 });
 
 
