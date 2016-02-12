@@ -14,6 +14,8 @@ var config = require('config');
 var router = express.Router();
 var pg = require('pg');
 
+var maindb = require('./what')
+
 app.disable('x-powered-by');
 app.use(helmet());
 
@@ -27,6 +29,7 @@ app.set('view engine', 'ejs');
 
 
 app.set('port', (process.env.PORT || 5000));
+
 
 
 

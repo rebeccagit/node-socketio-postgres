@@ -1,4 +1,4 @@
-function maindb(){
+function maindb(db){
 
 var results = [];
 
