@@ -50,6 +50,10 @@ app.get('/chat', function(request, response) {
   response.render('pages/chat');
 });
 
+app.get('/moviereviews', function(request, response) {
+  response.render('pages/moviereviews');
+});
+
 //app.get('/db', function(request, response) {
 //  response.render('pages/db');
 //});
