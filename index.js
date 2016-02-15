@@ -169,8 +169,11 @@ app.get('/db', function(request,response) {
 
 
 app.use(function(req, res, next) {
-    var err = new Error('Nothing here!');
+    var err = new Error('Not found');
     err.status = 404;
+	response.write("Try another link!");
+			
+			response.end();
     next(err);
 });
 
