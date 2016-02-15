@@ -168,6 +168,12 @@ app.get('/db', function(request,response) {
 
 
 
+app.use(function(req, res, next) {
+    var err = new Error('Nothing here!');
+    err.status = 404;
+    next(err);
+});
+
 
 http.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
