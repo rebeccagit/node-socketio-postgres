@@ -12,8 +12,10 @@ var io = require('socket.io')(http);
 
 var config = require('config');
 
-var router = express.Router();
+var routes = require('./server/routes/index');//xxxxx
 var pg = require('pg');
+
+app.use('/db', routes);//xxxxx
 
 app.disable('x-powered-by');
 app.use(helmet());
@@ -171,9 +173,7 @@ app.get('/db', function(request,response) {
 app.use(function(req, res, next) {
     var err = new Error('Not found');
     err.status = 404;
-	response.write("Try another link!");
-			
-			response.end();
+
     next(err);
 });
 
