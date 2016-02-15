@@ -12,10 +12,8 @@ var io = require('socket.io')(http);
 
 var config = require('config');
 
-var routes = require('./server/routes/index');//xxxxx
 var pg = require('pg');
 
-app.use('/db', routes);//xxxxx
 
 app.disable('x-powered-by');
 app.use(helmet());
