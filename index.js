@@ -136,8 +136,8 @@ io.on('connection', function (socket) {
 
 var DB_URL = "postgres://ounefajfybheww:e4Wir2p51_lNHwzRYxLdPX54rC@ec2-54-83-199-54.compute-1.amazonaws.com:5432/dbt8cnjfb1iggg"
 
-var db = new pg.Client(DB_URL);
-db.connect();
+var db = new pg.Client(DB_URL).connect();
+//db.connect();
 
 //var client = new Client('connectionString');
 
