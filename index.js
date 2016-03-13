@@ -11,7 +11,7 @@ var io = require('socket.io')(http);
 var config = require('config');
 
 var pg = require('pg');
-// var router = express.Router(); // on deck
+var router = express.Router(); // on deck
 
 
 // Security 
