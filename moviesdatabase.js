@@ -35,7 +35,7 @@ router.get('/', function(req, res) {
 			res.write("Directed by " + String(row.director) + "<br /><br />");
 			res.write("Cast: " + String(row.actors) + "<br /><br />");
 			res.write(String(row.review) + "<br /><br />");
-			res.write("<iframe width='560' height='315' src='https://www.youtube.com/embed/" + String(row.video) + "' frameborder='0' allowfullscreen></iframe><br /><br /><br />");
+			res.write("<iframe width='560' height='315' src='https://www.youtube.com/embed/" + String(row.video) + "' frameborder='0' allowfullscreen></iframe><br /><br /><br /><br /><br /><br />");
 			res.write("</li>");
 		});		
 		query.on('end', function () {
