@@ -24,7 +24,7 @@ router.get('/', function(req, res) {
 		   
     var results = [];
     var i = 0;
-	var query = db.query("SELECT * FROM moviereview ORDER BY -rating");
+	var query = db.query("SELECT * FROM moviereviewz ORDER BY -rating");
 
 	res.write("<ul>");
 		query.on('row', function(row) {
