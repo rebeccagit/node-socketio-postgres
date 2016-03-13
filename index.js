@@ -1,20 +1,20 @@
 var express = require('express');
 var app = express();
 
-//var pg = require('pg');
 var cons = require('consolidate'); // Templating library adapter for Express
-
 var helmet = require('helmet');
+
 var favicon = require('serve-favicon');
-
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
 
+var io = require('socket.io')(http);
 var config = require('config');
 
 var pg = require('pg');
+// var router = express.Router(); // on deck
 
 
+// Security 
 app.disable('x-powered-by');
 app.use(helmet());
 
@@ -22,18 +22,18 @@ app.use(helmet());
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 
-// views is directory for all template files
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-
-
 app.set('port', (process.env.PORT || 5000));
+//app.set('port', (3000));
 
 
+// Database
+var moviesdatabase = require('./moviesdatabase');
+app.use('/moviereviews', moviesdatabase);
 
 
-
-//pages follow
+// Site Pages
 app.get('/', function(request, response) {
   response.render('pages/index');
 });
@@ -54,14 +54,8 @@ app.get('/moviereviews', function(request, response) {
   response.render('pages/moviereviews');
 });
 
-//app.get('/db', function(request, response) {
-//   response.render('pages/db');
-//});
 
-
-
-// Chatroom
-
+// Chatroom via socket.io
 var numUsers = 0;
 
 io.on('connection', function (socket) {
@@ -87,6 +81,7 @@ io.on('connection', function (socket) {
     socket.emit('login', {
       numUsers: numUsers
     });
+	
     // echo globally (all clients) that a person has connected
     socket.broadcast.emit('user joined', {
       username: socket.username,
@@ -124,58 +119,14 @@ io.on('connection', function (socket) {
 
 
 
-
-//var connection = {
-//  host: 'ec2-54-83-199-54.compute-1.amazonaws.com', // server name or IP address;
-//  port: 5432,
-//  database: 'dbt8cnjfb1iggg',
-//  user: 'ounefajfybheww',
-//  password: 'e4Wir2p51_lNHwzRYxLdPX54rC'
-//};
-
-
-var DB_URL = "postgres://ounefajfybheww:e4Wir2p51_lNHwzRYxLdPX54rC@ec2-54-83-199-54.compute-1.amazonaws.com:5432/dbt8cnjfb1iggg"
-
-var db = new pg.Client(DB_URL);
-db.connect();
-
-//var client = new Client('connectionString');
-
-
-var results = [];
-
-app.get('/db', function(request,response) {
-	//response.render('pages/db');
-	response.writeHead(200, {"Content-Type": "text/plain"});
-	response.write("My Movie Reviews.  I promise to be unfair, biased and have my own unpredictable, yet unchaotic, standards!" + "\n\n\n");
-	var i = 0;
-	var query = db.query("SELECT * FROM moviereview ORDER BY name");
-		
-		query.on('row', function(row) {
-			console.log(row.name);
-			i++;
-			response.write(String(row.name + row.rating + "   " + row.review) + "\n");
-		});
-		query.on('end', function () {
-			response.write("\nHope you enjoyed!  Number of reviews =" + i + "!");
-			
-			response.end();
-		});
-});
-
-
-
-
-
-
 app.use(function(req, res, next) {
-    var err = new Error('Not found');
+    var err = new Error('Not found.  Please try another url.');
     err.status = 404;
-
     next(err);
 });
 
 
+//Automatically verify that server is listening.
 http.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
