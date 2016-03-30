@@ -18,6 +18,18 @@ var router = express.Router(); // on deck
 app.disable('x-powered-by');
 app.use(helmet());
 
+
+app.use(helmet.csp({
+  // Specify directives as normal. 
+  directives: {
+    defaultSrc: ["'self'", 'default.com'],
+    scriptSrc: ["'self'", "'unsafe-inline' www.google-analytics.com cdn.socket.io code.jquery.com netdna.bootstrapcdn.com"],
+    styleSrc: ['self' "netdna.bootstrapcdn.com"],
+    imgSrc: ['img.com', 'self' "http://cdn.theanimalrescuesite.com"]
+}}))
+
+
+
 //app.use(express.static('public'));
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/favicon.ico'));
