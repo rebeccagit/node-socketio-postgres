@@ -25,6 +25,7 @@ app.use(helmet.csp({
     defaultSrc: ["'self'", 'default.com'],
     scriptSrc: ["'self'", "'unsafe-inline' www.google-analytics.com cdn.socket.io code.jquery.com netdna.bootstrapcdn.com"],
     styleSrc: ['self' "netdna.bootstrapcdn.com"],
+	mediaSrc: ['self' "youtube.com"],
     imgSrc: ['img.com', 'self' "http://cdn.theanimalrescuesite.com"]
 }}))
 
