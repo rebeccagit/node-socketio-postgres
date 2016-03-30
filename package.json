@@ -1,7 +1,7 @@
 {
   "name": "node-js-getting-started",
   "version": "0.1.5",
-  "description": "Experiment to see how Node, Express and Heroku work together.",
+  "description": "Experiment to see how Node, Express, Socket.io, Postgres and Heroku work together.",
   "main": "index.js",
   "private": "true",
   "scripts": {
@@ -11,13 +11,11 @@
     "bcrypt-nodejs": "~0.0.3",
     "config": "^1.19.0",
     "consolidate": "~0.9.1",
-    "cool-ascii-faces": "~1.3.x",
     "ejs": "2.3.3",
     "express": "4.0.0",
     "helmet": "0.14.0",
     "http": "0.0.0",
     "pg": "4.x",
-	"pg-promise": "3.1.6",
     "serve-favicon": "2.3.0",
     "socket.io": "^1.3.7",
     "swig": "~0.14.0",
@@ -34,6 +32,7 @@
     "node",
     "heroku",
     "socketio",
+    "postgres",
     "express"
   ],
   "author": "Rebecca Avendano",
