@@ -19,7 +19,7 @@ app.disable('x-powered-by');
 app.use(helmet());
 
 
-app.use(helmet.csp({
+/*app.use(helmet.csp({
   // Specify directives as normal. 
   directives: {
     defaultSrc: ["'self'", 'default.com'],
@@ -27,7 +27,7 @@ app.use(helmet.csp({
     styleSrc: ['self' "netdna.bootstrapcdn.com"],
 	mediaSrc: ['self' "youtube.com"],
     imgSrc: ['img.com', 'self' "http://cdn.theanimalrescuesite.com"]
-}}))
+}}))*/
 
 
 
