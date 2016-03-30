@@ -18,8 +18,6 @@ var router = express.Router(); // on deck
 app.disable('x-powered-by');
 app.use(helmet());
 app.use(helmet.noSniff());
-app.use(helmet.noCache({ noEtag: true }));
-app.use(frameguard({ action: 'deny' }));
 
 
 /*app.use(helmet.csp({
