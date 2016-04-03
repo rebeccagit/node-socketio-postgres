@@ -45,7 +45,7 @@ router.get('/', function(req, res) {
 			res.write("Hope you enjoyed!  Number of reviews = " + i + "!");
 			res.write("<br /><br /><br /></div>");
 			res.write("</body></html>");
-			res.end(); using this would be redundant and extra work ;p
+			//res.end(); using this would be redundant and extra work ;p
 		});
 });
 
