@@ -2,23 +2,25 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var router = express.Router(); // on deck
-
-var cons = require('consolidate'); // Templating library adapter for Express.  Do I still need this?
-
+// Templating library adapter for Express.  Do I still need this?
+var cons = require('consolidate'); 
+// favicon icon
 var favicon = require('serve-favicon');
-
-var io = require('socket.io')(http);
+// chat
+var io = require('socket.io')(http); 
 var config = require('config');
+// database
+var pg = require('pg'); 
+// security
+var helmet = require('helmet'); 
 
-var pg = require('pg');
-
-var helmet = require('helmet');
 
 
 // Security 
 app.disable('x-powered-by');
 app.use(helmet());
 app.use(helmet.noSniff());
+
 
 
  //for my own future reference ... still a wip
@@ -34,23 +36,28 @@ app.use(helmet.noSniff());
 
 
 
-//app.use(express.static('public'));  //for my own future reference
-
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/favicon.ico'));
+//app.use(express.static('public'));  //for my own future reference
+
+
 
 // Views set up w/ ejs
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+
+
 
 // Setting up server
 app.set('port', (process.env.PORT || 5000));
 //app.set('port', (3000)); //for my own future reference
 
 
+
 // Database
 var moviesdatabase = require('./moviesdatabase');
 app.use('/moviereviews', moviesdatabase);
+
 
 
 // Site Pages
@@ -73,6 +80,7 @@ app.get('/chat', function(request, response) {
 app.get('/moviereviews', function(request, response) {
   response.render('pages/moviereviews');
 });
+
 
 
 // Chatroom via socket.io ... future plans --> move to seperate file
@@ -138,12 +146,14 @@ io.on('connection', function (socket) {
 });
 
 
+
 // err 404 --> no pg found
 app.use(function(req, res, next) {
     var err = new Error('Not found.  Please try another url.');
     err.status = 404;
     next(err);
 });
+
 
 
 //Automatically verify in logging that server is listening.
