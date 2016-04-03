@@ -39,13 +39,14 @@ router.get('/', function(req, res) {
 			res.write(String(row.review) + "<br /><br />");
 			res.write("<iframe width='560' height='315' src='https://www.youtube.com/embed/" + String(row.video) + "' frameborder='0' allowfullscreen></iframe><br /><br /><br /><br /><br /><br />");
 			res.write("</li>");
+			res.end(); using this would be redundant and extra work ;p
 		});		
 		query.on('end', function () {
 			res.write("</ul>");
 			res.write("Hope you enjoyed!  Number of reviews = " + i + "!");
 			res.write("<br /><br /><br /></div>");
 			res.write("</body></html>");
-			//res.end(); using this would be redundant and extra work ;p
+
 		});
 });
 
