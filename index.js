@@ -1,17 +1,18 @@
 var express = require('express');
 var app = express();
+var http = require('http').Server(app);
+var router = express.Router(); // on deck
 
-var cons = require('consolidate'); // Templating library adapter for Express
-var helmet = require('helmet');
+var cons = require('consolidate'); // Templating library adapter for Express.  Do I still need this?
 
 var favicon = require('serve-favicon');
-var http = require('http').Server(app);
 
 var io = require('socket.io')(http);
 var config = require('config');
 
 var pg = require('pg');
-var router = express.Router(); // on deck
+
+var helmet = require('helmet');
 
 
 // Security 
@@ -20,6 +21,7 @@ app.use(helmet());
 app.use(helmet.noSniff());
 
 
+ //for my own future reference ... still a wip
 /*app.use(helmet.csp({
   // Specify directives as normal. 
   directives: {
@@ -28,18 +30,22 @@ app.use(helmet.noSniff());
     styleSrc: ['self' "netdna.bootstrapcdn.com"],
 	mediaSrc: ['self' "youtube.com"],
     imgSrc: ['img.com', 'self' "http://cdn.theanimalrescuesite.com"]
-}}))*/
+}}));  //pending... */
 
 
 
-//app.use(express.static('public'));
+//app.use(express.static('public'));  //for my own future reference
+
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 
+// Views set up w/ ejs
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+
+// Setting up server
 app.set('port', (process.env.PORT || 5000));
-//app.set('port', (3000));
+//app.set('port', (3000)); //for my own future reference
 
 
 // Database
@@ -51,25 +57,25 @@ app.use('/moviereviews', moviesdatabase);
 app.get('/', function(request, response) {
   response.render('pages/index');
 });
-
+// about moi
 app.get('/aboutme', function(request, response) {
   response.render('pages/aboutme');
 });
-
+// about making the site
 app.get('/makingsite', function(request, response) {
   response.render('pages/makingsite');
 });
-
+// chat page - socket.io
 app.get('/chat', function(request, response) {
   response.render('pages/chat');
 });
-
+// movie review database page
 app.get('/moviereviews', function(request, response) {
   response.render('pages/moviereviews');
 });
 
 
-// Chatroom via socket.io
+// Chatroom via socket.io ... future plans --> move to seperate file
 var numUsers = 0;
 
 io.on('connection', function (socket) {
@@ -132,7 +138,7 @@ io.on('connection', function (socket) {
 });
 
 
-
+// err 404 --> no pg found
 app.use(function(req, res, next) {
     var err = new Error('Not found.  Please try another url.');
     err.status = 404;
@@ -140,7 +146,7 @@ app.use(function(req, res, next) {
 });
 
 
-//Automatically verify that server is listening.
+//Automatically verify in logging that server is listening.
 http.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
