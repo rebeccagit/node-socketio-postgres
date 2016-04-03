@@ -54,7 +54,7 @@ app.set('port', (process.env.PORT || 5000));
 
 
 
-// Database
+// Database - variable name set for database to be called when moviereviews.ejs page is viewed.
 var moviesdatabase = require('./moviesdatabase');
 app.use('/moviereviews', moviesdatabase);
 

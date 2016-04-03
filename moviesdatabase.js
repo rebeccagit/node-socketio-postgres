@@ -7,6 +7,8 @@ router.get('/', function(req, res) {
     var db = new pg.Client(process.env.DB_URL);
 	db.connect();
 	
+	
+	//Need to separate html and css from this page...
 	res.writeHead(200, {"Content-Type": "text/html"});
 	
 	res.write("<!DOCTYPE><html><head><title>Movie Reviews</title><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body {font: 16px verdana;}#top{margin-left:10%;margin-right:10%;margin-top:10%;margin-bottom:5%;padding:0px;}#rev{margin:15%;margin-top:5%;padding:0px;}h3 {color:red;font: 14px Helvetica, Arial, sans-serif;} h3{color:red;}</style>");
@@ -43,17 +45,17 @@ router.get('/', function(req, res) {
 			res.write("Hope you enjoyed!  Number of reviews = " + i + "!");
 			res.write("<br /><br /><br /></div>");
 			res.write("</body></html>");
-			//res.end();
+			//res.end(); using this would be redundant and extra work ;p
 		});
 });
 
-// middleware that is specific to this router - here for practice and reference
+// middleware that is specific to this router - here for my own practice and reference
 router.use(function timeLog(req, res, next) {
     console.log('Time: ', Date.now());
     next();
 });
 
-// define the home page route - here for practice and reference
+// define the home page route - here for my own practice and reference
 router.get('/about', function(req, res) {
     res.send('Birds home page. A hidden page! Squeee!!');
 });
