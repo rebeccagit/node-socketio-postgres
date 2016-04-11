@@ -19,8 +19,8 @@ router.get('/', function(req, res) {
 	
 	
 	res.write("<div id='top'>")
-	res.write("<h1>My Movie Reviews.  No standards, just my opinion!" + "<br /></h1>");
-	res.write("<h2>I'm learning to use Postgres with Node.js so this is a WIP! Constructive criticism is very welcomed!" + "<br /><br /><br /></h2>");
+	res.write("<h1>My Movie Reviews.  No standards, only my thoughts!" + "<br /></h1>");
+	res.write("<h2>I'm learning to use a database with node.js so this is a WIP! Constructive criticism is very welcomed!" + "<br /><br /><br /></h2>");
 	res.write("</div>");
 	res.write("<div id='rev'>");
 		   
@@ -37,7 +37,7 @@ router.get('/', function(req, res) {
 			res.write("Directed by " + String(row.director) + "<br /><br />");
 			res.write("Cast: " + String(row.actors) + "<br /><br />");
 			res.write(String(row.review) + "<br /><br />");
-			res.write("<iframe width="80%" src='https://www.youtube.com/embed/" + String(row.video) + "' frameborder='0' allowfullscreen></iframe><br /><br /><br /><br /><br /><br />");
+			res.write("<iframe width='560' height='315' src='https://www.youtube.com/embed/" + String(row.video) + "' frameborder='0' allowfullscreen></iframe><br /><br /><br /><br /><br /><br />");
 			res.write("</li>");
 			//res.end(); using this would be redundant and extra work ;p
 		});		
