@@ -19,8 +19,8 @@ router.get('/', function(req, res) {
 	
 	
 	res.write("<div id='top'>")
-	res.write("<h1>My Movie Reviews.  No standards, only my thoughts!" + "<br /></h1>");
-	res.write("<h2>I'm learning to use a database with node.js so this is a WIP! Constructive criticism is very welcomed!" + "<br /><br /><br /></h2>");
+	res.write("<h1>My Movie Reviews.  No standards, only my opinion!" + "<br /></h1>");
+	res.write("<h2>Let me know if you want to add a review of your own!" + "<br /><br /><br /></h2>");
 	res.write("</div>");
 	res.write("<div id='rev'>");
 		   
@@ -33,7 +33,7 @@ router.get('/', function(req, res) {
 			console.log(row.name);
 			i++;
 			res.write("<li style='list-style-type:none;'>");
-			res.write("<h3 style='color:#4d004d;'>" + String(row.name) + "&nbsp;&nbsp;=&nbsp;&nbsp;" + String(row.rating) + "<span class='glyphicon glyphicon-star-empty'></span></h3><br />");
+			res.write("<h3 style='color:#4d004d;'>" + String(row.name) + "&nbsp;&nbsp;=>&nbsp;&nbsp;" + String(row.rating) + "<span class='glyphicon glyphicon-star-empty'></span></h3><br />");
 			res.write("Directed by " + String(row.director) + "<br /><br />");
 			res.write("Cast: " + String(row.actors) + "<br /><br />");
 			res.write(String(row.review) + "<br /><br />");
