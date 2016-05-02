@@ -80,7 +80,10 @@ app.get('/chat', function(request, response) {
 app.get('/moviereviews', function(request, response) {
   response.render('pages/moviereviews');
 });
-
+// practice animation page
+app.get('/animations', function(request, response) {
+  response.render('pages/animations');
+});
 
 
 // Chatroom via socket.io ... future plans --> move to seperate file
