@@ -40,6 +40,13 @@
 			var cube = new THREE.Mesh( geometry, material );
 			scene.add( cube );
 
+			
+			var mysphere = new THREE.SphereGeometry( 5, 32, 32 );
+			var materialmysphere = new THREE.MeshBasicMaterial( {color: 0xffff00} );
+			var spherebybecky = new THREE.Mesh( mysphere, materialmysphere );
+			scene.add( sphere );
+			
+			
 			camera.position.z = 3;
 
 			var render = function () {
