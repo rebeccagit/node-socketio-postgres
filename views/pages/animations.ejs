@@ -41,6 +41,36 @@
 			//scene.add( cube );
 
 			
+			
+			/**
+ * @author mrdoob / http://mrdoob.com/
+ */
+
+THREE.SphereGeometry = function ( radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength ) {
+
+	THREE.Geometry.call( this );
+
+	this.type = 'SphereGeometry';
+
+	this.parameters = {
+		radius: radius,
+		widthSegments: widthSegments,
+		heightSegments: heightSegments,
+		phiStart: phiStart,
+		phiLength: phiLength,
+		thetaStart: thetaStart,
+		thetaLength: thetaLength
+	};
+
+	this.fromBufferGeometry( new THREE.SphereBufferGeometry( radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength ) );
+
+};
+
+THREE.SphereGeometry.prototype = Object.create( THREE.Geometry.prototype );
+THREE.SphereGeometry.prototype.constructor = THREE.SphereGeometry;
+
+
+			
 			var mysphere = new THREE.SphereGeometry( 5, 32, 32 );
 			var materialmysphere = new THREE.MeshBasicMaterial( {color: 0x746086} );
 			var spherebybecky = new THREE.Mesh( mysphere, materialmysphere );
