@@ -75,4 +75,4 @@ if ( typeof module === 'object' ) {
 
 	module.exports = Detector;
 
-}
+};
