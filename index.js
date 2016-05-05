@@ -84,6 +84,11 @@ app.get('/moviereviews', function(request, response) {
 app.get('/animations', function(request, response) {
   response.render('pages/animations');
 });
+// practice animation page
+app.get('/animations2', function(request, response) {
+  response.render('pages/animations2');
+});
+
 
 
 // Chatroom via socket.io ... future plans --> move to seperate file
