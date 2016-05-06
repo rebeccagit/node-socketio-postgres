@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>My first Three.js app</title>
+		<title>Practice Animation 2</title>
 		
 		
 		  <% include ../partials/header.ejs %>
@@ -17,21 +17,35 @@
   ga('send', 'pageview');
 
 </script>
-		
-		
 		<style>
-			body { margin: 0; }
-			canvas { width: 100%; height: 100% }
+			body {
+				color: #eee;
+				font-family:Monospace;
+				font-size:13px;
+				text-align:center;
+				background-color: #000;
+				margin: 0px;
+				padding: 0px;
+				overflow: hidden;
+			}
+			#info {
+				position: absolute;
+				top: 0px; width: 100%;
+				padding: 5px;
+			}
+			a {
+				color: #0080ff;
+			}
 		</style>
 	</head>
 	<body>
+
 		<% include ../partials/nav.ejs %>
 		<script src="myscripts/threejs/three.js"></script>
 		<script src="myscripts/threejs/Detector.js"></script>
 		<script src="myscripts/threejs/stats.min.js"></script>
-		
-		
-	<script>
+
+		<script>
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 			var container, stats;
 			var camera, scene, renderer;
