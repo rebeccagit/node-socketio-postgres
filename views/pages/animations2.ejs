@@ -50,8 +50,8 @@
 				light.position.set( 0, 0, 1 ).normalize();
 				scene.add( light );
 				var loader = new THREE.JSONLoader();
-				loader.load( "obj/cubecolors/cubecolors.js", createScene1 );
-				loader.load( "obj/cubecolors/cube_fvc.js", createScene2 );
+				loader.load( "myscripts/obj/cubecolors.js", createScene1 );
+				loader.load( "myscripts/obj/cube_fvc.js", createScene2 );
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
