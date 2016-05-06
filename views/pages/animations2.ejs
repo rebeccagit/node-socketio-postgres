@@ -4,6 +4,9 @@
 		<title>three.js webgl - io blender - vertex colors</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+				
+		<% include ../partials/header.ejs %>
+		<link rel="stylesheet" type="text/css" href="stylesheets/star.css">
 
 
 		<style>
@@ -28,8 +31,9 @@
 		</style>
 	</head>
 	<body>
-	
-
+		<% include ../partials/nav.ejs %>
+		
+		<div id="container"></div>
 		
 		<script src="myscripts/threejs/three.js"></script>
 		<script src="myscripts/threejs/Detector.js"></script>
@@ -60,7 +64,7 @@
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
-				stats = new Stats();
+				//stats = new Stats();
 				container.appendChild( stats.dom );
 				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 				//
