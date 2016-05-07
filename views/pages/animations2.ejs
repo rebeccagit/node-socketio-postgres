@@ -55,6 +55,7 @@
 				var loader = new THREE.JSONLoader();
 				loader.load( "myscripts/obj/cubecolors.js", createScene1 );
 				loader.load( "myscripts/obj/cube_fvc.js", createScene2 );
+				loader.load( "myscripts/obj/cube_fvc.js", createScene3 );
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
@@ -74,6 +75,16 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 			}
 			
+			
+				function createScene1( geometry, materials ) {
+				materials[ 0 ].shading = THREE.FlatShading;
+				mesh = new THREE.Mesh( geometry, new THREE.MultiMaterial( materials ) );
+				mesh.position.x = 400;
+				mesh.scale.x = mesh.scale.y = mesh.scale.z = 250;
+				scene.add( mesh );
+			};
+			
+			
 			function createScene2( geometry, materials ) {
 				materials[ 0 ].shading = THREE.FlatShading;
 				mesh2 = new THREE.Mesh( geometry, new THREE.MultiMaterial( materials ) );
@@ -82,14 +93,14 @@
 				scene.add( mesh2 );
 			};
 			
-			function createScene1( geometry, materials ) {
+			
+				function createScene3( geometry, materials ) {
 				materials[ 0 ].shading = THREE.FlatShading;
 				mesh = new THREE.Mesh( geometry, new THREE.MultiMaterial( materials ) );
-				mesh.position.x = 400;
+				mesh.position.x = 600;
 				mesh.scale.x = mesh.scale.y = mesh.scale.z = 250;
-				scene.add( mesh );
+				scene.add( mesh3 );
 			};
-			
 
 			
 			function onDocumentMouseMove( event ) {
@@ -108,15 +119,19 @@
 				camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
 				camera.lookAt( scene.position );
 				
+				if ( mesh ) {
+					mesh.rotation.x += 0.01;
+					mesh.rotation.y += 0.01;
+				};
 	
 				if ( mesh2 ) {
 					mesh2.rotation.x += 0.01;
 					mesh2.rotation.y += 0.01;
 				};
 
-				if ( mesh ) {
-					mesh.rotation.x += 0.01;
-					mesh.rotation.y += 0.01;
+				if ( mesh3 ) {
+					mesh3.rotation.x += 0.01;
+					mesh3.rotation.y += 0.01;
 				};
 				
 	
