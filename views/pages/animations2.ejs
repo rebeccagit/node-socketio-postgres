@@ -32,7 +32,7 @@
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 			var container, stats;
 			var camera, scene, renderer;
-			var mesh, mesh2, mesh3, light;
+			var mesh, mesh2, mesh3, mesh4, light;
 			var mouseX = 0, mouseY = 0;
 			var windowHalfX = window.innerWidth / 2;
 			var windowHalfY = window.innerHeight / 2;
@@ -85,7 +85,7 @@
 				materials[ 0 ].shading = THREE.FlatShading;
 				mesh2 = new THREE.Mesh( geometry, new THREE.MultiMaterial( materials ) );
 				mesh2.position.x = -600;
-				mesh2.position.y = -200;
+				mesh2.position.y = -100;
 				mesh2.scale.x = mesh2.scale.y = mesh2.scale.z = 150;
 				scene.add( mesh2 );
 			};
