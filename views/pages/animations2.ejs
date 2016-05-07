@@ -74,6 +74,14 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 			}
 			
+			function createScene2( geometry, materials ) {
+				materials[ 0 ].shading = THREE.FlatShading;
+				mesh2 = new THREE.Mesh( geometry, new THREE.MultiMaterial( materials ) );
+				mesh2.position.x = - 200;
+				mesh2.scale.x = mesh2.scale.y = mesh2.scale.z = 250;
+				scene.add( mesh2 );
+			}
+			
 			function createScene1( geometry, materials ) {
 				materials[ 0 ].shading = THREE.FlatShading;
 				mesh = new THREE.Mesh( geometry, new THREE.MultiMaterial( materials ) );
@@ -82,13 +90,7 @@
 				scene.add( mesh );
 			}
 			
-			function createScene2( geometry, materials ) {
-				materials[ 0 ].shading = THREE.FlatShading;
-				mesh2 = new THREE.Mesh( geometry, new THREE.MultiMaterial( materials ) );
-				mesh2.position.x = - 200;
-				mesh2.scale.x = mesh2.scale.y = mesh2.scale.z = 250;
-				scene.add( mesh2 );
-			}
+
 			
 			function onDocumentMouseMove( event ) {
 				mouseX = ( event.clientX - windowHalfX );
