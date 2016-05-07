@@ -77,10 +77,10 @@
 			function createScene2( geometry, materials ) {
 				materials[ 0 ].shading = THREE.FlatShading;
 				mesh2 = new THREE.Mesh( geometry, new THREE.MultiMaterial( materials ) );
-				mesh2.position.x = - 200;
+				mesh2.position.x = 100;
 				mesh2.scale.x = mesh2.scale.y = mesh2.scale.z = 250;
 				scene.add( mesh2 );
-			}
+			};
 			
 			function createScene1( geometry, materials ) {
 				materials[ 0 ].shading = THREE.FlatShading;
@@ -88,7 +88,7 @@
 				mesh.position.x = 400;
 				mesh.scale.x = mesh.scale.y = mesh.scale.z = 250;
 				scene.add( mesh );
-			}
+			};
 			
 
 			
@@ -109,18 +109,15 @@
 				camera.lookAt( scene.position );
 				
 	
-				if ( mesh2 or mesh ) {
+				if ( mesh2 ) {
 					mesh2.rotation.x += 0.01;
 					mesh2.rotation.y += 0.01;
-					
+				};
+
+				if ( mesh ) {
 					mesh.rotation.x += 0.01;
 					mesh.rotation.y += 0.01;
 				};
-
-				//if ( mesh ) {
-					//mesh.rotation.x += 0.01;
-					//mesh.rotation.y += 0.01;
-				//};
 				
 	
 				renderer.render( scene, camera );
