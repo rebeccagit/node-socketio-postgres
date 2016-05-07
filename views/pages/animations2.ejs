@@ -109,19 +109,22 @@
 				camera.lookAt( scene.position );
 				
 	
-			if ( mesh2 ) {
+				if ( mesh2 and mesh ) {
 					mesh2.rotation.x += 0.01;
 					mesh2.rotation.y += 0.01;
-				};
-
-			if ( mesh ) {
+					
 					mesh.rotation.x += 0.01;
 					mesh.rotation.y += 0.01;
 				};
+
+				//if ( mesh ) {
+					//mesh.rotation.x += 0.01;
+					//mesh.rotation.y += 0.01;
+				//};
 				
 	
 				renderer.render( scene, camera );
-			}
+			};
 		</script>
 
 	</body>
