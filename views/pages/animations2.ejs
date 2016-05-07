@@ -47,10 +47,10 @@
 			function init() {
 				container = document.getElementById( 'container' );
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-				camera.position.z = 800;
+				camera.position.z = 1800;
 				scene = new THREE.Scene();
 				light = new THREE.DirectionalLight( 0xffffff );
-				light.position.set( 0, 0, 1 ).normalize();
+				light.position.set( 0, 1, 0 ).normalize();
 				scene.add( light );
 				var loader = new THREE.JSONLoader();
 				loader.load( "myscripts/obj/cubecolors.js", createScene1 );
