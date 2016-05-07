@@ -47,7 +47,7 @@
 			function init() {
 				container = document.getElementById( 'container' );
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-				camera.position.z = 1800;
+				camera.position.z = 800;
 				scene = new THREE.Scene();
 				light = new THREE.DirectionalLight( 0xffffff );
 				light.position.set( 0, 0, 1 ).normalize();
@@ -77,7 +77,7 @@
 			function createScene2( geometry, materials ) {
 				materials[ 0 ].shading = THREE.FlatShading;
 				mesh2 = new THREE.Mesh( geometry, new THREE.MultiMaterial( materials ) );
-				mesh2.position.x = 100;
+				mesh2.position.x = -400;
 				mesh2.scale.x = mesh2.scale.y = mesh2.scale.z = 250;
 				scene.add( mesh2 );
 			};
