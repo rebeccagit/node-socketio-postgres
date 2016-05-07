@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
 		<title>Animation 2 practice - three.js webgl - io blender - vertex colors</title>
 		<meta charset="utf-8">
@@ -32,7 +32,7 @@
 
 		<script src="myscripts/threejs/three.js"></script>
 		<script src="myscripts/threejs/Detector.js"></script>
-		//<script src="myscripts/threejs/stats.min.js"></script>
+		<script src="myscripts/threejs/stats.min.js"></script>
 
 		<script>
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
@@ -85,7 +85,7 @@
 			function createScene2( geometry, materials ) {
 				materials[ 0 ].shading = THREE.FlatShading;
 				mesh2 = new THREE.Mesh( geometry, new THREE.MultiMaterial( materials ) );
-				mesh2.position.x = - 400;
+				mesh2.position.x = - 200;
 				mesh2.scale.x = mesh2.scale.y = mesh2.scale.z = 250;
 				scene.add( mesh2 );
 			}
