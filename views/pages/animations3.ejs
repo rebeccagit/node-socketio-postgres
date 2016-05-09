@@ -65,8 +65,9 @@
 		var particles = 100000;
 		var WIDTH = window.innerWidth;
 		var HEIGHT = window.innerHeight;
-		init();
-		animate();
+
+		
+		
 		function init() {
 			camera = new THREE.PerspectiveCamera( 40, WIDTH / HEIGHT, 1, 10000 );
 			camera.position.z = 300;
@@ -134,6 +135,9 @@
 			geometry.attributes.size.needsUpdate = true;
 			renderer.render( scene, camera );
 		}
+		
+		init();
+		animate();
 	</script>
 
 </body>
