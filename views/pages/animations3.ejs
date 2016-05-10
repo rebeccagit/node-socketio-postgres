@@ -45,20 +45,21 @@
 			
 			function init() {
 				container = document.getElementById( 'container' );
-				//
+				
 				camera = new THREE.PerspectiveCamera( 27, window.innerWidth / window.innerHeight, 1, 3500 );
 				camera.position.z = 2750;
 				scene = new THREE.Scene();
 				scene.fog = new THREE.Fog( 0x050505, 2000, 3500 );
-				//
-				scene.add( new THREE.AmbientLight( 0xffffff ) );
+				
+				scene.add( new THREE.AmbientLight( 0xbbbbbb ) );
 				var light1 = new THREE.DirectionalLight( 0xffffff, 0.5 );
 				light1.position.set( 1, 1, 1 );
 				scene.add( light1 );
+				
 				var light2 = new THREE.DirectionalLight( 0xffffff, 1.5 );
-				light2.position.set( 0, -1, 0 );
+				light2.position.set( 1, 0, 0 );
 				scene.add( light2 );
-				//
+				
 				var triangles = 5000;
 				var geometry = new THREE.BufferGeometry();
 				var positions = new Float32Array( triangles * 3 * 3 );
