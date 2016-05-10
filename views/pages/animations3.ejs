@@ -160,8 +160,6 @@
 				scene.add( line );
 				
 				
-				
-				
 				renderer = new THREE.WebGLRenderer( { antialias: false } );
 				renderer.setClearColor( scene.fog.color );
 				renderer.setPixelRatio( window.devicePixelRatio );
@@ -177,24 +175,31 @@
 				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 			}
 			
+			
+			
 			function onWindowResize() {
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
 				renderer.setSize( window.innerWidth, window.innerHeight );
 			}
 			
+			
+		
 			function onDocumentMouseMove( event ) {
 				event.preventDefault();
 				mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
 				mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 			}
 			
-			//
+			
+			
 			function animate() {
 				requestAnimationFrame( animate );
 				render();
 				stats.update();
 			}
+			
+			
 			
 			function render() {
 				var time = Date.now() * 0.001;
@@ -217,11 +222,15 @@
 				} else {
 					line.visible = false;
 				}
+				
 				renderer.render( scene, camera );
 			}
 			
+			
 			init();
 			animate();
+			
+			
 		</script>
 
 </body>
