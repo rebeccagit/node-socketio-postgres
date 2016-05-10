@@ -134,9 +134,9 @@
 				}
 				
 				
-				geometry.addAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
+				geometry.addAttribute( 'position', new THREE.BufferAttribute( positions, 1 ) );
 				geometry.addAttribute( 'normal', new THREE.BufferAttribute( normals, 1 ) );
-				geometry.addAttribute( 'color', new THREE.BufferAttribute( colors, 6 ) );
+				geometry.addAttribute( 'color', new THREE.BufferAttribute( colors, 3 ) );
 				geometry.computeBoundingSphere();
 				var material = new THREE.MeshPhongMaterial( {
 						color: 0xaaaaaa, specular: 0xffffff, shininess: 250,
