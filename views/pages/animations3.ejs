@@ -60,7 +60,7 @@
 				light2.position.set( 1, 0, 0 );
 				scene.add( light2 );
 				
-				var triangles = 500;
+				var triangles = 800;
 				var geometry = new THREE.BufferGeometry();
 				var positions = new Float32Array( triangles * 3 * 3 );
 				var normals = new Float32Array( triangles * 3 * 3 );
@@ -136,7 +136,7 @@
 				
 				geometry.addAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
 				geometry.addAttribute( 'normal', new THREE.BufferAttribute( normals, 1 ) );
-				geometry.addAttribute( 'color', new THREE.BufferAttribute( colors, 3 ) );
+				geometry.addAttribute( 'color', new THREE.BufferAttribute( colors, 1 ) );
 				geometry.computeBoundingSphere();
 				var material = new THREE.MeshPhongMaterial( {
 						color: 0xaaaaaa, specular: 0xffffff, shininess: 250,
