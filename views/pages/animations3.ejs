@@ -74,6 +74,7 @@
 				var cb = new THREE.Vector3();
 				var ab = new THREE.Vector3();
 				for ( var i = 0; i < positions.length; i += 9 ) {
+				
 					// positions
 					var x = Math.random() * n - n2;
 					var y = Math.random() * n - n2;
@@ -96,6 +97,7 @@
 					positions[ i + 6 ] = cx;
 					positions[ i + 7 ] = cy;
 					positions[ i + 8 ] = cz;
+					
 					// flat face normals
 					pA.set( ax, ay, az );
 					pB.set( bx, by, bz );
@@ -150,7 +152,7 @@
 				raycaster = new THREE.Raycaster();
 				mouse = new THREE.Vector2();
 				var geometry = new THREE.BufferGeometry();
-				geometry.addAttribute( 'position', new THREE.BufferAttribute( new Float32Array( 15 * 3 ), 6 ) );
+				geometry.addAttribute( 'position', new THREE.BufferAttribute( new Float32Array( 4 * 3 ), 3 ) );
 				
 				
 				var material = new THREE.LineBasicMaterial( { color: 0xffffff, linewidth: 2, transparent: true } );
