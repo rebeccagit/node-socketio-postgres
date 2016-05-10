@@ -116,6 +116,7 @@
 					normals[ i + 6 ] = nx;
 					normals[ i + 7 ] = ny;
 					normals[ i + 8 ] = nz;
+					
 					// colors
 					var vx = ( x / n ) + 0.5;
 					var vy = ( y / n ) + 0.5;
@@ -131,6 +132,8 @@
 					colors[ i + 7 ] = color.g;
 					colors[ i + 8 ] = color.b;
 				}
+				
+				
 				geometry.addAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
 				geometry.addAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
 				geometry.addAttribute( 'color', new THREE.BufferAttribute( colors, 3 ) );
@@ -139,8 +142,11 @@
 						color: 0xaaaaaa, specular: 0xffffff, shininess: 250,
 						side: THREE.DoubleSide, vertexColors: THREE.VertexColors
 				} );
+				
 				mesh = new THREE.Mesh( geometry, material );
 				scene.add( mesh );
+				
+				
 				//
 				raycaster = new THREE.Raycaster();
 				mouse = new THREE.Vector2();
