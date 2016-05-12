@@ -41,10 +41,11 @@
 				
 				camera = new THREE.PerspectiveCamera( 10, window.innerWidth / window.innerHeight, 1, 3500 );
 				camera.position.z = 2750;
+				
 				scene = new THREE.Scene();
 				scene.fog = new THREE.Fog( 0x0E0112, 2000, 3500 );
 				
-				scene.add( new THREE.AmbientLight( 0xdddddd ) );
+				scene.add( new THREE.AmbientLight( 0xdddddd, 2 ) );
 				
 				var light1 = new THREE.DirectionalLight( 0x555555, 0.5 );
 				light1.position.set( 1, 0, 0 );
@@ -137,6 +138,7 @@
 				geometry.addAttribute( 'normal', new THREE.BufferAttribute( normals, 1 ) );
 				geometry.addAttribute( 'color', new THREE.BufferAttribute( colors, 3 ) );
 				geometry.computeBoundingSphere();
+				
 				var material = new THREE.MeshPhongMaterial( {
 						color: 0xaaaaaa, specular: 0xffffff, shininess: 500,
 						side: THREE.DoubleSide, vertexColors: THREE.VertexColors
