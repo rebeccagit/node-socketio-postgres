@@ -135,10 +135,12 @@
 				geometry.addAttribute( 'color', new THREE.BufferAttribute( colors, 3 ) );
 				geometry.computeBoundingSphere();
 				
+				
 				var material = new THREE.MeshPhongMaterial( {
 						color: 0xaaaaaa, specular: 0xffffff, shininess: 500,
 						side: THREE.DoubleSide, vertexColors: THREE.VertexColors
 				} );
+				
 				
 				mesh = new THREE.Mesh( geometry, material );
 				scene.add( mesh );
