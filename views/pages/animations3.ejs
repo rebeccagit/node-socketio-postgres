@@ -45,11 +45,12 @@
 				scene.fog = new THREE.Fog( 0x0E0112, 2000, 3500 );
 				
 				scene.add( new THREE.AmbientLight( 0xbbbbbb ) );
+				
 				var light1 = new THREE.DirectionalLight( 0x555555, 0.5 );
 				light1.position.set( 1, 0, 0 );
 				scene.add( light1 );
 				
-				var light2 = new THREE.DirectionalLight( 0xffffff, 10 );
+				var light2 = new THREE.DirectionalLight( 0xffffff, 2 );
 				light2.position.set( -1, 0, 0 );
 				scene.add( light2 );
 				
