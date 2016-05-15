@@ -100,6 +100,10 @@ app.get('/animations4', function(request, response) {
 app.get('/animations5', function(request, response) {
   response.render('pages/animations5');
 });
+// practice animation page
+app.get('/animations6', function(request, response) {
+  response.render('pages/animations6');
+});
 
 
 
