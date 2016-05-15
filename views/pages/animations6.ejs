@@ -41,7 +41,7 @@
 
 				var light, object;
 
-				scene.add( new THREE.AmbientLight( 0xffffff ) );
+				scene.add( new THREE.AmbientLight( 0xbbbbbb ) );
 
 				light = new THREE.DirectionalLight( 0xffffff );
 				light.position.set( 0, 1, 0 );
@@ -69,7 +69,7 @@
 				//object = new THREE.Mesh( new THREE.PlaneGeometry( 100, 100, 4, 4 ), material );
 				//object.position.set( -400, 0, 0 );
 				//scene.add( object );
-				object = new THREE.Mesh( new THREE.BoxGeometry( 200, 200, 200, 4, 4, 4 ), material );
+				object = new THREE.Mesh( new THREE.BoxGeometry( 400, 400, 400, 4, 4, 4 ), material );
 				object.position.set( -200, 0, 0 );
 				scene.add( object );
 				//object = new THREE.Mesh( new THREE.CircleGeometry( 50, 20, 0, Math.PI * 2 ), material );
