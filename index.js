@@ -96,6 +96,12 @@ app.get('/animations3', function(request, response) {
 app.get('/animations4', function(request, response) {
   response.render('pages/animations4');
 });
+// practice animation page
+app.get('/animations5', function(request, response) {
+  response.render('pages/animations5');
+});
+
+
 
 
 // Chatroom via socket.io ... future plans --> move to seperate file
