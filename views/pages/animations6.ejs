@@ -37,11 +37,11 @@
 
 				scene = new THREE.Scene();
 				
-				scene.fog = new THREE.Fog( 0xD6DDFC, 500, 1800 );
+				//scene.fog = new THREE.Fog( 0xD6DDFC, 500, 1800 );
 
 				var light, object;
 
-				scene.add( new THREE.AmbientLight( 0x404040 ) );
+				scene.add( new THREE.AmbientLight( 0xffffff ) );
 
 				light = new THREE.DirectionalLight( 0xffffff );
 				light.position.set( 0, 1, 0 );
