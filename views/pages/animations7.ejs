@@ -21,7 +21,7 @@
 		<script src="myscripts/threejs/CanvasRenderer.js"></script>
 
 		<script src="myscripts/threejs/stats.min.js"></script>
-		<script src="myscripts/threejs/tween.min.js"></script>
+		<script src="myscripts/threejs/tween.js"></script>
 
 		<script>
 			var container, stats;
@@ -52,7 +52,7 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
 				stats = new Stats();
-				container.appendChild( stats.dom );
+				//container.appendChild( stats.dom );
 				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 				document.addEventListener( 'touchstart', onDocumentTouchStart, false );
 				document.addEventListener( 'touchmove', onDocumentTouchMove, false );
