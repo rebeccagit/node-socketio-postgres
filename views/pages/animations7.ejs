@@ -45,11 +45,15 @@
 					initParticle( particle, i * 10 );
 					scene.add( particle );
 				}
+				
+				
 				renderer = new THREE.CanvasRenderer();
 				renderer.setClearColor( 0x000040 );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
+				
+				
 				stats = new Stats();
 				//container.appendChild( stats.dom );
 				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
@@ -58,6 +62,8 @@
 				//
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
+			
+			
 			function onWindowResize() {
 				windowHalfX = window.innerWidth / 2;
 				windowHalfY = window.innerHeight / 2;
@@ -65,6 +71,8 @@
 				camera.updateProjectionMatrix();
 				renderer.setSize( window.innerWidth, window.innerHeight );
 			}
+			
+			
 			function generateSprite() {
 				var canvas = document.createElement( 'canvas' );
 				canvas.width = 16;
@@ -79,6 +87,8 @@
 				context.fillRect( 0, 0, canvas.width, canvas.height );
 				return canvas;
 			}
+			
+			
 			function initParticle( particle, delay ) {
 				var particle = this instanceof THREE.Sprite ? this : particle;
 				var delay = delay !== undefined ? delay : 0;
@@ -99,10 +109,12 @@
 					.start();
 			}
 			//
+			
 			function onDocumentMouseMove( event ) {
 				mouseX = event.clientX - windowHalfX;
 				mouseY = event.clientY - windowHalfY;
 			}
+			
 			function onDocumentTouchStart( event ) {
 				if ( event.touches.length == 1 ) {
 					event.preventDefault();
@@ -110,6 +122,8 @@
 					mouseY = event.touches[ 0 ].pageY - windowHalfY;
 				}
 			}
+			
+			
 			function onDocumentTouchMove( event ) {
 				if ( event.touches.length == 1 ) {
 					event.preventDefault();
@@ -118,11 +132,15 @@
 				}
 			}
 			//
+			
+			
 			function animate() {
 				requestAnimationFrame( animate );
 				render();
 				stats.update();
 			}
+			
+			
 			function render() {
 				TWEEN.update();
 				camera.position.x += ( mouseX - camera.position.x ) * 0.05;
