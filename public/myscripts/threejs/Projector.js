@@ -919,4 +919,3 @@ THREE.Projector = function () {
 	}
 
 };
-
