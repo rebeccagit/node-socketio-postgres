@@ -16,15 +16,16 @@
 	<body>
 
 		<script src="myscripts/threejs/three.js"></script>
-
 		<script src="myscripts/threejs/Detector.js"></script>
-		<script src="myscripts/threejs/stats.min.js"></script>
+
+
 
 		<script>
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 			
 			
-			var container, stats;
+			var container;
+			//var stats;
 			var camera, scene, renderer;
 
 			
@@ -71,7 +72,7 @@
 
 
 				container.appendChild( renderer.domElement );
-				stats = new Stats();
+				//stats = new Stats();
 				//container.appendChild( stats.dom );
 				//
 
@@ -90,7 +91,7 @@
 			function animate() {
 				requestAnimationFrame( animate );
 				render();
-				stats.update();
+				//stats.update();
 			}
 
 
