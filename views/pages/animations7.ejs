@@ -182,13 +182,16 @@
 				camera.position.x = Math.cos( timer ) * 1000;
 				camera.position.z = Math.sin( timer ) * 1000;
 				camera.lookAt( scene.position );
+				
 				for ( var i = 0, l = objects.length; i < l; i ++ ) {
 					var object = objects[ i ];
 					object.rotation.x += 0.01;
 					object.rotation.y += 0.005;
 				}
+				
 				materials[ materials.length - 2 ].emissive.setHSL( 0.54, 1, 0.35 * ( 0.5 + 0.5 * Math.sin( 35 * timer ) ) );
 				materials[ materials.length - 3 ].emissive.setHSL( 0.04, 1, 0.35 * ( 0.5 + 0.5 * Math.cos( 35 * timer ) ) );
+				
 				particleLight.position.x = Math.sin( timer * 7 ) * 300;
 				particleLight.position.y = Math.cos( timer * 5 ) * 400;
 				particleLight.position.z = Math.cos( timer * 3 ) * 300;
@@ -199,6 +202,7 @@
 			
 			init();
 			animate();
+			
 			
 			
 		</script>
