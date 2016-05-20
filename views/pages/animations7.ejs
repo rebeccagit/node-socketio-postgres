@@ -24,8 +24,10 @@
 			var camera, scene, renderer;
 			var particleLight;
 			var objects = [], materials = [];
-			init();
-			animate();
+			
+			
+
+					
 			function init() {
 				container = document.createElement( 'div' );
 				document.body.appendChild( container );
@@ -152,6 +154,13 @@
 				particleLight.position.z = Math.cos( timer * 3 ) * 300;
 				renderer.render( scene, camera );
 			}
+			
+			
+			
+			init();
+			animate();
+			
+			
 		</script>
 
 	</body>
