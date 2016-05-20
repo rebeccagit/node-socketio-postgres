@@ -59,7 +59,7 @@
 				// Materials
 				var texture = new THREE.Texture( generateTexture() );
 				texture.needsUpdate = true;
-				materials.push( new THREE.MeshLambertMaterial( { map: texture, transparent: true } ) );
+				materials.push( new THREE.MeshLambertMaterial( { map: texture, transparent: false } ) );
 				materials.push( new THREE.MeshLambertMaterial( { color: 0xdddddd, shading: THREE.FlatShading } ) );
 				materials.push( new THREE.MeshPhongMaterial( { color: 0xdddddd, specular: 0x009900, shininess: 30, shading: THREE.FlatShading } ) );
 				materials.push( new THREE.MeshNormalMaterial( ) );
