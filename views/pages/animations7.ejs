@@ -34,10 +34,16 @@
 			function init() {
 				container = document.createElement( 'div' );
 				document.body.appendChild( container );
+				
+				
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 3000 );
 				camera.position.z = 1000;
+				
+				
 				scene = new THREE.Scene();
 				scene.fog = new THREE.FogExp2( 0x000000, 0.0007 );
+				
+				
 				geometry = new THREE.Geometry();
 				for ( i = 0; i < 20000; i ++ ) {
 					var vertex = new THREE.Vector3();
@@ -46,13 +52,17 @@
 					vertex.z = Math.random() * 2000 - 1000;
 					geometry.vertices.push( vertex );
 				}
+				
+				
 				parameters = [
-					[ [1, 1, 0.5], 5 ],
+					[ [0, 1, 0.5], 5 ],
 					[ [0.95, 1, 0.5], 4 ],
 					[ [0.90, 1, 0.5], 3 ],
 					[ [0.85, 1, 0.5], 2 ],
 					[ [0.80, 1, 0.5], 1 ]
 				];
+				
+				
 				for ( i = 0; i < parameters.length; i ++ ) {
 					color = parameters[i][0];
 					size  = parameters[i][1];
