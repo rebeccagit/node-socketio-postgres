@@ -148,7 +148,7 @@
 				for ( i = 0; i < scene.children.length; i ++ ) {
 					var object = scene.children[ i ];
 					if ( object instanceof THREE.Points ) {
-						object.rotation.z = time * ( i < 4 ? i + 1 : - ( i + 1 ) );
+						object.rotation.x = time * ( i < 4 ? i + 1 : - ( i + 1 ) );
 					}
 				}
 				
