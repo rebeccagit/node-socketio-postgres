@@ -2,9 +2,7 @@
 <html lang="en">
 	<head>
 		<title>Star Background - three.js webgl - particles</title>
-		<% include ../partials/header.ejs %>
-		<link rel="stylesheet" type="text/css" href="stylesheets/star.css">
-		<script src="myscripts/star.js"></script>
+
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<style>
@@ -34,19 +32,7 @@
 		</style>
 	</head>
 	<body>  
-	<% include ../partials/nav.ejs %>
-
-	<div id="containermain">
-	<div id="headerimg">
-	<img src="images/starwarstitle.png" style="border-radius:25px;width:100%;margin:auto;" >
-	</div>
-	<div id="header"><h1>Quiz</h1></div>
-	<div id="view"></div>
- 
- 
- <div id="backstory">Quiz photos taken during my visit to the EMP Museum in Seattle, Washington in February 2015.  You can check it out <a href="http://www.empmuseum.org/">here.</a> <br><br></div>
-  
-</div>
+	
 	
 	
 			<div id="intro">
@@ -64,7 +50,7 @@
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 			
 			
-			var containermain;
+			var container;
 			// var stats;
 			var camera, scene, renderer, particles, geometry, materials = [], parameters, i, h, color, size;
 			var mouseX = 0, mouseY = 0;
@@ -73,7 +59,7 @@
 			
 			
 			function init() {
-				containermain = document.createElement( 'div' );
+				container = document.createElement( 'div' );
 				document.body.appendChild( container );
 				
 				
