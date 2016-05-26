@@ -33,7 +33,6 @@
 			var windowHalfY = window.innerHeight / 2;
 			
 			
-			function init() {
 				container = document.createElement( 'div' );
 				document.body.appendChild( container );
 				
@@ -67,25 +66,14 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
 				
-			};
+
 			
+
 			
-	
-			//
-			function animate() {
-				requestAnimationFrame( animate );
-				render();
-			}
-			
-			
-			function render() {
 
 				camera.lookAt( scene.position );
 				renderer.render( scene, camera );
-			}
-			
-			init();
-			animate();			
+				
 			
 			
 		</script>
