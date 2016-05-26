@@ -25,50 +25,38 @@
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 			
 			
-			var container;
-			var camera, scene, renderer, geometry, materials, color;
 			
-			
-			scene = new THREE.Scene();		
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  var renderer = new THREE.WebGLRenderer();
 
-			container = document.createElement( 'div' );
-			document.body.appendChild( container );			
-				
-			renderer = new THREE.WebGLRenderer();
-			//renderer.setPixelRatio( window.devicePixelRatio );
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			//container.appendChild( renderer.domElement );
+  renderer.setClearColor(0x000000);
+  renderer.setSize(window.innerWidth, window.innerHeight);
 
-				
-				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, -1, 500 );
-						
-				
-				var axis = new THREE.AxisHelper(10);
-				scene.add(axis);
-				
-				
-				var cubeGeometry = new THREE.BoxGeometry(5,5,5);
-				var cubeMaterial = new THREE.MeshBasicMaterial( { color:0xdddddd, wireframe:true });
-				var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-				
-				cube.position.x = 0;
-				cube.position.y = 0;
-				cube.position.z = 0;
-				
-				scene.add(cube);
-				
-				camera.position.x = 40;
-				camera.position.z = 40;
-				camera.position.y = 40;
-				
-			
+  var axis = new THREE.AxisHelper(10);
+  scene.add(axis);
 
-		
-				camera.lookAt( scene.position );
+  var cubeGeometry = new THREE.BoxGeometry(5, 5, 5);
+  var cubeMaterial = new THREE.MeshBasicMaterial({
+    color: 0xdddddd,
+    wireframe: true
+  });
+  var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+
+  cube.position.x = 0;
+  cube.position.y = 0;
+  cube.position.z = 0;
+
+  scene.add(cube);
+
+  camera.position.x = 40;
+  camera.position.y = 40;
+  camera.position.z = 40;
+
+  				camera.lookAt( scene.position );
 				renderer.render( scene, camera );
-				
-			
-			
+
+container.appendChild( renderer.domElement );			
 		</script>
 	</body>
 </html>
