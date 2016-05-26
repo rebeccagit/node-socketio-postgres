@@ -28,7 +28,7 @@
 			
 			
 			var container;
-			var camera, scene, renderer, geometry, materials;
+			var camera, scene, renderer, geometry, materials, color;
 			var windowHalfX = window.innerWidth / 2;
 			var windowHalfY = window.innerHeight / 2;
 			
@@ -43,14 +43,13 @@
 				
 				
 				scene = new THREE.Scene();
-				scene.fog = new THREE.FogExp2( 0x000000, 0.0007 );
 				
 				var axis = new THREE.AxisHelper(10);
 				scene.add(axis);
 				
 				var cubeGeometry = new THREE.BoxGeometry(5,5,5);
-				var cubeMaterial = new Three.MeshBasicMaterial( { color:0xdddddd, wireframe:true; });
-				var cube = new Three.Mesh(cubeGeometry, cubeMaterial);
+				var cubeMaterial = new THREE.MeshBasicMaterial( { color:0xdddddd, wireframe:true; });
+				var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 				cube.position.x = 0;
 				cube.position.y = 0;
 				cube.position.z = 0;
