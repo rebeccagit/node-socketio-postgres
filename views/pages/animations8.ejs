@@ -29,14 +29,14 @@
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
 
-			var geometry = new THREE.SphereGeometry( 500, 3000, 1000 );
+			var geometry = new THREE.SphereGeometry( 50, 300, 100 );
 			var material = new THREE.MeshBasicMaterial( { color: 0xff0066 } );
 			var cube = new THREE.Mesh( geometry, material );
 			cube.position.set(0, 0, 0);
 			scene.add( cube );
 			
 			
-			var geometry = new THREE.SphereGeometry(200, 3000, 1500 );
+			var geometry = new THREE.SphereGeometry(20, 300, 150 );
 			var material2 = new THREE.MeshBasicMaterial( { color: 0xffff66 } );
 			var sphere = new THREE.Mesh( geometry, material2 );
 			sphere.position.set(-17, 0, 0);
