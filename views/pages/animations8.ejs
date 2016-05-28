@@ -78,12 +78,12 @@
 				camera.position.z = Math.sin( timer ) * 800;
 				camera.lookAt( scene.position );
 
-				//rotation on sphere's x-axis
+				//rotation on sphere's y-axis
 				//sun.rotation.x += 0.01;
 				sun.rotation.y += 0.01;
 				
-				//rotation on sphere's x-axis
-				saturn.rotation.x += 0.05;
+				//rotation on sphere's y-axis
+				saturn.rotation.y += 0.005;
 
 				requestAnimationFrame( render );
 				renderer.render(scene, camera);
