@@ -50,17 +50,21 @@
 				//timer used for setting speed of camera rotation around origin
 				var timer = Date.now() * 0.001
 			
-				requestAnimationFrame( render );
+
 				
+				//camera path around origin
 				camera.position.x = Math.cos( timer ) * 800;
 				camera.position.z = Math.sin( timer ) * 800;
 				camera.lookAt( scene.position );
 
+				//rotation on sphere's x-axis
 				sun.rotation.x += 0.01;
 				//cube.rotation.y += 0.00;
 				
+				//rotation on sphere's x-axis
 				saturn.rotation.x += 0.05;
 
+				requestAnimationFrame( render );
 				renderer.render(scene, camera);
 			};
 
