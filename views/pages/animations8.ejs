@@ -30,8 +30,13 @@
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
 
+			var map = new THREE.TextureLoader().load( 'images/sunsurface.jpg' );
+				map.wrapS = map.wrapT = THREE.RepeatWrapping;
+				map.anisotropy = 16;
+				var material = new THREE.MeshLambertMaterial( { map: map, side: THREE.DoubleSide } );
+			
 			var geometry = new THREE.SphereGeometry( 50, 500, 100 );
-			var material = new THREE.MeshBasicMaterial( { color: 0xffff66 } );
+			//var material = new THREE.MeshBasicMaterial( { color: 0xffff66 } );
 			var sun = new THREE.Mesh( geometry, material );
 			sun.position.set(0, 0, 0);
 			scene.add( sun );
@@ -49,8 +54,6 @@
 			
 				//timer used for setting speed of camera rotation around origin
 				var timer = Date.now() * 0.001
-			
-
 				
 				//camera path around origin
 				camera.position.x = Math.cos( timer ) * 800;
@@ -66,6 +69,7 @@
 
 				requestAnimationFrame( render );
 				renderer.render(scene, camera);
+				
 			};
 
 			render();	
