@@ -30,12 +30,17 @@
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
 
-			var map = new THREE.TextureLoader().load( 'images/sunsurface.jpg' );
+				var map = new THREE.TextureLoader().load( 'images/cutey.jpg' );
 				map.wrapS = map.wrapT = THREE.RepeatWrapping;
 				map.anisotropy = 16;
-				var material = new THREE.MeshLambertMaterial( { map: map } );
+				var material = new THREE.MeshLambertMaterial( { map: map, side: THREE.DoubleSide } );
+
+
+				object = new THREE.Mesh( new THREE.BoxGeometry( 300, 300, 300, 4, 4, 4 ), material );
+				object.position.set( -200, 0, 0 );
+				scene.add( object );
 			
-			var geometry = new THREE.SphereGeometry( 50, 500, 100 );
+			var geometry = new THREE.Mesh( new THREE.SphereGeometry( 50, 500, 100 ), material );
 			//var material = new THREE.MeshBasicMaterial( { color: 0xffff66 } );
 			var sun = new THREE.Mesh( geometry, material );
 			sun.position.set(0, 0, 0);
