@@ -62,7 +62,7 @@
 
 
 				saturn = new THREE.Mesh( new THREE.SphereGeometry( 50, 300, 150 ), material2 );
-				saturn.position.set( -700, 0, 0 );
+				saturn.position.set( -900, 0, 0 );
 				scene.add( saturn );
 			
 			
@@ -74,8 +74,8 @@
 				var timer = Date.now() * 0.0005
 				
 				//camera path around origin
-				camera.position.x = Math.cos( timer ) * 1800;
-				camera.position.z = Math.sin( timer ) * 1800;
+				camera.position.x = Math.cos( timer ) * 1500;
+				camera.position.z = Math.sin( timer ) * 1500;
 				camera.lookAt( scene.position );
 
 				//rotation on sphere's y-axis
