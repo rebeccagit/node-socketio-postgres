@@ -49,11 +49,22 @@
 			//scene.add( sun );
 			
 			
-			var geometry = new THREE.SphereGeometry(50, 300, 150 );
-			var material2 = new THREE.MeshBasicMaterial( { color: 0xff0066 } );
-			var saturn = new THREE.Mesh( geometry, material2 );
-			saturn.position.set(-700, 0, 0);
-			scene.add( saturn );
+			//var geometry = new THREE.SphereGeometry(50, 300, 150 );
+			//var material2 = new THREE.MeshBasicMaterial( { color: 0xff0066 } );
+			//var saturn = new THREE.Mesh( geometry, material2 );
+			//saturn.position.set(-700, 0, 0);
+			//scene.add( saturn );
+			
+				var map2 = new THREE.TextureLoader().load( 'images/saturnsurface.jpg' );
+				map2.wrapS = map.wrapT = THREE.RepeatWrapping;
+				map2.anisotropy = 16;
+				var material2 = new THREE.MeshLambertMaterial( { map: map, side: THREE.DoubleSide } );
+
+
+				saturn = new THREE.Mesh( new THREE.SphereGeometry( 200, 500, 100 ), material2 );
+				saturn.position.set( 0, 0, 0 );
+				scene.add( saturn );
+			
 			
 			
 
