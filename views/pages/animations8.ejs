@@ -32,16 +32,16 @@
 
 			var geometry = new THREE.SphereGeometry( 50, 500, 100 );
 			var material = new THREE.MeshBasicMaterial( { color: 0xffff66 } );
-			var cube = new THREE.Mesh( geometry, material );
-			cube.position.set(0, 0, 0);
-			scene.add( cube );
+			var sun = new THREE.Mesh( geometry, material );
+			sun.position.set(0, 0, 0);
+			scene.add( sun );
 			
 			
 			var geometry = new THREE.SphereGeometry(20, 300, 150 );
 			var material2 = new THREE.MeshBasicMaterial( { color: 0xff0066 } );
-			var sphere = new THREE.Mesh( geometry, material2 );
-			sphere.position.set(-500, 0, 0);
-			scene.add( sphere );
+			var saturn = new THREE.Mesh( geometry, material2 );
+			saturn.position.set(-500, 0, 0);
+			scene.add( saturn );
 			
 			
 
@@ -51,14 +51,15 @@
 				var timer = Date.now() * 0.001
 			
 				requestAnimationFrame( render );
+				
 				camera.position.x = Math.cos( timer ) * 800;
 				camera.position.z = Math.sin( timer ) * 800;
 				camera.lookAt( scene.position );
 
-				cube.rotation.x += 0.01;
+				sun.rotation.x += 0.01;
 				//cube.rotation.y += 0.00;
 				
-				sphere.rotation.x += 0.05;
+				saturn.rotation.x += 0.05;
 
 				renderer.render(scene, camera);
 			};
