@@ -26,13 +26,13 @@
 			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 1, 5000 );
 			camera.position.y = 250;
 			
-			scene.add( new THREE.AmbientLight( 0xaaaaaa ) );
+			scene.add( new THREE.AmbientLight( 0xffffff ) );
 
 			var renderer = new THREE.WebGLRenderer();
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
 
-				var map = new THREE.TextureLoader().load( 'images/cutey.jpg' );
+				var map = new THREE.TextureLoader().load( 'images/sunsurface.jpg' );
 				map.wrapS = map.wrapT = THREE.RepeatWrapping;
 				map.anisotropy = 16;
 				var material = new THREE.MeshLambertMaterial( { map: map, side: THREE.DoubleSide } );
