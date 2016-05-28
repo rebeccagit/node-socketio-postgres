@@ -52,7 +52,7 @@
 			
 				requestAnimationFrame( render );
 				camera.position.x = Math.cos( timer ) * 800;
-				camera.position.z = Math.cos( timer ) * 800;
+				camera.position.z = Math.sin( timer ) * 800;
 				camera.lookAt( scene.position );
 
 				cube.rotation.x += 0.01;
