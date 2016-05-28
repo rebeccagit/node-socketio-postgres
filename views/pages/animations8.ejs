@@ -22,50 +22,39 @@
 		
 		<script>
 			
-			var scene = new THREE.Scene();
-			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 1, 7000 );
-			camera.position.y = 200;
+			var init = function () {
 			
-			scene.add( new THREE.AmbientLight( 0xffffff ) );
+				var scene = new THREE.Scene();
+				var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 1, 7000 );
+				camera.position.y = 200;
+			
+				scene.add( new THREE.AmbientLight( 0xffffff ) );
 
-			var renderer = new THREE.WebGLRenderer();
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			document.body.appendChild( renderer.domElement );
+				var renderer = new THREE.WebGLRenderer();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.body.appendChild( renderer.domElement );
+				
 
 				var map = new THREE.TextureLoader().load( 'images/sunsurface.jpg' );
 				map.wrapS = map.wrapT = THREE.RepeatWrapping;
 				map.anisotropy = 16;
 				var material = new THREE.MeshLambertMaterial( { map: map, side: THREE.DoubleSide } );
 
-
 				sun = new THREE.Mesh( new THREE.SphereGeometry( 200, 500, 100 ), material );
 				sun.position.set( 0, 0, 0 );
 				scene.add( sun );
 			
-			//var sun = new THREE.Mesh( new THREE.SphereGeometry( 50, 500, 100 ), material );
-			//var material = new THREE.MeshBasicMaterial( { color: 0xffff66 } );
-			//var sun = new THREE.Mesh( geometry, material );
-			//sun.position.set(0, 0, 0);
-			//scene.add( sun );
-			
-			
-			//var geometry = new THREE.SphereGeometry(50, 300, 150 );
-			//var material2 = new THREE.MeshBasicMaterial( { color: 0xff0066 } );
-			//var saturn = new THREE.Mesh( geometry, material2 );
-			//saturn.position.set(-700, 0, 0);
-			//scene.add( saturn );
 			
 				var map2 = new THREE.TextureLoader().load( 'images/saturnsurface.jpg' );
 				map2.wrapS = map.wrapT = THREE.RepeatWrapping;
 				map2.anisotropy = 16;
 				var material2 = new THREE.MeshLambertMaterial( { map: map2, side: THREE.DoubleSide } );
 
-
 				saturn = new THREE.Mesh( new THREE.SphereGeometry( 50, 300, 150 ), material2 );
 				saturn.position.set( -900, 0, 0 );
 				scene.add( saturn );
 			
-			
+			};
 			
 
 			var render = function () {
@@ -90,7 +79,9 @@
 				
 			};
 
+			init();
 			render();	
+			
 		</script>
 	</body>
 </html>
