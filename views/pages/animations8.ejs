@@ -33,7 +33,7 @@
 			var map = new THREE.TextureLoader().load( 'images/sunsurface.jpg' );
 				map.wrapS = map.wrapT = THREE.RepeatWrapping;
 				map.anisotropy = 16;
-				var material = new THREE.MeshLambertMaterial( { map: map, side: THREE.DoubleSide } );
+				var material = new THREE.MeshLambertMaterial( { map: map } );
 			
 			var geometry = new THREE.SphereGeometry( 50, 500, 100 );
 			//var material = new THREE.MeshBasicMaterial( { color: 0xffff66 } );
