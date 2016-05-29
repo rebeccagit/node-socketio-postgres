@@ -56,10 +56,10 @@
 				scene.add( saturn );
 			
 			
-				object = new THREE.Mesh( new THREE.RingGeometry( 100, 150, 30, -5, 5, Math.PI * 2 ), material2 );
-				object.position.set( -900, 0, 0 );
-				object.rotateX( Math.PI / 2 );
-				scene.add( object );
+				saturnring = new THREE.Mesh( new THREE.RingGeometry( 100, 150, 30, -5, 5, Math.PI * 2 ), material2 );
+				saturnring.position.set( -900, 0, 0 );
+				saturnring.rotateX( Math.PI / 2 );
+				scene.add( saturnring );
 			
 
 			var render = function () {
@@ -79,7 +79,7 @@
 				//rotation on sphere's y-axis
 				saturn.rotation.y += 0.005;
 				
-				object.rotation.z += 0.05;
+				saturnring.rotation.z += 0.05;
 
 				requestAnimationFrame( render );
 				renderer.render(scene, camera);
