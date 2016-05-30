@@ -65,6 +65,11 @@
 				saturnring.position.set( -900, 0, 0 );
 				saturnring.rotateX( Math.PI / 2 );
 				scene.add( saturnring );
+				
+				saturnring2 = new THREE.Mesh( new THREE.RingGeometry( 80, 90, 30, -5, 5, Math.PI * 2 ), material2 );
+				saturnring2.position.set( -900, 0, 0 );
+				saturnring2.rotateX( Math.PI / 2 );
+				scene.add( saturnring2 );
 			
 
 			var render = function () {
