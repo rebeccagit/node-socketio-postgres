@@ -25,7 +25,6 @@
 		<script>
 			    //work in progress ...  working on saturn's ring, adding the starry background ... redoing the coding
 			
-			function init() {
 				var scene = new THREE.Scene();
 				var camera = new THREE.PerspectiveCamera( 50, window.innerWidth/window.innerHeight, 1, 7000 );
 				camera.position.y = 400;
@@ -86,17 +85,9 @@
 				saturnring4.position.set( -900, 0, 0 );
 				saturnring4.rotateX( Math.PI / 2 );
 				scene.add( saturnring4 );
-			}
 			
-			
-			function animate() {
-				requestAnimationFrame( animate );
-				render();
-				//stats.update();
-			}
 
-
-			function render() {
+			var render = function () {
 			
 				//timer used for setting speed of camera rotation around origin
 				var timer = Date.now() * 0.0005
@@ -118,16 +109,13 @@
 				saturnring3.rotation.z -= 0.05;
 				saturnring4.rotation.z -= 0.04;				
 				
-				//H requestAnimationFrame( render );
+				requestAnimationFrame( render );
 				renderer.render(scene, camera);
 				
 			};
 
 			
-			//H render();	
-			
-			init();
-			animate();
+			render();	
 			
 		</script>
 	</body>
