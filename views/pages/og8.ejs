@@ -32,6 +32,7 @@
 			
 				scene.add( new THREE.AmbientLight( 0xffffff ) );
 				
+				
 				//light from the sun
 				var directionalLight = new THREE.DirectionalLight( 0xffffb3, 0.5 );
 				directionalLight.position.set( 1, 0, 0 );
@@ -66,7 +67,6 @@
 				saturn.position.set( -900, 0, 0 );
 				scene.add( saturn );
 			
-			
 				saturnring = new THREE.Mesh( new THREE.RingGeometry( 135, 150, 30, -5, 5, Math.PI * 2 ), material2 );
 				saturnring.position.set( -900, 0, 0 );
 				saturnring.rotateX( Math.PI / 2 );
@@ -87,11 +87,8 @@
 				saturnring4.rotateX( Math.PI / 2 );
 				scene.add( saturnring4 );
 				
-			var animate = function() {
-				requestAnimationFrame( animate );
-				render();
-				};
-			
+				
+				
 
 			var render = function () {
 			
@@ -120,6 +117,11 @@
 				
 			};
 
+			var animate = function() {
+				requestAnimationFrame( animate );
+				render();
+				};
+			
 			
 			animate();	
 			
