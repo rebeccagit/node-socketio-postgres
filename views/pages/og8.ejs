@@ -86,6 +86,11 @@
 				saturnring4.position.set( -900, 0, 0 );
 				saturnring4.rotateX( Math.PI / 2 );
 				scene.add( saturnring4 );
+				
+			var animate = function() {
+				requestAnimationFrame( render );
+				render();
+				};
 			
 
 			var render = function () {
@@ -110,13 +115,13 @@
 				saturnring3.rotation.z -= 0.05;
 				saturnring4.rotation.z -= 0.04;				
 				
-				requestAnimationFrame( render );
+				//requestAnimationFrame( render );
 				renderer.render(scene, camera);
 				
 			};
 
 			
-			render();	
+			animate();	
 			
 		</script>
 	</body>
