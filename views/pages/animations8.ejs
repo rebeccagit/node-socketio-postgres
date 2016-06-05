@@ -23,9 +23,12 @@
 
 		
 		<script>
-			    //work in progress ...  working on saturn's ring, adding the starry background ... redoing the coding
+			    //work in progress ... redoing the coding
+				
+				//Does the browser accept webgl?  If not, they are using an ancient browser
 				if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 				
+				//Set the scene, camera and lighting
 				var scene = new THREE.Scene();
 				var camera = new THREE.PerspectiveCamera( 50, window.innerWidth/window.innerHeight, 1, 7000 );
 				camera.position.y = 400;
@@ -33,7 +36,7 @@
 				scene.add( new THREE.AmbientLight( 0xffffff ) );
 				
 				
-				//light from the sun
+				//light from the sun to give a realistic look that creates a shadow on the side facing away from the sun
 				var directionalLight = new THREE.DirectionalLight( 0xffffb3, 0.5 );
 				directionalLight.position.set( 1, 0, 0 );
 				scene.add( directionalLight );
@@ -88,7 +91,6 @@
 				scene.add( saturnring4 );
 				
 				
-				
 			//where all the math magic happens
 			var render = function () {
 			
@@ -117,13 +119,17 @@
 				
 			};
 
+			
 			//making the math magic run, and run at 60 frames per second - hopefully
 			var animate = function() {
+			
 				requestAnimationFrame( animate );
 				render();
+				
 				};
 			
 			
+			//self explanatory 
 			animate();	
 			
 		</script>
