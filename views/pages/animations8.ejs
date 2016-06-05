@@ -13,18 +13,8 @@
 				background-image:url("images/anim8bg.jpg");
 				background-repeat:repeat;
 			}
+			
 		</style>
-		
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-33109920-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 	</head>
 	<body>  
 	
@@ -34,12 +24,14 @@
 		
 		<script>
 			    //work in progress ...  working on saturn's ring, adding the starry background ... redoing the coding
-			
+				if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+				
 				var scene = new THREE.Scene();
 				var camera = new THREE.PerspectiveCamera( 50, window.innerWidth/window.innerHeight, 1, 7000 );
 				camera.position.y = 400;
 			
 				scene.add( new THREE.AmbientLight( 0xffffff ) );
+				
 				
 				//light from the sun
 				var directionalLight = new THREE.DirectionalLight( 0xffffb3, 0.5 );
@@ -75,7 +67,6 @@
 				saturn.position.set( -900, 0, 0 );
 				scene.add( saturn );
 			
-			
 				saturnring = new THREE.Mesh( new THREE.RingGeometry( 135, 150, 30, -5, 5, Math.PI * 2 ), material2 );
 				saturnring.position.set( -900, 0, 0 );
 				saturnring.rotateX( Math.PI / 2 );
@@ -95,8 +86,10 @@
 				saturnring4.position.set( -900, 0, 0 );
 				saturnring4.rotateX( Math.PI / 2 );
 				scene.add( saturnring4 );
-			
-
+				
+				
+				
+			//where all the math magic happens
 			var render = function () {
 			
 				//timer used for setting speed of camera rotation around origin
@@ -119,13 +112,19 @@
 				saturnring3.rotation.z -= 0.05;
 				saturnring4.rotation.z -= 0.04;				
 				
-				requestAnimationFrame( render );
+				//requestAnimationFrame( render );
 				renderer.render(scene, camera);
 				
 			};
 
+			//making the math magic run, and run at 60 frames per second - hopefully
+			var animate = function() {
+				requestAnimationFrame( animate );
+				render();
+				};
 			
-			render();	
+			
+			animate();	
 			
 		</script>
 	</body>
