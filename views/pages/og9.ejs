@@ -125,7 +125,7 @@
 
 		<script>
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-			var container, stats;
+			var container;
 			var camera, scene, renderer;
 			var uniforms1, uniforms2;
 			var clock = new THREE.Clock();
@@ -167,8 +167,7 @@
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
 				container.appendChild( renderer.domElement );
-				stats = new Stats();
-				container.appendChild( stats.dom );
+
 				onWindowResize();
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
