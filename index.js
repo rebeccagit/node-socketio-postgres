@@ -116,7 +116,10 @@ app.get('/animations8', function(request, response) {
 app.get('/og8', function(request, response) {
   response.render('pages/og8');
 });
-
+// practice animation page
+app.get('/og9', function(request, response) {
+  response.render('pages/og9');
+});
 
 
 
