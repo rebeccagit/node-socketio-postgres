@@ -168,15 +168,7 @@
 				onWindowResize();
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
-			function onWindowResize( event ) {
-				uniforms1.resolution.value.x = window.innerWidth;
-				uniforms1.resolution.value.y = window.innerHeight;
-				uniforms2.resolution.value.x = window.innerWidth;
-				uniforms2.resolution.value.y = window.innerHeight;
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
-				renderer.setSize( window.innerWidth, window.innerHeight );
-			}
+
 			//
 			function animate() {
 				requestAnimationFrame( animate );
