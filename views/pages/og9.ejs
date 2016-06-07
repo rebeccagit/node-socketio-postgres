@@ -142,12 +142,9 @@
 					time: { type: "f", value: 1.0 },
 					resolution: { type: "v2", value: new THREE.Vector2() }
 				};
-				uniforms2 = {
-					time: { type: "f", value: 1.0 },
-					resolution: { type: "v2", value: new THREE.Vector2() },
-					texture: { type: "t", value: new THREE.TextureLoader().load( "textures/disturb.jpg" ) }
-				};
-				uniforms2.texture.value.wrapS = uniforms2.texture.value.wrapT = THREE.RepeatWrapping;
+				
+				
+
 				
 				
 				var params = [
@@ -195,7 +192,7 @@
 			function render() {
 				var delta = clock.getDelta();
 				uniforms1.time.value += delta * 5;
-				uniforms2.time.value = clock.elapsedTime;
+				//uniforms2.time.value = clock.elapsedTime;
 				for ( var i = 0; i < scene.children.length; i ++ ) {
 					var object = scene.children[ i ];
 					object.rotation.y += delta * 0.5 * ( i % 2 ? 1 : -1 );
