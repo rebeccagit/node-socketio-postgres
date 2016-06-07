@@ -34,6 +34,53 @@
 		<script src="myscripts/threejs/three.js"></script>
 		<script src="myscripts/threejs/Detector.js"></script>
 
+		<script id="fragment_shader4" type="x-shader/x-fragment">
+			uniform float time;
+			uniform vec2 resolution;
+			varying vec2 vUv;
+			void main( void ) {
+				vec2 position = -1.0 + 2.0 * vUv;
+				float red = abs( sin( position.x * position.y + time / 5.0 ) );
+				float green = abs( sin( position.x * position.y + time / 4.0 ) );
+				float blue = abs( sin( position.x * position.y + time / 3.0 ) );
+				gl_FragColor = vec4( red, green, blue, 1.0 );
+			}
+		</script>
+
+		<script id="fragment_shader3" type="x-shader/x-fragment">
+			uniform float time;
+			uniform vec2 resolution;
+			varying vec2 vUv;
+			void main( void ) {
+				vec2 position = vUv;
+				float color = 0.0;
+				color += sin( position.x * cos( time / 15.0 ) * 80.0 ) + cos( position.y * cos( time / 15.0 ) * 10.0 );
+				color += sin( position.y * sin( time / 10.0 ) * 40.0 ) + cos( position.x * sin( time / 25.0 ) * 40.0 );
+				color += sin( position.x * sin( time / 5.0 ) * 10.0 ) + sin( position.y * sin( time / 35.0 ) * 80.0 );
+				color *= sin( time / 10.0 ) * 0.5;
+				gl_FragColor = vec4( vec3( color, color * 0.5, sin( color + time / 3.0 ) * 0.75 ), 1.0 );
+			}
+		</script>
+
+		<script id="fragment_shader2" type="x-shader/x-fragment">
+			uniform float time;
+			uniform vec2 resolution;
+			uniform sampler2D texture;
+			varying vec2 vUv;
+			void main( void ) {
+				vec2 position = -1.0 + 2.0 * vUv;
+				float a = atan( position.y, position.x );
+				float r = sqrt( dot( position, position ) );
+				vec2 uv;
+				uv.x = cos( a ) / r;
+				uv.y = sin( a ) / r;
+				uv /= 10.0;
+				uv += time * 0.05;
+				vec3 color = texture2D( texture, uv ).rgb;
+				gl_FragColor = vec4( color * r * 1.5, 1.0 );
+			}
+		</script>
+
 		<script id="fragment_shader1" type="x-shader/x-fragment">
 			uniform vec2 resolution;
 			uniform float time;
@@ -78,8 +125,7 @@
 
 		<script>
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-			var container;
-			//var stats;
+			var container, stats;
 			var camera, scene, renderer;
 			var uniforms1, uniforms2;
 			var clock = new THREE.Clock();
@@ -90,9 +136,7 @@
 				camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 3000 );
 				camera.position.z = 4;
 				scene = new THREE.Scene();
-				
 				var geometry = new THREE.BoxGeometry( 0.75, 0.75, 0.75 );
-				
 				uniforms1 = {
 					time: { type: "f", value: 1.0 },
 					resolution: { type: "v2", value: new THREE.Vector2() }
@@ -104,9 +148,11 @@
 				};
 				uniforms2.texture.value.wrapS = uniforms2.texture.value.wrapT = THREE.RepeatWrapping;
 				var params = [
-					[ 'fragment_shader1', uniforms1 ]
+					[ 'fragment_shader1', uniforms1 ],
+					[ 'fragment_shader2', uniforms2 ],
+					[ 'fragment_shader3', uniforms1 ],
+					[ 'fragment_shader4', uniforms1 ]
 				];
-				
 				for( var i = 0; i < params.length; i++ ) {
 					var material = new THREE.ShaderMaterial( {
 						uniforms: params[ i ][ 1 ],
@@ -118,21 +164,28 @@
 					mesh.position.y = i % 2 - 0.5;
 					scene.add( mesh );
 				}
-				
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
 				container.appendChild( renderer.domElement );
-				//stats = new Stats();
-				//container.appendChild( stats.dom );
+				stats = new Stats();
+				container.appendChild( stats.dom );
 				onWindowResize();
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
-
+			function onWindowResize( event ) {
+				uniforms1.resolution.value.x = window.innerWidth;
+				uniforms1.resolution.value.y = window.innerHeight;
+				uniforms2.resolution.value.x = window.innerWidth;
+				uniforms2.resolution.value.y = window.innerHeight;
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+			}
 			//
 			function animate() {
 				requestAnimationFrame( animate );
 				render();
-				//stats.update();
+				stats.update();
 			}
 			function render() {
 				var delta = clock.getDelta();
