@@ -138,7 +138,7 @@
 				];
 				
 				
-				for( var i = 0; i < params.length; i++ ) {
+
 					var material = new THREE.ShaderMaterial( {
 						uniforms: params[ i ][ 1 ],
 						vertexShader: document.getElementById( 'vertexShader' ).textContent,
@@ -148,7 +148,7 @@
 					mesh.position.x = i - ( params.length - 1 ) / 2;
 					mesh.position.y = i % 2 - 0.5;
 					scene.add( mesh );
-				}
+				
 				
 				
 				renderer = new THREE.WebGLRenderer();
