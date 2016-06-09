@@ -116,7 +116,7 @@
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 			var container;
 			var camera, scene, renderer;
-			var uniforms1, uniforms2;
+			var uniforms1;
 			var clock = new THREE.Clock();
 			
 			
@@ -144,14 +144,10 @@
 				mesh.position.y = 0.0;
 				scene.add( mesh );
 				
-				
-				
-				
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
 				container.appendChild( renderer.domElement );
 
-				
 				onWindowResize();
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
@@ -184,6 +180,7 @@
 				render();
 				stats.update();
 			}
+			
 			
 			init();
 			animate();
