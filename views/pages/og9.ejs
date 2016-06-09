@@ -142,7 +142,7 @@
 					var material = new THREE.ShaderMaterial( {
 						uniforms: params[ 0 ][ 1 ],
 						vertexShader: document.getElementById( 'vertexShader' ).textContent,
-						fragmentShader: document.getElementById( params[ 0 ][ 0 ] ).textContent
+						fragmentShader: document.getElementById( params[ 0 ] ).textContent
 						} );
 					var mesh = new THREE.Mesh( geometry, material );
 					mesh.position.x = i - ( params.length - 1 ) / 2;
