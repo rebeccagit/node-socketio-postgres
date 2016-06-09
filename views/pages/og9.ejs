@@ -170,11 +170,6 @@
 			
 			
 			//
-			function animate() {
-				requestAnimationFrame( animate );
-				render();
-				stats.update();
-			}
 			function render() {
 				var delta = clock.getDelta();
 				uniforms1.time.value += delta * 5;
@@ -187,6 +182,11 @@
 				renderer.render( scene, camera );
 			}
 			
+			function animate() {
+				requestAnimationFrame( animate );
+				render();
+				stats.update();
+			}
 			
 			init();
 			animate();
