@@ -122,8 +122,8 @@
 				//uniforms2.time.value = clock.elapsedTime;
 				for ( var i = 0; i < scene.children.length; i ++ ) {
 					var object = scene.children[ i ];
-					object.rotation.y += delta * 0.1 * ( i % 2 ? 1 : -1 );
-					object.rotation.x += delta * 0.5 * ( i % 2 ? -1 : 1 );
+					object.rotation.y += delta * 0.8 * ( i % 2 ? 1 : -1 );
+					object.rotation.x += delta * 0.8 * ( i % 2 ? -1 : 1 );
 				}
 				renderer.render( scene, camera );
 			}
