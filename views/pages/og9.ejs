@@ -19,8 +19,6 @@
 		<script src="myscripts/threejs/three.js"></script>
 		<script src="myscripts/threejs/Detector.js"></script>
 
-		
-
 
 		<script id="fragment_shader1" type="x-shader/x-fragment">
 			uniform vec2 resolution;
@@ -81,7 +79,8 @@
 				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 3000 );
 				camera.position.z = 3;
 				scene = new THREE.Scene();
-				var geometry = new THREE.BoxGeometry( 1.0, 1.0, 1.0 );
+				var geometry = new THREE.SphereGeometry( 50, 300, 150 );
+				//THREE.BoxGeometry( 1.0, 1.0, 1.0 );
 				
 				uniforms1 = {
 					time: { type: "f", value: 1.0 },
