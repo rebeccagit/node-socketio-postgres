@@ -16,10 +16,10 @@
 
 		<div id="container"></div>
 		
-
 		<script src="myscripts/threejs/three.js"></script>
 		<script src="myscripts/threejs/Detector.js"></script>
 
+		
 		<script id="fragment_shader4" type="x-shader/x-fragment">
 			uniform float time;
 			uniform vec2 resolution;
@@ -109,14 +109,18 @@
 			}
 		</script>
 
+		
+		
+		
 		<script>
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 			var container;
 			var camera, scene, renderer;
 			var uniforms1, uniforms2;
 			var clock = new THREE.Clock();
-			init();
-			animate();
+			
+			
+			
 			function init() {
 				container = document.getElementById( 'container' );
 				camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 3000 );
@@ -182,6 +186,10 @@
 				}
 				renderer.render( scene, camera );
 			}
+			
+			
+			init();
+			animate();
 		</script>
 
 	</body>
