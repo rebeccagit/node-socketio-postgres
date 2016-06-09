@@ -139,17 +139,17 @@
 				
 				
 
-				for( var i = 0; i < params.length; i++ ) {
+
 					var material = new THREE.ShaderMaterial( {
-						uniforms: params[ i ][ 1 ],
+						uniforms: params[ 0 ][ 1 ],
 						vertexShader: document.getElementById( 'vertexShader' ).textContent,
 						fragmentShader: document.getElementById( 'fragment_shader1' ).textContent
 						} );
 					var mesh = new THREE.Mesh( geometry, material );
-					mesh.position.x = i - ( params.length - 1 ) / 2;
-					mesh.position.y = i % 2 - 0.5;
+					mesh.position.x = 0 - ( params.length - 1 ) / 2;
+					mesh.position.y = 0 % 2 - 0.5;
 					scene.add( mesh );
-				}
+				
 				
 				
 				
