@@ -160,6 +160,7 @@
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
 			
+			
 			function onWindowResize( event ) {
 				uniforms1.resolution.value.x = window.innerWidth;
 				uniforms1.resolution.value.y = window.innerHeight;
@@ -169,7 +170,6 @@
 			}
 			
 			
-			//
 			function render() {
 				var delta = clock.getDelta();
 				uniforms1.time.value += delta * 5;
@@ -182,6 +182,7 @@
 				renderer.render( scene, camera );
 			}
 			
+			
 			function animate() {
 				requestAnimationFrame( animate );
 				render();
@@ -190,6 +191,7 @@
 			
 			init();
 			animate();
+			
 		</script>
 
 	</body>
