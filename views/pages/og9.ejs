@@ -140,10 +140,11 @@
 				
 
 					var material = new THREE.ShaderMaterial( {
-						uniforms: uniforms1,
+						uniforms: 'uniforms1',
 						vertexShader: document.getElementById( 'vertexShader' ).textContent,
 						fragmentShader: document.getElementById( 'fragment_shader1' ).textContent
 						} );
+						
 					var mesh = new THREE.Mesh( geometry, material );
 					mesh.position.x = i - ( 3 ) / 2;
 					mesh.position.y = i % 2 - 0.5;
