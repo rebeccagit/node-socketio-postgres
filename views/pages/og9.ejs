@@ -80,7 +80,7 @@
 				scene = new THREE.Scene();
 				var geometry = new THREE.TorusKnotGeometry( 50, 10, 50, 20 );
 				//new THREE.SphereGeometry( 4, 300, 150 );
-				//THREE.BoxGeometry( 1.0, 1.0, 1.0 );
+				var original = THREE.BoxGeometry( 1.0, 1.0, 1.0 );
 				
 				uniforms1 = {
 					time: { type: "f", value: 1.0 },
@@ -94,9 +94,14 @@
 				} );
 						
 				var mesh = new THREE.Mesh( geometry, material );
-				mesh.position.x = 0.0;
+				mesh.position.x = -2.0;
 				mesh.position.y = 0.0;
 				scene.add( mesh );
+				
+				var meshoriginal = new THREE.Mesh( original, material );
+				mesh.position.x = 2.0;
+				mesh.position.y = 0.0;
+				scene.add( meshoriginal );
 				
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
