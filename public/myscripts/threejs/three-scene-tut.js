@@ -25,8 +25,8 @@ function init() {
 				map.anisotropy = 16;
 				var material = new THREE.MeshLambertMaterial( { map: map, side: THREE.DoubleSide } );
 
-				sun = new THREE.Mesh( new THREE.SphereGeometry( 5, 50, 10 ), material );
-				sun.position.set( 0, 20, 0 );
+				sun = new THREE.Mesh( new THREE.SphereGeometry( 5, 100, 10 ), material );
+				sun.position.set( 0, 10, 0 );
 				scene.add( sun );
     
 	// Create the sky box
