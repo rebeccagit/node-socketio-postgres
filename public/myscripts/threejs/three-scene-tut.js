@@ -16,6 +16,8 @@ function init() {
 	light.position.set(15, 16, -50);
     scene.add(light);
 	//scene.add(new THREE.PointLightHelper(light, 3));
+	
+	scene.add( new THREE.AmbientLight( 0xffffff ) );
     
 	// Create the sky box
 	loadSkyBox();
