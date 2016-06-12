@@ -44,12 +44,12 @@ function loadSkyBox() {
 	
 		// Load the skybox images and create list of materials
 		var materials = [
-			createMaterial( 'images/andromeda.png' ), // right
+			createMaterial( 'images/anim8bg.jpg' ), // right
 			createMaterial( 'images/anim8bg.jpg' ), // left
-			createMaterial( 'images/bobafett.png' ), // top
-			createMaterial( 'images/forceawakens.png' ), // bottom
+			createMaterial( 'images/anim8bg.jpg' ), // top
+			createMaterial( 'images/anim8bg.jpg' ), // bottom
 			createMaterial( 'images/matrixbackground.jpg' ), // back
-			createMaterial( 'images/sith.png' )  // front
+			createMaterial( 'images/anim8bg.jpg' )  // front
 		];
 		
 		// Create a large cube
@@ -87,7 +87,7 @@ function addSceneElements() {
 	// Create the mesh
 	var groundMesh = new THREE.Mesh( new THREE.PlaneGeometry(100, 100, 2, 2), groundMat);
 	//groundMesh.rotation.set(-2, 0, 0, 'XYZ');
-	groundMesh.rotation.set(-90 * (3.14/180), -1, 0, 'XYZ');
+	groundMesh.rotation.set(-90 * (3.14/180), 0, 0, 'XYZ');
 	
 	scene.add(groundMesh);
 }
