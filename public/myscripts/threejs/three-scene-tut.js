@@ -71,12 +71,12 @@ function addSceneElements() {
 	
 	// Create the ground using a Plane
 	// Load the texture for the ground
-	var groundTexture = THREE.ImageUtils.loadTexture('images/sunsurface.jpg');
+	var groundTexture = THREE.ImageUtils.loadTexture('images/matrixbackground.jpg');
 	groundTexture.wrapS = THREE.RepeatWrapping;
 	groundTexture.wrapT = THREE.RepeatWrapping;
 	
 	// Load bump map for the ground
-	var groundBump = THREE.ImageUtils.loadTexture('images/sunsurface.jpg');
+	var groundBump = THREE.ImageUtils.loadTexture('images/matrixbackground.jpg');
 	groundBump.wrapS = THREE.RepeatWrapping;
 	groundBump.wrapT = THREE.RepeatWrapping;
 	
