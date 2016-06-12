@@ -3,8 +3,6 @@ var scene;
 var renderer;
 var controls;
 
-init();
-animate();
 
 function init() {
     
@@ -98,13 +96,12 @@ function addSceneElements() {
 	scene.add(groundMesh);
 }
 
-function onProgress(progress) {
-	// Use this to track loading progress
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize( window.innerWidth, window.innerHeight );
 }
 
-function onError(error) {
-	// Called when errors occur during loading
-}
 
 function animate() {
 	
@@ -121,8 +118,6 @@ function animate() {
     
 }
 
-function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize( window.innerWidth, window.innerHeight );
-}
+
+init();
+animate();
