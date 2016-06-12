@@ -8,7 +8,7 @@ function init() {
     
     scene = new THREE.Scene();
     
-    camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 3000);
+    camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 3000);
     camera.position.set(-0, 10, 30);
 
     // Add a light
