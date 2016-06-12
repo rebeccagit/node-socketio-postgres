@@ -10,7 +10,7 @@ function init() {
     scene = new THREE.Scene();
     
 	// Add the camera
-    camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 10000);
+    camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 3000);
     camera.position.set(-0, 10, 30);
 
     // Add a light
@@ -71,9 +71,6 @@ function createMaterial( path ) {
 			
 function addSceneElements() {
 	
-
-	
-
 	// Create the ground using a Plane
 	// Load the texture for the ground
 	var groundTexture = THREE.ImageUtils.loadTexture('images/sunsurface.jpg');
