@@ -11,7 +11,7 @@ function init() {
     scene = new THREE.Scene();
     
     camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 3000);
-    camera.position.set(-0, 10, 30);
+    camera.position.set( 0, 10, 30);
 
     // Add a light
 	var light = new THREE.DirectionalLight(0xffffff, 2);
@@ -21,15 +21,15 @@ function init() {
 	scene.add( new THREE.AmbientLight( 0xffffff ) );
 	
 					
-				//THE SUN
-				var map = new THREE.TextureLoader().load( 'images/sunsurface.jpg' );
-				map.wrapS = map.wrapT = THREE.RepeatWrapping;
-				map.anisotropy = 16;
-				var material = new THREE.MeshLambertMaterial( { map: map, side: THREE.DoubleSide } );
+	//THE SUN
+	var map = new THREE.TextureLoader().load( 'images/sunsurface.jpg' );
+	map.wrapS = map.wrapT = THREE.RepeatWrapping;
+	map.anisotropy = 16;
+	var material = new THREE.MeshLambertMaterial( { map: map, side: THREE.DoubleSide } );
 
-				sun = new THREE.Mesh( new THREE.SphereGeometry( 5, 100, 100 ), material );
-				sun.position.set( 0, 10, 0 );
-				scene.add( sun );
+	sun = new THREE.Mesh( new THREE.SphereGeometry( 5, 100, 100 ), material );
+	sun.position.set( 0, 10, 0 );
+	scene.add( sun );
     
 	// Create the sky box
 	loadSkyBox();
