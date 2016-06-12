@@ -48,12 +48,12 @@ function loadSkyBox() {
 	
 		// Load the skybox images and create list of materials
 		var materials = [
-			createMaterial( 'images/andromeda.png' ), // right
-			createMaterial( 'images/anim8bg.jpg' ), // left
-			createMaterial( 'images/bobafett.png' ), // top
-			createMaterial( 'images/forceawakens.png' ), // bottom
-			createMaterial( 'images/matrixbackground.jpg' ), // back
-			createMaterial( 'images/sith.png' )  // front
+			createMaterial( 'andromeda.png' ), // right
+			createMaterial( 'anim8bg.jpg' ), // left
+			createMaterial( 'bobafett.png' ), // top
+			createMaterial( 'forceawakens.png' ), // bottom
+			createMaterial( 'matrixbackground.jpg' ), // back
+			createMaterial( 'sith.png' )  // front
 		];
 		
 		// Create a large cube
@@ -85,12 +85,12 @@ function addSceneElements() {
 
 	// Create the ground using a Plane
 	// Load the texture for the ground
-	var groundTexture = THREE.ImageUtils.loadTexture('images/sunsurface.jpg');
+	var groundTexture = THREE.ImageUtils.loadTexture('sunsurface.jpg');
 	groundTexture.wrapS = THREE.RepeatWrapping;
 	groundTexture.wrapT = THREE.RepeatWrapping;
 	
 	// Load bump map for the ground
-	var groundBump = THREE.ImageUtils.loadTexture('images/sunsurface.jpg');
+	var groundBump = THREE.ImageUtils.loadTexture('sunsurface.jpg');
 	groundBump.wrapS = THREE.RepeatWrapping;
 	groundBump.wrapT = THREE.RepeatWrapping;
 	
