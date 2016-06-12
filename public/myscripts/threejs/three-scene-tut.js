@@ -82,7 +82,7 @@ function addSceneElements() {
 	
 	// Create the material
 	var groundMat = new THREE.MeshPhongMaterial( { map: groundTexture, bumpMap: groundBump, color: 0x957D69 } );
-	groundMat.map.repeat.set(5,5);
+	groundMat.map.repeat.set(1,1);
 	
 	// Create the mesh
 	var groundMesh = new THREE.Mesh( new THREE.PlaneGeometry(100, 100, 2, 2), groundMat);
