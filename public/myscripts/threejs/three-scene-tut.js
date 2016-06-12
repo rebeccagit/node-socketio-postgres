@@ -6,15 +6,13 @@ var controls;
 
 function init() {
     
-	// Create a scene
     scene = new THREE.Scene();
     
-	// Add the camera
     camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 3000);
     camera.position.set(-0, 10, 30);
 
     // Add a light
-	var light = new THREE.DirectionalLight(0xaaaae5, 2);
+	var light = new THREE.DirectionalLight(0xffffff, 2);
 	light.position.set(15, 16, -50);
     scene.add(light);
 	//scene.add(new THREE.PointLightHelper(light, 3));
