@@ -47,10 +47,10 @@ function loadSkyBox() {
 		// Load the skybox images and create list of materials
 		var materials = [
 			createMaterial( 'images/anim8bg.jpg' ), // right
-			createMaterial( 'images/anim8bg.jpg' ), // left
+			createMaterial( 'images/matrixbackground.jpg' ), // left
 			createMaterial( 'images/anim8bg.jpg' ), // top
 			createMaterial( 'images/anim8bg.jpg' ), // bottom
-			createMaterial( 'images/matrixbackground.jpg' ), // back
+			createMaterial( 'images/anim8bg.jpg' ), // back
 			createMaterial( 'images/anim8bg.jpg' )  // front
 		];
 		
