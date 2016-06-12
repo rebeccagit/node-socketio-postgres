@@ -54,7 +54,7 @@ function loadSkyBox() {
 		];
 		
 		// Create a large cube
-		var mesh = new THREE.Mesh( new THREE.BoxGeometry( 100, 200, 100, 1, 1, 1 ), new THREE.MeshFaceMaterial( materials ) );
+		var mesh = new THREE.Mesh( new THREE.BoxGeometry( 100, 100, 100, 1, 1, 1 ), new THREE.MeshFaceMaterial( materials ) );
 		
 		// Set the x scale to be -1, this will turn the cube inside out
 		mesh.scale.set(-1,1,1);
