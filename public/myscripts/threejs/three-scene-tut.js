@@ -1,3 +1,5 @@
+// Learning about skybox, orbit control and texture from http://solutiondesign.com/blog/-/blogs/webgl-and-three-js-creating-a-real-scene
+
 var camera;
 var scene;
 var renderer;
