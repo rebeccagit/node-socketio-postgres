@@ -85,7 +85,7 @@ function addSceneElements() {
 	groundMat.map.repeat.set(1,1);
 	
 	// Create the mesh
-	var groundMesh = new THREE.Mesh( new THREE.PlaneGeometry(100, 100, 2, 2), groundMat);
+	var groundMesh = new THREE.Mesh( new THREE.PlaneGeometry(100, 100, -2, 2), groundMat);
 	//groundMesh.rotation.set(-2, 0, 0, 'XYZ');
 	groundMesh.rotation.set(-90 * (3.14/180), 0, 0, 'XYZ');
 	
