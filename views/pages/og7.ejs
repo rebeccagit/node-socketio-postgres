@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>three.js webgl - materials - shaders [lava]</title>
+		<title>three.js webgl - materials - shaders [lava] hmmm</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<style>
 			body {
-
+				color: #ffffff;
+				font-family:Monospace;
+				font-size:13px;
+				text-align:center;
+				font-weight: bold;
 				background-color: #000000;
 				margin: 0px;
 				overflow: hidden;
 			}
-
+			#info {
+				position: absolute;
+				top: 0px; width: 100%;
+				padding: 5px;
+			}
+			a {
+				color: #ffffff;
+			}
+			#oldie a { color:#da0 }
 		</style>
 	</head>
 	<body>
 
 		<div id="container"></div>
-
+		<div id="info"><a href="http://threejs.org" target="_blank">three.js</a> - shader material demo. featuring lava shader by <a href="http://irrlicht.sourceforge.net/phpBB2/viewtopic.php?t=21057" target="_blank">TheGameMaker</a></div>
 
 		<script src="threejs/three.js"></script>
 		
@@ -34,6 +46,8 @@
 
 
 		<script src="threejs/Detector.js"></script>
+
+	
 
 		<script id="fragmentShader" type="x-shader/x-fragment">
 			uniform float time;
@@ -80,8 +94,7 @@
 
 		<script>
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-			var container;
-			//var stats;
+			var container, stats;
 			var clock = new THREE.Clock();
 			var camera, scene, renderer, composer;
 			var uniforms, material, mesh;
@@ -105,8 +118,8 @@
 					time: { type: "f", value: 1.0 },
 					resolution: { type: "v2", value: new THREE.Vector2() },
 					uvScale: { type: "v2", value: new THREE.Vector2( 3.0, 1.0 ) },
-					texture1: { type: "t", value: textureLoader.load( 'images/cloud.png' ) },
-					texture2: { type: "t", value: textureLoader.load( 'images/lavatile.jpg' ) }
+					texture1: { type: "t", value: textureLoader.load( "textures/lava/cloud.png" ) },
+					texture2: { type: "t", value: textureLoader.load( "textures/lava/lavatile.jpg" ) }
 				};
 				uniforms.texture1.value.wrapS = uniforms.texture1.value.wrapT = THREE.RepeatWrapping;
 				uniforms.texture2.value.wrapS = uniforms.texture2.value.wrapT = THREE.RepeatWrapping;
@@ -125,7 +138,7 @@
 				container.appendChild( renderer.domElement );
 				renderer.autoClear = false;
 				//
-				//stats = new Stats();
+				stats = new Stats();
 				//container.appendChild( stats.dom );
 				//
 				var renderModel = new THREE.RenderPass( scene, camera );
@@ -152,7 +165,7 @@
 			function animate() {
 				requestAnimationFrame( animate );
 				render();
-				//stats.update();
+				stats.update();
 			}
 			function render() {
 				var delta = 5 * clock.getDelta();
