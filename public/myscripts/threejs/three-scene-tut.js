@@ -25,7 +25,7 @@ function init() {
 				map.anisotropy = 16;
 				var material = new THREE.MeshLambertMaterial( { map: map, side: THREE.DoubleSide } );
 
-				sun = new THREE.Mesh( new THREE.SphereGeometry( 25, 50, 10 ), material );
+				sun = new THREE.Mesh( new THREE.SphereGeometry( 5, 10, 2 ), material );
 				sun.position.set( 0, 0, 0 );
 				scene.add( sun );
     
