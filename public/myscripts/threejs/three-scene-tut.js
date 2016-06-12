@@ -17,6 +17,17 @@ function init() {
     scene.add(light);
 	//scene.add(new THREE.PointLightHelper(light, 3));
 	scene.add( new THREE.AmbientLight( 0xffffff ) );
+	
+					
+				//THE SUN
+				var map = new THREE.TextureLoader().load( 'images/sunsurface.jpg' );
+				map.wrapS = map.wrapT = THREE.RepeatWrapping;
+				map.anisotropy = 16;
+				var material = new THREE.MeshLambertMaterial( { map: map, side: THREE.DoubleSide } );
+
+				sun = new THREE.Mesh( new THREE.SphereGeometry( 200, 500, 100 ), material );
+				sun.position.set( 0, 0, 0 );
+				scene.add( sun );
     
 	// Create the sky box
 	loadSkyBox();
@@ -39,6 +50,8 @@ function init() {
 	
 	// Set the point at which we will orbit around
     controls.target = new THREE.Vector3(0, 0, 0);     
+	
+	
 }
 
 function loadSkyBox() {
@@ -60,6 +73,7 @@ function loadSkyBox() {
 		mesh.scale.set(-1,1,1);
 		scene.add( mesh );	
 }
+
 
 function createMaterial( path ) {
 	var texture = THREE.ImageUtils.loadTexture(path);
