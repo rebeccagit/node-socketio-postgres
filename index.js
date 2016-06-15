@@ -203,7 +203,7 @@ app.use(function(req, res, next) {
 
 //Automatically verify in logging that server is listening.
 http.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+  console.log('Node app is running on port and you know that, right?', app.get('port'));
 });
 
 
