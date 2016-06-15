@@ -194,8 +194,8 @@ io.on('connection', function (socket) {
 
 // err 404 --> no pg found
 app.use(function(req, res, next) {
-    var err = new Error('Not found.  Please try another url.');
-    res.status(404).send('Sorry, we cannot find that!');
+    //var err = new Error('Not found.  Please try another url.');
+    res.status(404).send('Uh, oh!  Looks like the page you\'re looking for does not exist!');
     next(err);
 });
 
