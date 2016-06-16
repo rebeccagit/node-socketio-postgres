@@ -136,10 +136,15 @@
 			info.innerHTML += '<br/>Closed:<input id="closed" onchange="addTube()" type="checkbox" checked />';
 			info.innerHTML += '<br/><br/><input id="animation" type="button" onclick="animateCamera(true)" value="Camera Spline Animation View: OFF"/><br/> Look Ahead <input id="lookAhead" type="checkbox" onchange="animateCamera()" /> Camera Helper <input id="cameraHelper" type="checkbox" onchange="animateCamera()" />';
 			container.appendChild(info);
+			
+			
 			//
 			camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.01, 1000);
 			camera.position.set(0, 50, 500);
 			scene = new THREE.Scene();
+			
+			scene.add( new THREE.AmbientLight( 0xffffff ) );
+			
 			var light = new THREE.DirectionalLight( 0xffffff );
 			light.position.set( 0, 0, 1 );
 			scene.add( light );
