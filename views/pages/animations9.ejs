@@ -117,8 +117,8 @@
 			cameraHelper.visible = showCameraHelper;
 			cameraEye.visible = showCameraHelper;
 		}
-		init();
-		animate();
+
+		
 		function init() {
 			container = document.createElement('div');
 			document.body.appendChild(container);
@@ -252,6 +252,11 @@
 			parent.rotation.y += ( targetRotation - parent.rotation.y ) * 0.05;
 			renderer.render( scene, animation === true ? splineCamera : camera );
 		}
+		
+		
+		init();
+		animate();
+		
 	</script>
 
 	</body>
