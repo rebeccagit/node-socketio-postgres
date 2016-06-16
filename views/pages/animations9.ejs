@@ -208,7 +208,20 @@
 			renderer.domElement.removeEventListener( 'mouseup', onDocumentMouseUp, false );
 			renderer.domElement.removeEventListener( 'mouseout', onDocumentMouseOut, false );
 		}
-
+		function onDocumentTouchStart(event) {
+			if (event.touches.length == 1) {
+				event.preventDefault();
+				mouseXOnMouseDown = event.touches[ 0 ].pageX - windowHalfX;
+				targetRotationOnMouseDown = targetRotation;
+			}
+		}
+		function onDocumentTouchMove(event) {
+			if (event.touches.length == 1) {
+				event.preventDefault();
+				mouseX = event.touches[ 0 ].pageX - windowHalfX;
+				targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.05;
+			}
+		}
 		//
 		function animate() {
 			requestAnimationFrame( animate );
