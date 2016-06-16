@@ -165,6 +165,8 @@
 			parent.add( cameraEye );
 			cameraHelper.visible = showCameraHelper;
 			cameraEye.visible = showCameraHelper;
+			
+			
 			//
 			renderer = new THREE.WebGLRenderer( { antialias: true } );
 			renderer.setClearColor( 0xf0f0f0 );
@@ -178,6 +180,10 @@
 			//
 			window.addEventListener( 'resize', onWindowResize, false );
 		}
+		
+		
+		
+		
 		function onWindowResize() {
 			windowHalfX = window.innerWidth / 2;
 			windowHalfY = window.innerHeight / 2;
@@ -216,12 +222,14 @@
 			
 		}
 		function render() {
+		
 			// Try Animate Camera Along Spline
 			var time = Date.now();
 			var looptime = 20 * 1000;
 			var t = ( time % looptime ) / looptime;
 			var pos = tube.parameters.path.getPointAt( t );
 			pos.multiplyScalar( scale );
+			
 			// interpolation
 			var segments = tube.tangents.length;
 			var pickt = t * segments;
@@ -232,20 +240,25 @@
 			var dir = tube.parameters.path.getTangentAt( t );
 			var offset = 15;
 			normal.copy( binormal ).cross( dir );
+			
 			// We move on a offset on its binormal
 			pos.add( normal.clone().multiplyScalar( offset ) );
 			splineCamera.position.copy( pos );
 			cameraEye.position.copy( pos );
+			
 			// Camera Orientation 1 - default look at
 			// splineCamera.lookAt( lookAt );
 			// Using arclength for stablization in look ahead.
 			var lookAt = tube.parameters.path.getPointAt( ( t + 30 / tube.parameters.path.getLength() ) % 1 ).multiplyScalar( scale );
+			
 			// Camera Orientation 2 - up orientation via normal
 			if (!lookAhead)
 			lookAt.copy( pos ).add( dir );
 			splineCamera.matrix.lookAt(splineCamera.position, lookAt, normal);
 			splineCamera.rotation.setFromRotationMatrix( splineCamera.matrix, splineCamera.rotation.order );
+			
 			cameraHelper.update();
+			
 			parent.rotation.y += ( targetRotation - parent.rotation.y ) * 0.05;
 			renderer.render( scene, animation === true ? splineCamera : camera );
 		}
@@ -253,6 +266,7 @@
 		
 		init();
 		animate();
+		
 		
 	</script>
 
