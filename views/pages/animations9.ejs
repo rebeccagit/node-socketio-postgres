@@ -50,16 +50,11 @@
 		// Keep a dictionary of Curve instances
 		var splines = {
 			GrannyKnot: new THREE.Curves.GrannyKnot(),
-			HeartCurve: new THREE.Curves.HeartCurve(3.5),
 			VivianiCurve: new THREE.Curves.VivianiCurve(70),
 			KnotCurve: new THREE.Curves.KnotCurve(),
 			HelixCurve: new THREE.Curves.HelixCurve(),
-			TrefoilKnot: new THREE.Curves.TrefoilKnot(),
 			TorusKnot: new THREE.Curves.TorusKnot(20),
 			CinquefoilKnot: new THREE.Curves.CinquefoilKnot(20),
-			TrefoilPolynomialKnot: new THREE.Curves.TrefoilPolynomialKnot(14),
-			FigureEightPolynomialKnot: new THREE.Curves.FigureEightPolynomialKnot(),
-			PipeSpline: pipeSpline,
 			SampleClosedSpline: sampleClosedSpline
 		};
 		extrudePath = new THREE.Curves.TrefoilKnot();
