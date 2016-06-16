@@ -26,12 +26,14 @@
 		var container;
 		var camera, scene, renderer, splineCamera, cameraHelper, cameraEye;
 		var text, plane;
+		
 		var targetRotation = 0;
 		var targetRotationOnMouseDown = 0;
 		var mouseX = 0;
 		var mouseXOnMouseDown = 0;
 		var windowHalfX = window.innerWidth / 2;
 		var windowHalfY = window.innerHeight / 2;
+		
 		var binormal = new THREE.Vector3();
 		var normal = new THREE.Vector3();
 		var pipeSpline = new THREE.CatmullRomCurve3([
@@ -78,6 +80,7 @@
 		var animation = false, lookAhead = false;
 		var scale;
 		var showCameraHelper = false;
+		
 		function addTube() {
 			var value = document.getElementById('dropdown').value;
 			var segments = parseInt(document.getElementById('segments').value);
@@ -89,10 +92,14 @@
 			addGeometry(tube, 0xff00ff);
 			setScale();
 		}
+		
+		
 		function setScale() {
 			scale = parseInt( document.getElementById('scale').value );
 			tubeMesh.scale.set( scale, scale, scale );
 		}
+		
+		
 		function addGeometry( geometry, color ) {
 			// 3d shape
 			tubeMesh = THREE.SceneUtils.createMultiMaterialObject( geometry, [
@@ -107,6 +114,9 @@
 			})]);
 			parent.add( tubeMesh );
 		}
+		
+		
+		
 		function animateCamera( toggle ) {
 			if ( toggle ) {
 				animation = animation === false;
@@ -198,20 +208,7 @@
 			renderer.domElement.removeEventListener( 'mouseup', onDocumentMouseUp, false );
 			renderer.domElement.removeEventListener( 'mouseout', onDocumentMouseOut, false );
 		}
-		function onDocumentTouchStart(event) {
-			if (event.touches.length == 1) {
-				event.preventDefault();
-				mouseXOnMouseDown = event.touches[ 0 ].pageX - windowHalfX;
-				targetRotationOnMouseDown = targetRotation;
-			}
-		}
-		function onDocumentTouchMove(event) {
-			if (event.touches.length == 1) {
-				event.preventDefault();
-				mouseX = event.touches[ 0 ].pageX - windowHalfX;
-				targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.05;
-			}
-		}
+
 		//
 		function animate() {
 			requestAnimationFrame( animate );
