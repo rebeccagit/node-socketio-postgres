@@ -82,6 +82,14 @@
 			tube = new THREE.TubeGeometry(extrudePath, segments, 2, radiusSegments, closed2);
 			
 			// Create the material
+			
+	var groundTexture = THREE.ImageUtils.loadTexture('images/matrixbackground.jpg');
+	groundTexture.wrapS = THREE.RepeatWrapping;
+	groundTexture.wrapT = THREE.RepeatWrapping;		
+	var groundBump = THREE.ImageUtils.loadTexture('images/matrixbackground.jpg');
+	groundBump.wrapS = THREE.RepeatWrapping;
+	groundBump.wrapT = THREE.RepeatWrapping;
+	
 	var groundMat = new THREE.MeshPhongMaterial( { map: groundTexture, bumpMap: groundBump, color: 0x957D69 } );
 	groundMat.map.repeat.set(3,3);
 			
