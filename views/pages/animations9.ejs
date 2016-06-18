@@ -102,12 +102,15 @@
 			// 3d shape
 
 
-			var texture = THREE.ImageUtils.loadTexture('images/saturnsurface.jpg');//
+			var map = new THREE.TextureLoader().load( 'images/UV_Grid_Sm.jpg' );
+			map.wrapS = map.wrapT = THREE.RepeatWrapping;
+			map.anisotropy = 16;
 			
 			tubeMesh = THREE.SceneUtils.createMultiMaterialObject( geometry, [
 				new THREE.MeshLambertMaterial({
 					map: texture,//
 					color: color,
+					map: map,
 					side: THREE.BackSide
 				}),
 				new THREE.MeshBasicMaterial({
