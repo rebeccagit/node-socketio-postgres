@@ -105,7 +105,7 @@
 			var map = new THREE.TextureLoader().load( 'images/UV_Grid_Sm.jpg' );
 			map.wrapS = map.wrapT = THREE.RepeatWrapping;
 			//map.anisotropy = 16;
-			map.repeat.set(10,100);
+			map.repeat.set(100,10);
 			
 			tubeMesh = THREE.SceneUtils.createMultiMaterialObject( geometry, [
 				new THREE.MeshLambertMaterial({
