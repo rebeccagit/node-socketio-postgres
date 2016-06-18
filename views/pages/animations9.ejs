@@ -245,7 +245,7 @@
 		
 			// Try Animate Camera Along Spline
 			var time = Date.now();
-			var looptime = 20 * 1000;
+			var looptime = 5 * 1000;
 			var t = ( time % looptime ) / looptime;
 			var pos = tube.parameters.path.getPointAt( t );
 			pos.multiplyScalar( scale );
