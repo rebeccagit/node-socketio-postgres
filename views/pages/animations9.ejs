@@ -105,7 +105,7 @@
 				new THREE.MeshBasicMaterial({
 					color: 0xffffff,
 					opacity: 0.5,
-					wireframe: false,
+					wireframe: true,
 					transparent: true
 			})]);
 			parent.add( tubeMesh );
@@ -153,17 +153,23 @@
 			var light = new THREE.DirectionalLight( 0xffffff );
 			light.position.set( 0, 0, 1 );
 			scene.add( light );
+			
 			parent = new THREE.Object3D();
 			parent.position.y = 100;
 			scene.add( parent );
+			
 			splineCamera = new THREE.PerspectiveCamera( 84, window.innerWidth / window.innerHeight, 0.01, 1000 );
 			parent.add( splineCamera );
+			
 			cameraHelper = new THREE.CameraHelper( splineCamera );
 			scene.add( cameraHelper );
+			
 			addTube();
+			
 			// Debug point
 			cameraEye = new THREE.Mesh( new THREE.SphereGeometry( 5 ), new THREE.MeshBasicMaterial( { color: 0xdddddd } ) );
 			parent.add( cameraEye );
+			
 			cameraHelper.visible = showCameraHelper;
 			cameraEye.visible = showCameraHelper;
 			
