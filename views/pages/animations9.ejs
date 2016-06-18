@@ -147,7 +147,7 @@
 			
 			
 			//
-			camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.01, 1000);
+			camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.01, 1200);
 			camera.position.set(0, 25, 500);
 			scene = new THREE.Scene();
 			
@@ -161,7 +161,7 @@
 			parent.position.y = 100;
 			scene.add( parent );
 			
-			splineCamera = new THREE.PerspectiveCamera( 10, window.innerWidth / window.innerHeight, 0.01, 1000 );
+			splineCamera = new THREE.PerspectiveCamera( 15, window.innerWidth / window.innerHeight, 0.01, 1000 );
 			parent.add( splineCamera );
 			
 			cameraHelper = new THREE.CameraHelper( splineCamera );
