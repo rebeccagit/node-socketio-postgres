@@ -100,13 +100,14 @@
 			
 			tubeMesh = THREE.SceneUtils.createMultiMaterialObject( geometry, [
 				new THREE.MeshLambertMaterial({
-					color: color
+					color: color,
+					side: THREE.BackSide
 				}),
 				new THREE.MeshBasicMaterial({
 					color: 0xffffff,
 					opacity: 0.5,
 					wireframe: true,
-					transparent: true,
+					transparent: true
 			})]);
 			
 			parent.add( tubeMesh );
