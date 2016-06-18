@@ -57,7 +57,7 @@
 //			HelixCurve: new THREE.Curves.HelixCurve(),
 			TorusKnot: new THREE.Curves.TorusKnot(20),
 //			CinquefoilKnot: new THREE.Curves.CinquefoilKnot(20),
-			SampleClosedSpline: sampleClosedSpline
+//			SampleClosedSpline: sampleClosedSpline
 		};
 		
 		extrudePath = new THREE.Curves.TorusKnot(20);
@@ -93,7 +93,7 @@
 		
 		
 		function setScale() {
-			scale = parseInt( document.getElementById('scale').value );
+			scale = parseInt( 10 );
 			tubeMesh.scale.set( scale, scale, scale );
 		}
 		
