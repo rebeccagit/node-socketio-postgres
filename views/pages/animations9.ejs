@@ -105,7 +105,7 @@
 			var map = new THREE.TextureLoader().load( 'images/anim8bg.jpg' );
 			map.wrapS = map.wrapT = THREE.RepeatWrapping;
 			//map.anisotropy = 16;
-			map.repeat.set(100,10);
+			map.repeat.set(200,10);
 			
 			tubeMesh = THREE.SceneUtils.createMultiMaterialObject( geometry, [
 				new THREE.MeshLambertMaterial({
@@ -245,7 +245,7 @@
 		
 			// Try Animate Camera Along Spline
 			var time = Date.now();
-			var looptime = 1 * 1000;
+			var looptime = 20 * 1000;
 			var t = ( time % looptime ) / looptime;
 			var pos = tube.parameters.path.getPointAt( t );
 			pos.multiplyScalar( scale );
