@@ -89,10 +89,10 @@
 				map.anisotropy = 16;
 				var material = new THREE.MeshLambertMaterial( { map: map, side: THREE.DoubleSide } );
 			    var mesh = new THREE.Mesh( tube, material );
-				scene.add( mesh );
 			
 			
-			//addGeometry(tube, material);
+			
+			addGeometry(mesh);
 			setScale();
 		}
 		
