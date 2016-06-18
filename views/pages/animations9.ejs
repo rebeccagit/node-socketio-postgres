@@ -81,9 +81,6 @@
 			extrudePath = splines[value];
 			tube = new THREE.TubeGeometry(extrudePath, segments, 2, radiusSegments, closed2);
 			
-	
-			
-			
 			addGeometry(tube, 0x3f3f3f );
 			setScale();
 		}
@@ -97,13 +94,17 @@
 		
 		function addGeometry( geometry, color ) {
 			// 3d shape
+
+
+			
+			
 			tubeMesh = THREE.SceneUtils.createMultiMaterialObject( geometry, [
 				new THREE.MeshLambertMaterial({
 					color: color
 				}),
 				new THREE.MeshBasicMaterial({
 					color: 0x000000,
-					opacity: 0.3,
+					opacity: 1.0,
 					wireframe: true,
 					transparent: true
 			})]);
