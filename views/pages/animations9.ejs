@@ -82,7 +82,7 @@
 			var value = document.getElementById('dropdown').value;
 			var segments = parseInt(100);
 			closed2 = document.getElementById('closed').checked;
-			var radiusSegments = parseInt(document.getElementById('radiusSegments').value);
+			var radiusSegments = parseInt( 20 );
 			if (tubeMesh) parent.remove(tubeMesh);
 			extrudePath = splines[value];
 			tube = new THREE.TubeGeometry(extrudePath, segments, 2, radiusSegments, closed2);
@@ -148,7 +148,6 @@
 			info.style.textAlign = 'center';
 			info.innerHTML = 'Spline Extrusion Examples by <a href="http://www.lab4games.net/zz85/blog">zz85</a><br/>Select spline:';
 			info.innerHTML += dropdown;
-			info.innerHTML += '<br/>Radius Segments: <select id="radiusSegments" onchange="addTube()"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option>20</option></select>';
 			info.innerHTML += '<br/>Closed:<input id="closed" onchange="addTube()" type="checkbox" checked />';
 			info.innerHTML += '<br/><br/><input id="animation" type="button" onclick="animateCamera(true)" value="Camera Spline Animation View: OFF"/><br/> Look Ahead <input id="lookAhead" type="checkbox" onchange="animateCamera()" /> Camera Helper <input id="cameraHelper" type="checkbox" onchange="animateCamera()" />';
 			container.appendChild(info);
