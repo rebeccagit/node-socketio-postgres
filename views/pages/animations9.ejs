@@ -96,10 +96,11 @@
 			// 3d shape
 
 
-			
+			var texture = THREE.ImageUtils.loadTexture('images/saturnsurface.jpg');,,
 			
 			tubeMesh = THREE.SceneUtils.createMultiMaterialObject( geometry, [
 				new THREE.MeshLambertMaterial({
+					map: texture,//
 					color: color,
 					side: THREE.BackSide
 				}),
