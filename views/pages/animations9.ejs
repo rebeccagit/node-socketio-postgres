@@ -56,7 +56,7 @@
 //			VivianiCurve: new THREE.Curves.VivianiCurve(70),
 //			KnotCurve: new THREE.Curves.KnotCurve(),
 //			HelixCurve: new THREE.Curves.HelixCurve(),
-//			TorusKnot: new THREE.Curves.TorusKnot(20),
+			TorusKnot: new THREE.Curves.TorusKnot(10),
 //			CinquefoilKnot: new THREE.Curves.CinquefoilKnot(20),
 //			SampleClosedSpline: sampleClosedSpline
 		};
@@ -85,7 +85,7 @@
 			closed2 = document.getElementById('closed').checked;
 			var radiusSegments = parseInt( 20 );
 			if (tubeMesh) parent.remove(tubeMesh);
-			extrudePath = TorusKnot: new THREE.Curves.TorusKnot(20);
+			extrudePath = splines[value];
 			tube = new THREE.TubeGeometry(extrudePath, segments, 2, radiusSegments, closed2);
 			
 			addGeometry(tube, 0x99bbff );
