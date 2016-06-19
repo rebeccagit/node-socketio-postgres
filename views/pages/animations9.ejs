@@ -61,7 +61,8 @@
 //			SampleClosedSpline: sampleClosedSpline
 		};
 		
-		extrudePath = new THREE.Curves.TorusKnot(20);
+		extrudePath = new THREE.Curves.TorusKnot(10);
+		
 		var dropdown = '<select id="dropdown" onchange="addTube(this.value)">';
 		var s;
 		for ( s in splines ) {
