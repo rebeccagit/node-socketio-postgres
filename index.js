@@ -115,6 +115,10 @@ app.get('/animations8', function(request, response) {
 app.get('/animations9', function(request, response) {
   response.render('pages/animations9');
 });
+app.get('/animations10', function(request, response) {
+  response.render('pages/animations10');
+});
+
 // practice animation page
 app.get('/og7', function(request, response) {
   response.render('pages/og7');
