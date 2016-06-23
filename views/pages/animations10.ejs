@@ -19,11 +19,14 @@
 
 		<!-- where curves formulas are defined -->
 		<script src="myscripts/threejs/CurveExtras.js"></script>
+		<script src="myscripts/threejs/stats.min.js"></script>
+
 
 
 
 		<script>
 		var container;
+		var stats;
 		var camera, scene, renderer, splineCamera, cameraHelper, cameraEye;
 		var text, plane;
 		
@@ -194,6 +197,9 @@
 			renderer.setPixelRatio( window.devicePixelRatio );
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			container.appendChild( renderer.domElement );
+			
+			stats = new Stats();
+			container.appendChild( stats.dom );
 
 			renderer.domElement.addEventListener( 'mousedown', onDocumentMouseDown, false );
 			//renderer.domElement.addEventListener( 'touchstart', onDocumentTouchStart, false );
@@ -284,6 +290,8 @@
 		function animate() {
 			requestAnimationFrame( animate );
 			render();
+			
+			stats.update();
 		}
 		
 		
