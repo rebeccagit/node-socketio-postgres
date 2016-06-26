@@ -91,7 +91,7 @@
 				camera.lookAt( scene.position );
 				for ( var i = 0, l = scene.children.length; i < l; i ++ ) {
 					var object = scene.children[ i ];
-					object.rotation.x = timer * 5;
+					object.rotation.x = timer * 3;
 					object.rotation.y = timer * 2.5;
 				}
 				renderer.render( scene, camera );
@@ -101,7 +101,6 @@
 			function animate() {
 				requestAnimationFrame( animate );
 				render();
-				//stats.update();
 			}
 			
 			init();
