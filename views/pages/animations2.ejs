@@ -25,20 +25,18 @@
 
 		<script src="myscripts/threejs/three.js"></script>
 		<script src="myscripts/threejs/Detector.js"></script>
-		<script src="myscripts/threejs/stats.min.js"></script>
 
 		<script>
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 			
-			var container, stats;
+			
+			var container;
 			var camera, scene, renderer;
 			var mesh, mesh2, mesh3, mesh4, light;
 			var mouseX = 0, mouseY = 0;
 			var windowHalfX = window.innerWidth / 2;
 			var windowHalfY = window.innerHeight / 2;
-			
-
-			
+		
 			
 			function init() {
 				container = document.getElementById( 'container' );
@@ -64,11 +62,7 @@
 				
 				container.appendChild( renderer.domElement );
 				
-				stats = new Stats();
-				//container.appendChild( stats.dom );
-				
-				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-				
+				document.addEventListener( 'mousemove', onDocumentMouseMove, false );		
 				window.addEventListener( 'resize', onWindowResize, false );
 			};
 						
@@ -82,7 +76,6 @@
 				scene.add( mesh );
 			};
 			
-			
 			function createScene2( geometry, materials ) {
 				materials[ 0 ].shading = THREE.FlatShading;
 				mesh2 = new THREE.Mesh( geometry, new THREE.MultiMaterial( materials ) );
@@ -92,7 +85,6 @@
 				scene.add( mesh2 );
 			};
 			
-			
 			function createScene3( geometry, materials ) {
 				materials[ 0 ].shading = THREE.FlatShading;
 				mesh3 = new THREE.Mesh( geometry, new THREE.MultiMaterial( materials ) );
@@ -101,7 +93,6 @@
 				mesh3.scale.x = mesh3.scale.y = mesh3.scale.z = 250;
 				scene.add( mesh3 );
 			};
-
 			
 			function createScene4( geometry, materials ) {
 				materials[ 0 ].shading = THREE.FlatShading;
@@ -130,7 +121,6 @@
 			function animate() {
 				requestAnimationFrame( animate );
 				render();
-				stats.update();
 			};
 			
 			
@@ -159,7 +149,6 @@
 					mesh4.rotation.y -= 0.01;
 				};
 				
-	
 				renderer.render( scene, camera );
 			};
 			
