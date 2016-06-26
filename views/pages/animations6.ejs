@@ -99,13 +99,6 @@
 			//
 
 
-			function animate() {
-				requestAnimationFrame( animate );
-				render();
-				//stats.update();
-			}
-
-
 			function render() {
 				var timer = Date.now() * 0.0001;
 				camera.position.x = Math.cos( timer ) * 800;
@@ -117,6 +110,13 @@
 					object.rotation.y = timer * 2.5;
 				}
 				renderer.render( scene, camera );
+			}
+			
+			
+			function animate() {
+				requestAnimationFrame( animate );
+				render();
+				//stats.update();
 			}
 			
 			init();
