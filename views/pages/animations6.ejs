@@ -36,7 +36,6 @@
 			
 			
 			var container;
-			//var stats;
 			var camera, scene, renderer;
 
 			
@@ -55,10 +54,11 @@
 
 				scene.add( new THREE.AmbientLight( 0xaaaaaa ) );
 
-				light = new THREE.DirectionalLight( 0xcccccc );
+				light = new THREE.DirectionalLight( 0xbbbbbb );
 				light.position.set( 1, 0, 0 );
 				scene.add( light );
 
+				
 				var map = new THREE.TextureLoader().load( 'images/cutey.jpg' );
 				map.wrapS = map.wrapT = THREE.RepeatWrapping;
 				map.anisotropy = 16;
@@ -80,12 +80,7 @@
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
-
-
-				container.appendChild( renderer.domElement );
-				//stats = new Stats();
-				//container.appendChild( stats.dom );
-				//
+				
 
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
