@@ -96,8 +96,8 @@
 				}
 				renderer.render( scene, camera );
 				
-				//setting these variables below back to zero also brings the fps rate down to about 10!  Have to use an equation to set it to zero so that fbs is not affected!  If not set to zero, the GC noticeably halts the fps rate. 
-				var timer = Date.now() * 0.0;
+				//setting these variables below back to zero so that fbs is not affected!  If not set to zero, the GC noticeably halts the fps rate. 
+				var timer = 0.0;
 				camera.position.x = 0;
 				camera.position.z = 0;
 			}
