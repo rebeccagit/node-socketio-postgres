@@ -111,6 +111,9 @@
 					object.rotation.y = timer * 2.5;
 				}
 				renderer.render( scene, camera );
+				var timer = Date.now() * 0.0;
+				camera.position.x = 0.0;
+				camera.position.z = 0.0;
 			}
 			
 			init();
