@@ -59,7 +59,7 @@
 				scene.fog = new THREE.Fog( 0x000000, 1, 15000 );
 				scene.autoUpdate = false;
 				
-				var light = new THREE.PointLight( 0xff2200,7 );
+				var light = new THREE.PointLight( 0xffffff,7 );
 				light.position.set( 1, 0, 1 );
 				scene.add( light );
 				var light = new THREE.DirectionalLight( 0xffffff );
@@ -114,11 +114,6 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 			}
 			
-			function animate() {
-				requestAnimationFrame( animate );
-				render();
-			}
-			
 			function render() {
 				controls.update( clock.getDelta() );
 				scene.updateMatrixWorld();
@@ -130,10 +125,13 @@
 				renderer.render( scene, camera );
 			}
 			
-			
+			function animate() {
+				requestAnimationFrame( animate );
+				render();
+			}			
 						
-		init();
-		animate();
+			init();
+			animate();
 		
 		</script>
 
