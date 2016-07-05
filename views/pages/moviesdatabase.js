@@ -33,7 +33,7 @@ router.get('/', function(req, res) {
 		   
     var results = [];
     var i = 0;
-	var query = db.query("SELECT * FROM moviereviewz ORDER BY rating DESC");
+	var query = db.query("SELECT * FROM moviereviewz ORDER BY name ASC");
 
 	res.write("<ul>");
 		query.on('row', function(row) {
