@@ -33,9 +33,9 @@ router.get('/', function(req, res) {
 		   
     var results = [];
     var i = 0;
-	//var query = db.query("SELECT * FROM moviereviewz ORDER BY name ASC");
-	//practice query
-	var query = db.query("SELECT random();");
+	var query = db.query("SELECT * FROM moviereviewz ORDER BY name ASC");
+	//practice query - nope
+	//var query = db.query("SELECT random();");
 
 	res.write("<ul>");
 		query.on('row', function(row) {
