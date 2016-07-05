@@ -19,7 +19,7 @@ router.get('/', function(req, res) {
 	
 	
 	res.write("<div id='top'>")
-	res.write("<h1>My Movie Reviews.  No standards, only my opinion!" + "<br /></h1>");
+	res.write("<h1>My Movie Reviews.  No standards, only my opinion!  Alphabetical order." + "<br /></h1>");
 	res.write("<h2>Let me know if you want to add a review of your own!" + "<br /><br /><br /></h2>");
 	res.write("</div>");
 	res.write("<div id='rev'>");
@@ -27,7 +27,7 @@ router.get('/', function(req, res) {
 		   
     var results = [];
     var i = 0;
-	var query = db.query("SELECT name, rating, director, actors, video, review FROM moviereviewz ORDER BY name DESC");
+	var query = db.query("SELECT name, rating, director, actors, video, review FROM moviereviewz ORDER BY name ASC");
 
 	res.write("<ul>");
 		query.on('row', function(row) {
