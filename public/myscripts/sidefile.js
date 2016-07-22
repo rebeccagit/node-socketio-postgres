@@ -15,7 +15,7 @@ $(document).ready(function() {
 	
 
     function aClick() {
-               $("div").show().fadeOut("slow");
+               $("div").show().fadeIn("slow");
             };
 
 
