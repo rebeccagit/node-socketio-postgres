@@ -2,9 +2,9 @@
 $(document).ready(function() {
 
    $("div").click(function() {
-      alert("Hello, world!");
+      alert("Hello, world!").css("background-color", "yellow");
    });
    
-   $("div").css("background-color", "yellow");
+   //$("div")
 	
 });
