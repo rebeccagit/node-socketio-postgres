@@ -11,12 +11,19 @@ $(document).ready(function() {
             $(this).css({"background-color":"blue"});
         }
     );
+	
+	
+
+    function aClick() {
+               $("div").show().fadeOut("slow");
+            };
+
 
    $("div").click(function() {
 
 		//$("*").css("background-color", "white");  
-        alert("Hello, world!");
-	  
+        //alert("Hello, world!");
+	  $("div").on("click", aClick).text("Can Click!");
 	  
 	  
    });
