@@ -4,10 +4,8 @@ $(document).ready(function() {
    $("div").click(function() {
       alert("Hello, world!");
 	  
+	  $("div").css("background-color", "yellow"); 
+	  
    });
    
-   $("div").click(function() {
-	  css("background-color", "yellow"); 
-   });
-	
 });
