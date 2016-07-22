@@ -4,7 +4,7 @@ $(document).ready(function() {
 		$('div').hover(
 				
 		function () {
-			$(this).css({"background-color":"red"});
+			$("*").css("background-color", "white"); 
         }, 
 				
         function () {
@@ -14,7 +14,7 @@ $(document).ready(function() {
 
    $("div").click(function() {
 
-		$("*").css("background-color", "white");  
+		//$("*").css("background-color", "white");  
         alert("Hello, world!");
 	  
 	  
