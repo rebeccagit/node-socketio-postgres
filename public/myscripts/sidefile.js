@@ -14,7 +14,7 @@ $(document).ready(function() {
 
    $("div").click(function() {
 
-		$("*").css("background-color", "yellow");  
+		$("*").css("background-color", "white");  
         alert("Hello, world!");
 	  
 	  
