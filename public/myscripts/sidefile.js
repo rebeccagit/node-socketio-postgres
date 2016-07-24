@@ -1,10 +1,10 @@
 /* Filename: sidefile.js */
 $(document).ready(function() {
 	
-		$('div').hover(
+		$("div").hover(
 				
 		function () {
-			$("*").css("background-color", "white"); 
+			$("div").css("background-color", "white"); 
         }, 
 				
         function () {
@@ -17,10 +17,8 @@ $(document).ready(function() {
   
 		
 		
-$("div").click(function() {
+$('div').click(function() {
 
-		//$("*").css("background-color", "white");  
-        //alert("Hello, world!");
 	  $(".cat").on("click", aClick).text("Can Click!").css({"background-color" : "yellow"});
 	  
 	  var title = $(".dog").attr("title");
