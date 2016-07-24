@@ -35,7 +35,7 @@ $(document).ready(function() {
    
    $("#driver").click(function(event){
                //$('#box6').load('/myscripts/sidefile.js');
-			   $('#box6').load('/myscripts/practice.json');
+			   $('#box6').getJSON('/myscripts/practice.json');
             });
 
 });
