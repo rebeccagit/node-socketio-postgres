@@ -1,9 +1,15 @@
 /* Filename: sidefile.js */
 $(document).ready(function() {
 	
-	$('p').click(function () {
-		$(this).hide();
-	});
-	
+		$('div').hover(
+				
+		function () {
+			$("*").css("background-color", "blue"); 
+        }, 
+				
+        function () {
+            $(this).css({"background-color":"white"});
+        }
+		);
 	
 });
