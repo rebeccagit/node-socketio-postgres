@@ -16,16 +16,14 @@ $(document).ready(function() {
        $("p").css("background-color", "yellow");
   
 		
-		
-$('div').click(function() {
+
 
 	  $(".cat").on("click", aClick).text("Can Click!").css({"background-color" : "yellow"});
 	  
 	  var title = $(".dog").attr("title");
-	  $("#box4").text(title);
+	  $("#box5").text(title);
 	  
 	  $("#mydiv").addClass("highlight");
 	  
-	   });
-	
+	   
 });
