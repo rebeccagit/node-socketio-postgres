@@ -10,7 +10,7 @@ $(document).ready(function() {
         function () {
             $(this).css({"background-color":"blue"});
         }
-    );
+		);
 	
 	
 
@@ -24,8 +24,6 @@ $(document).ready(function() {
 		//$("*").css("background-color", "white");  
         //alert("Hello, world!");
 	  $("div").on("click", aClick).text("Can Click!");
-	  
-	  
    });
    
 });
