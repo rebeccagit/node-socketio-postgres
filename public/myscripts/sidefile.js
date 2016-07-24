@@ -1,7 +1,7 @@
 /* Filename: sidefile.js */
 $(document).ready(function() {
 	
-		$(.cat).css("background-color", "yellow");
+		$('.cat').css("background-color", "yellow");
 	
 		$('div').hover(
 				
