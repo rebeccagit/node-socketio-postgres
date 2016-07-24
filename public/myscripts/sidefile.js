@@ -12,4 +12,15 @@ $(document).ready(function() {
         }
 		);
 			   
+		function aClick() {
+            $("div").show().fadeIn("slow");
+        };
+		
+		$("div").click(function() {
+
+		$(".cat").on("click", aClick).text("Can Click!").css({"background-color" : "yellow"});
+
+	   });
+			   
+	
 });
