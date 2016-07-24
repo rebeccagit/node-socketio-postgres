@@ -26,16 +26,22 @@ $(document).ready(function() {
 		
 		$("div").click(function() {
 
-		$(".cat").on("click", aClick).text("Can Click!").css({"background-color" : "yellow"});
+			$(".cat").on("click", aClick).text("Can Click!").css({"background-color" : "yellow"});
 
 		});
 	   
 	   
 	   	$('p').click(function () {
 			
-		$(this).hide();
+			$(this).hide();
 		
 		});
 			   
+			   
+		$("#driver").click(function(event){
+        
+			$('#box6').load('/myscripts/sidefile.js');
+        
+		});
 	
 });
