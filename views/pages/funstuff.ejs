@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>Practicing My JQuery</title>
-  <% include ../partials/header.ejs %>
-  <link rel="stylesheet" type="text/css" href="stylesheets/star.css">
-<script src="myscripts/star.js"></script>
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -13,14 +12,15 @@
 
   ga('create', 'UA-33109920-1', 'auto');
   ga('send', 'pageview');
-
 </script>
 
-<script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script type = "text/javascript" src = "/myscripts/sidefile.js"></script>
+<script src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
+<script src = "/myscripts/sidefile.js"></script>
 
-</head>
+<script src="myscripts/star.js"></script>
+
+<link rel="stylesheet" type="text/css" href="stylesheets/star.css">
 
 <style>
 div { 
@@ -35,35 +35,69 @@ div {
 	
 </style>
 
+</head>
 <body>
 
-  <% include ../partials/nav.ejs %>
-
   
-  <div id="container" style="background-color:#fff;">
+<div id="container" style="background-color:#fff;">
  
   
-  <div id = "mydiv">
-         Doing "whatever" with this page because that's what I want to do.
-  </div>
+<div id = "mydiv">
+	Doing "whatever" with this page because that's what I want to do.
+</div>
 
-  <div id="header"><h1>Quiz</h1></div>
+<br /><br /><br />
+
+<div id="header">
+	<h1>Quiz</h1>
+</div>
   
+<br /><br /><br />
   
-<div id="box1" class="dog" title="whodunit"><p>Hey how are you!?</p></div>
+<div id="box1" class="dog" title="whodunit">
+	<p>Hey how are you!?</p>
+</div>
  
- 
-<div id="box2"><h1>This is stuff I'm putting in box 2!</h1></div>
+<br /><br /><br />
 
-<div id="box3">This is box three text and it means nothing.</div>
+<div id="box2">
+	<h1>This is stuff I'm putting in box 2!</h1>
+</div>
 
-<div id="box4" class="cat">I'm putting box four text in hear and it should mean something to someone!</div>
+<br /><br /><br />
 
-<div id="box5">Here's text for box five just because.</div>
+<div id="box3">
+	This is box three text and it means nothing.
+</div>
 
-<div id="box6">Stage</div>
- 
+<br /><br /><br />
+
+<div id="box4" class="cat">
+	I'm putting box four text in hear and it should mean something to someone!
+</div>
+
+<br /><br /><br />
+
+<div id="box5">
+	Here's text for box five just because.
+</div>
+
+<br /><br /><br />
+
+<div id="box6">
+	Stage
+</div>
+
+<br /><br /><br />
+
 <input type = "button" id = "driver" value = "Load Data" />
+
+<br /><br /><br />
+
+<p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
+
  
   
 </div>
