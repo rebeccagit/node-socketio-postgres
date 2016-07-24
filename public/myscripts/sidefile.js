@@ -29,7 +29,7 @@ $(document).ready(function() {
 	  var title = $(".dog").attr("title");
 	  $("#box4").text(title);
 	  
-	   $("#mydiv").addClass("highlight");
+	  $("#mydiv").addClass("highlight");
 	  
    });
    
