@@ -13,7 +13,7 @@ $(document).ready(function() {
 		$("div").hover(
 				
 		function () {
-			$("div").css("background-color", "white"); 
+			$(this).css("background-color" : "blue"); 
         }, 
 				
         function () {
