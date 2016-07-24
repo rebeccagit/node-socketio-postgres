@@ -1,6 +1,15 @@
 /* Filename: sidefile.js */
 $(document).ready(function() {
 	
+		$("p").css("background-color", "yellow");
+	   
+	    $("#mydiv").addClass("highlight");
+  
+		$(".cat").on("click", aClick).text("Can Click!").css({"background-color" : "yellow"});
+	  
+		var title = $(".dog").attr("title");
+		$("#box5").text(title);
+	
 		$("div").hover(
 				
 		function () {
@@ -11,19 +20,5 @@ $(document).ready(function() {
             $(this).css({"background-color":"blue"});
         }
 		);
-		
-
-       $("p").css("background-color", "yellow");
-  
-		
-
-
-	  $(".cat").on("click", aClick).text("Can Click!").css({"background-color" : "yellow"});
-	  
-	  var title = $(".dog").attr("title");
-	  $("#box5").text(title);
-	  
-	  $("#mydiv").addClass("highlight");
-	  
-	   
+			   
 });
