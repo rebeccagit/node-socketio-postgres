@@ -5,11 +5,11 @@ $(document).ready(function() {
 		$('div').hover(
 				
 		function () {
-			$("*").css("background-color", "white"); 
+			$("*").css("background-color", "blue"); 
         }, 
 				
         function () {
-            $(this).css({"background-color":"blue"});
+            $(this).css({"background-color":"white"});
         }
 		);
 	
@@ -41,6 +41,7 @@ $(document).ready(function() {
 				//	);
 			  // );
             });
+			
 	$('p').click(function () {
 		$(this).hide();
 	});
