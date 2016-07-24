@@ -7,8 +7,6 @@ $(document).ready(function() {
   
 		$(".cat").on("click", aClick).text("Can Click!").css({"background-color" : "yellow"});
 	  
-		var title = $(".dog").attr("title");
-		$("#box5").text(title);
 	
 		$("div").hover(
 				
