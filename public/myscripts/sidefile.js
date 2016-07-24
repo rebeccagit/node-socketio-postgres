@@ -1,7 +1,6 @@
 /* Filename: sidefile.js */
 $(document).ready(function() {
 	
-		$('.cat').css({"background-color" : "yellow"});
 	
 		$('div').hover(
 				
@@ -25,7 +24,7 @@ $(document).ready(function() {
 
 		//$("*").css("background-color", "white");  
         //alert("Hello, world!");
-	  $("div").on("click", aClick).text("Can Click!");
+	  $(".cat").on("click", aClick).text("Can Click!").css({"background-color" : "yellow"});
    });
    
 });
