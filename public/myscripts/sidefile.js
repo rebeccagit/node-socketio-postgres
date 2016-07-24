@@ -35,7 +35,11 @@ $(document).ready(function() {
    
    $("#driver").click(function(event){
                //$('#box6').load('/myscripts/sidefile.js');
-			   $('#box6').getJSON('/myscripts/practice.json');
+			   $getJSON('/myscripts/practice.json', function (resp)
+					$.each(resp, function (key, value)
+					alert(key + " : " + value);
+					);
+			   );
             });
 
 });
