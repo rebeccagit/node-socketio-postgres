@@ -1,6 +1,8 @@
 /* Filename: sidefile.js */
 $(document).ready(function() {
 	
+		$(.cat).css("background-color", "yellow");
+	
 		$('div').hover(
 				
 		function () {
