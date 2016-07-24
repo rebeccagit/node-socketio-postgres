@@ -1,6 +1,11 @@
 /* Filename: sidefile.js */
 $(document).ready(function() {
 
+		var title = $(".dog").attr("title");
+	    $("#box5").text(title);
+	  
+	    $("#mydiv").addClass("highlight");
+
 		$('div').hover(
 				
 		function () {
