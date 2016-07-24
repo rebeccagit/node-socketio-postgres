@@ -34,12 +34,12 @@ $(document).ready(function() {
    });
    
    $("#driver").click(function(event){
-               //$('#box6').load('/myscripts/sidefile.js');
-			   $getJSON('/myscripts/practice.json', function (resp)
-					$.each(resp, function (key, value)
-					alert(key + " : " + value);
-					);
-			   );
+               $('#box6').load('/myscripts/sidefile.js');
+			   //$getJSON('/myscripts/practice.json', function (resp)
+			   // 	$.each(resp, function ( key, value )
+			   //	alert( key + " : " + value );
+				//	);
+			  // );
             });
 
 });
