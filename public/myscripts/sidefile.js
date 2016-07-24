@@ -4,13 +4,18 @@ $(document).ready(function() {
 		$('div').hover(
 				
 		function () {
-			$("*").css("background-color", "blue"); 
+			$("*").css("background-color", "white"); 
         }, 
 				
         function () {
-            $(this).css({"background-color":"white"});
+            $(this).css({"background-color":"blue"});
         }
 		);
+		
+
+       $("p").css("background-color", "yellow");
+  
+		
 		
 $("div").click(function() {
 
