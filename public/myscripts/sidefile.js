@@ -45,10 +45,10 @@ $(document).ready(function() {
 
             $("#driver").click(function(event){
 				
-               $.getJSON('/myscripts/practice.json', function(jd) {
-                  $('#stage').html('<p> Name: ' + jd.name + '</p>');
-                  $('#stage').append('<p>Age : ' + jd.age+ '</p>');
-                  $('#stage').append('<p> Sex: ' + jd.sex+ '</p>');
+               $.getJSON('/myscripts/practice.json', function(anyword) {
+                  $('#stage').html('<p> Name: ' + anyword.name + '</p>');
+                  $('#stage').append('<p>Age : ' + anyword.age+ '</p>');
+                  $('#stage').append('<p> Sex: ' + anyword.sex+ '</p>');
                });
 					
             });
