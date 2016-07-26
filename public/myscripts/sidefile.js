@@ -38,10 +38,19 @@ $(document).ready(function() {
 		});
 			   
 			   
-		$("#driver").click(function(event){
-        
-			$('#box6').load('/myscripts/sidefile.js');
-        
-		});
+//		$("#driver").click(function(event){
+//        
+//			$('#box6').load('/myscripts/sidefile.js');
+//		});
+
+            $("#driver").click(function(event){
+				
+               $.getJSON('/myscripts/practice.json', function(jd) {
+                  $('#stage').html('<p> Name: ' + jd.name + '</p>');
+                  $('#stage').append('<p>Age : ' + jd.age+ '</p>');
+                  $('#stage').append('<p> Sex: ' + jd.sex+ '</p>');
+               });
+					
+            });
 	
 });
