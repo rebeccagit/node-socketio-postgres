@@ -22,6 +22,8 @@ li {list-style-type:none;}
 	}
 	.navbar {
 	background-color:#8B1C18;
+	padding: 0px;
+	margin: 0px;
 	}
  /* .jumbotron .lang-logo {
 	color: #ffffff;
