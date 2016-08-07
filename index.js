@@ -140,6 +140,11 @@ app.get('/funstuff', function(request, response) {
   response.render('pages/funstuff');
 });
 
+app.get('/prac', function(request, response) {
+  response.render('pages/prac');
+});
+
+
 
 
 // Chatroom via socket.io ... future plans --> move to seperate file
