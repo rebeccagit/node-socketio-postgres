@@ -36,6 +36,10 @@ div {
 
 </head>
 <body ng-app="formExample">
+ <% include ../partials/nav.ejs %>
+  
+<div id="container" style="background-color:#fff;">
+
   <div ng-controller="ExampleController">
   <form novalidate class="simple-form">
     Name: <input type="text" ng-model="user.name" /><br />
