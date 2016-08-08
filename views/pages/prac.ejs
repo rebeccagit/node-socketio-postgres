@@ -2,10 +2,10 @@
 <html>
 <head>
 
-
+ <meta charset="UTF-8">
 <% include ../partials/header.ejs %>
 <link rel="stylesheet" type="text/css" href="stylesheets/star.css">
-
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/undefined/angular.min.js"></script>
 
 <style>
 	
@@ -35,7 +35,7 @@ div {
 </style>
 
 </head>
-<body>
+<body ng-app="form">
  <% include ../partials/nav.ejs %>
   
 <div id="container" style="background-color:#fff;">
@@ -45,7 +45,9 @@ div {
 <div class="col-sm-8">
 <h3>The contact form!</h3>
 
-<form id="contact" method="post" action="">
+
+<div ng-controller="ExampleController">
+<form id="contact" method="post" action="" novalidate class="simple-form">
 
 	<div>
 		<label for="contact_name">Name:</label>
@@ -80,7 +82,10 @@ div {
 	<div id="contact_submit">				
 		<button type="submit">Submit</button>
 	
-</form>
+	</form>
+	</div>
+
+<div ng-controller="ExampleController">
 </div></div>
   <br /><br /><br />
 </div>
