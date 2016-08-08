@@ -82,9 +82,27 @@ div {
 	<div id="contact_submit">				
 		<button type="submit">Submit</button>
 	<input type="button" ng-click="reset()" value="Reset" />
-	</form>
 	</div>
 
+<form>
+  <pre>user = {{user | json}}</pre>
+  <pre>master = {{master | json}}</pre>
+</div>
+<script>
+  angular.module('formExample', [])
+    .controller('ExampleController', ['$scope', function($scope) {
+      $scope.master = {};
+
+      $scope.update = function(user) {
+        $scope.master = angular.copy(user);
+      };
+
+      $scope.reset = function() {
+        $scope.user = angular.copy($scope.master);
+      };
+
+      $scope.reset();
+    }]);
 </div></div>
   <br /><br /><br />
 </div>
