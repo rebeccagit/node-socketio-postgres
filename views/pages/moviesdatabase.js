@@ -31,7 +31,7 @@ router.get('/', function(req, res) {
 	res.write("<div id='rev'>");
 		   
 		   
-    var results = [];
+ //   var results = [];
     var i = 0;
 	var query = db.query("SELECT * FROM moviereviewz ORDER BY name ASC");
 	//practice query - nope
@@ -39,7 +39,7 @@ router.get('/', function(req, res) {
 
 	res.write("<ul>");
 		query.on('row', function(row) {
-			console.log(row.name);
+			//console.log(row.name);
 			i++;
 			res.write("<li style='list-style-type:none;'>");
 			res.write("<h3 style='color:#4d004d;'>" + String(row.name) + "&nbsp;&nbsp;=>&nbsp;&nbsp;" + String(row.rating) + "<span class='glyphicon glyphicon-star-empty'></span></h3><br />");
