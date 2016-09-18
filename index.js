@@ -14,14 +14,6 @@ var pg = require('pg');
 // security
 var helmet = require('helmet'); 
 
-
-var jf = require('jsonfile');
-			
-			var file = 'myscripts/jgrid/js/data.json';
- 
-			console.dir(jsonfile.readFileSync(file));
-
-
 // Security 
 app.disable('x-powered-by');
 app.use(helmet());
