@@ -119,6 +119,11 @@ app.get('/animations10', function(request, response) {
   response.render('pages/animations10');
 });
 
+// practice grid page
+app.get('/data.json', function(request, response) {
+  response.render('myscripts\jgrid\js\data.json');
+});
+
 // practice animation page
 app.get('/og7', function(request, response) {
   response.render('pages/og7');
