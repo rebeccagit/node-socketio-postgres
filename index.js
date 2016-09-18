@@ -15,6 +15,8 @@ var pg = require('pg');
 var helmet = require('helmet'); 
 
 
+var jf = require('jsonfile');
+
 
 // Security 
 app.disable('x-powered-by');
@@ -120,9 +122,9 @@ app.get('/animations10', function(request, response) {
 });
 
 // practice grid page
-app.get('/data.json', function(request, response) {
-  response.render('myscripts\jgrid\js\data.json');
-});
+//app.get('/data.json', function(request, response) {
+// response.render('myscripts\jgrid\js\data.json');
+//});
 
 // practice animation page
 app.get('/og7', function(request, response) {

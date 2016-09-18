@@ -34,8 +34,11 @@ TEST
     <script type="text/javascript"> 
     
         $(document).ready(function () {
+		
+			var obj = jf.readFileSync('myscripts/jgrid/js/data.json');
+			
             $("#jqGrid").jqGrid({
-                url: 'data.json',
+                url: obj,
                 mtype: "GET",
                 datatype: "json",
                 page: 1,
