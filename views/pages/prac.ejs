@@ -36,12 +36,16 @@ TEST
         $(document).ready(function () {
 
             $("#jqGrid").jqGrid({
-                url: 'https://www.reddit.com/r/worldnews.json',
+                url: '/myscripts/jgrid/js/data.json',
                 mtype: "GET",
                 datatype: "json",
                 page: 1,
                 colModel: [
-                    { Kind: 'Listing', width: 150 }
+                    { label: 'ID', name: 'CustomerID', key: true, width: 75 },
+                    { label: 'Company Name', name: 'CompanyName', width: 150 },
+                    { label: 'Contact Name', name: 'ContactName', width: 150 },
+                    { label: 'Phone', name: 'Phone', width: 150 },
+                    { label: 'City', name: 'City', width: 150 }
                 ],
 				loadonce: true,
                 width: 780,
