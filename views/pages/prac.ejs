@@ -65,29 +65,29 @@ TEST
 
 			
             // send the parent row primary key to the server so that we know which grid to show
-            var childGridURL = parentRowKey+'/myscripts/jgrid/js/child3.json';
+            var childGridURL = parentRowKey+".json";
 
             // add a table and pager HTML elements to the parent grid row - we will render the child grid here
             $('#' + parentRowID).append('<table id=' + childGridID + '></table><div id=' + childGridPagerID + ' class=scroll></div>');
 
             $("#" + childGridID).jqGrid({
-                url: childGridURL,
-                mtype: "GET",
-                datatype: "json",
-                page: 1,
-                colModel: [
-                    { label: 'Order ID', name: 'OrderID', key: true, width: 75 },
-                    { label: 'Required Date', name: 'RequiredDate', width: 100 },
-                    { label: 'Ship Name', name: 'ShipName', width: 100 },
-                    { label: 'Ship City', name: 'ShipCity', width: 100 },
-                    { label: 'Freight', name: 'Freight', width: 75 }
-                ],
-				loadonce: true,
-                width: '600',
-                height: '150',
-                subGrid: true, // set the subGrid property to true to show expand buttons for each row
+                url:		'/myscripts/jgrid/js/child3.json',
+                mtype:		"GET",
+                datatype: 	"json",
+                page: 		1,
+                colModel: 	[
+							{ label: 'Order ID', name: 'OrderID', key: true, width: 75 },
+							{ label: 'Required Date', name: 'RequiredDate', width: 100 },
+							{ label: 'Ship Name', name: 'ShipName', width: 100 },
+							{ label: 'Ship City', name: 'ShipCity', width: 100 },
+							{ label: 'Freight', name: 'Freight', width: 75 }
+							],
+				loadonce: 	true,
+                width: 		'600',
+                height: 	'150',
+                subGrid: 	true, // set the subGrid property to true to show expand buttons for each row
                 subGridRowExpanded: showThirdLevelChildGrid, // javascript function that will take care of showing the child grid
-                pager: "#" + childGridPagerID
+                pager: 		"#" + childGridPagerID
             });
 
         }
