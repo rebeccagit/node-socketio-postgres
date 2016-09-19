@@ -83,8 +83,8 @@ TEST
 							{ label: 'Freight', name: 'Freight', width: 75 }
 							],
 				loadonce: 	true,
-                width: 		'600',
-                height: 	'150',
+                width: 		'700',
+                height: 	'50',
                 subGrid: 	true, // set the subGrid property to true to show expand buttons for each row
                 subGridRowExpanded: showThirdLevelChildGrid, // javascript function that will take care of showing the child grid
                 pager: 		"#" + childGridPagerID
@@ -116,7 +116,7 @@ TEST
 					{ 
 						label: 'Total', 
 						name: 'Total', 
-						width: 100, 
+						width: 500, 
 						sortable:false, 
 						formatter: function( cellValue, options, row) {   // custom calculations at client side
 							return parseFloat(row.Quantity)*parseFloat(row.UnitPrice);
