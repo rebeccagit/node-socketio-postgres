@@ -63,8 +63,9 @@ TEST
             var childGridID = parentRowID + "_table";
             var childGridPagerID = parentRowID + "_pager";
 
+			
             // send the parent row primary key to the server so that we know which grid to show
-            var childGridURL = parentRowKey+".json";
+            var childGridURL = parentRowKey+'/myscripts/jgrid/js/child3.json';
 
             // add a table and pager HTML elements to the parent grid row - we will render the child grid here
             $('#' + parentRowID).append('<table id=' + childGridID + '></table><div id=' + childGridPagerID + ' class=scroll></div>');
