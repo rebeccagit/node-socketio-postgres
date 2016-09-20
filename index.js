@@ -74,10 +74,12 @@ app.get('/makingsite', function(request, response) {
 app.get('/chat', function(request, response) {
   response.render('pages/chat');
 });
+
 // movie review database page
-app.get('/moviereviews', function(request, response) {
-  response.render('pages/moviereviews');
-});
+//app.get('/moviereviews', function(request, response) {
+//  response.render('pages/moviereviews');
+//});
+
 // practice animation page
 app.get('/animations', function(request, response) {
   response.render('pages/animations');
