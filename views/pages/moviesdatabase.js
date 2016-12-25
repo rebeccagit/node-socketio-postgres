@@ -25,7 +25,7 @@ router.get('/', function(req, res) {
 	
 	
 	res.write("<div id='top'>")
-	res.write("<h1>My Movie Reviews.  No standards, just my opinion!  Alphabetical order." + "<br /></h1>");
+	res.write("<h1>My Movie Reviews.  These opinions are soley mine and based on whatever comes to mind as I watch the film.  Movies are listed in alphabetical order." + "<br /></h1>");
 	res.write("</div>");
 	res.write("<div id='rev'>");
 		   
