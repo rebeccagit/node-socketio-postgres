@@ -48,8 +48,8 @@ router.get('/', function(req, res) {
 			res.write("My Review: <br /><br />" + String(row.review) + "<br /><br />");
 			res.write("<div class='embed-responsive embed-responsive-16by9'>")
 			res.write("<iframe class='embed-responsive-item' src='https://www.youtube.com/embed/" + String(row.video) + "' allowfullscreen></iframe>");
-			res.write("<br /><br /><br /><br />");
 			res.write("</div>")
+			res.write("<br /><br /><br /><br />");			
 			res.write("</li>");
 			//res.end(); using this would be redundant and extra work ;p
 		});		
