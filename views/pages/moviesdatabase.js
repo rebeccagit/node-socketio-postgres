@@ -25,22 +25,17 @@ router.get('/', function(req, res) {
 	
 	
 	res.write("<div id='top'>")
-	res.write("<h1>My Movie Reviews.  No standards, only my opinion!  Alphabetical order." + "<br /></h1>");
-	res.write("<h2>Let me know if you want to add a review of your own!" + "<br /><br /><br /></h2>");
+	res.write("<h1>My Movie Reviews.  No standards, just my opinion!  Alphabetical order." + "<br /></h1>");
 	res.write("</div>");
 	res.write("<div id='rev'>");
 		   
-		   
- //   var results = [];
     var i = 0;
 	var query = db.query("SELECT * FROM moviereviewz ORDER BY name ASC");
-	//practice query - nope
-	//var query = db.query("SELECT random();");
 
 	res.write("<ul>");
 		query.on('row', function(row) {
 			//console.log(row.name);
-			i++;
+			//i++;
 			res.write("<li style='list-style-type:none;'>");
 			res.write("<h3 style='color:#4d004d;'>" + String(row.name) + "&nbsp;&nbsp;=>&nbsp;&nbsp;" + String(row.rating) + "<span class='glyphicon glyphicon-star-empty'></span></h3><br />");
 			res.write("Directed By: " + String(row.director) + "<br /><br />");
