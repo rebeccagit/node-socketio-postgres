@@ -35,7 +35,7 @@ router.get('/', function(req, res) {
 	res.write("<ul>");
 		query.on('row', function(row) {
 			//console.log(row.name);
-			//i++;
+			i++; //provide number for total below
 			res.write("<li style='list-style-type:none;'>");
 			res.write("<h3 style='color:#4d004d;'>" + String(row.name) + "&nbsp;&nbsp;=>&nbsp;&nbsp;" + String(row.rating) + "<span class='glyphicon glyphicon-star-empty'></span></h3><br />");
 			res.write("Directed By: " + String(row.director) + "<br /><br />");
