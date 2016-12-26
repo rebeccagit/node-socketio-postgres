@@ -46,7 +46,7 @@ TEST
 	<br /><br />
 	<a href="https://yahoo.com">Yahoo</a>
 	<br /><br />
-	<textarea style="width:500px;height:50px;"></textarea>
+	<textarea id="text" style="width:500px;height:50px;"></textarea>
 </div>
 
     <script type="text/javascript"> 
@@ -78,7 +78,7 @@ TEST
 	}
 	
 	document.querySelector('a').addEventListener('click',linkClick);
-	document.querySelector('textarea').addEventListener('keydown',keyPress);
+	document.querySelector('#text').addEventListener('keydown',keyPress);
 	document.querySelector('form').addEventListener('submit',formSubmit);
 	document.querySelector('#box').addEventListener('dragover', boxDrag);
 	document.querySelector('#box').addEventListener('drop', boxDrop);
