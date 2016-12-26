@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
      <!-- The jQuery library is a prerequisite for all jqSuite products -->
@@ -46,8 +45,10 @@ TEST
 	<br /><br />
 	<a href="https://yahoo.com">Yahoo</a>
 	<br /><br />
-	<textarea id="text" style="width:500px;height:50px;"></textarea>
+	<textarea id="texta" style="width:500px;height:50px;"></textarea>
 </div>
+
+</body>
 
     <script type="text/javascript"> 
 	//prevent default practice 
@@ -64,7 +65,7 @@ TEST
 	}
 	
 	function formSubmit(event){
-		//event.preventDefault();
+		event.preventDefault();
 	}
 	
 	function boxDrag(event){
@@ -78,7 +79,7 @@ TEST
 	}
 	
 	document.querySelector('a').addEventListener('click',linkClick);
-	document.getElementById('#text').addEventListener('keydown',keyPress);
+	document.getElementById('#texta').addEventListener('keydown',keyPress);
 	document.querySelector('form').addEventListener('submit',formSubmit);
 	document.querySelector('#box').addEventListener('dragover', boxDrag);
 	document.querySelector('#box').addEventListener('drop', boxDrop);
@@ -186,5 +187,5 @@ TEST
     </script>
 
     
-</body>
+
 </html>
