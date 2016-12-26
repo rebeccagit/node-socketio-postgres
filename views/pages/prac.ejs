@@ -56,7 +56,7 @@ TEST
 	}
 	
 	function linkClick(event){
-		event.preventDefault();
+		//event.preventDefault();
 	}
 	
 	function boxClick(event) {
@@ -64,11 +64,11 @@ TEST
 	}
 	
 	function formSubmit(event){
-		event.preventDefault();
+		//event.preventDefault();
 	}
 	
 	function boxDrag(event){
-		event.preventDefault();
+		//event.preventDefault();
 	}
 	
 	function keyPress(event){
@@ -78,7 +78,7 @@ TEST
 	}
 	
 	document.querySelector('a').addEventListener('click',linkClick);
-	document.querySelector('#text').addEventListener('keydown',keyPress);
+	document.getElementById('#text').addEventListener('keydown',keyPress);
 	document.querySelector('form').addEventListener('submit',formSubmit);
 	document.querySelector('#box').addEventListener('dragover', boxDrag);
 	document.querySelector('#box').addEventListener('drop', boxDrop);
