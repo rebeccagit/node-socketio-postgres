@@ -32,8 +32,9 @@ TEST
     <div id="jqGridPager"></div>
 </div>
 	<br /><br /><br /><br />
-	Additional Practice with preventdefault();
-<div>
+
+<div style="margin:25px;">
+	<p>Additional Practice with preventdefault();</p>
 	<form style="width:500px;height:50px;">
 		<input type="text" name="name" />
 		<input type="submit" />
@@ -46,10 +47,44 @@ TEST
 	<a href="https://yahoo.com">Yahoo</a>
 	<br /><br />
 	<textarea style="width:500px;height:50px;"></textarea>
-		
+</div>
 
     <script type="text/javascript"> 
-    
+	//prevent default practice 
+	function boxDrop(event) {
+		this.appendChild(docment.querySelector('#dragger'));
+	}
+	
+	function linkClick(event){
+		event.preventDefault();
+	}
+	
+	function boxClick(event) {
+		console.log('box click');
+	}
+	
+	function formSubmit(event){
+		event.preventDefault();
+	}
+	
+	function boxDrag(event){
+		event.preventDefault();
+	}
+	
+	function keyPress(event){
+		if (event.which <48 || event.which >57) {
+			event.preventDefaut();
+		}
+	}
+	
+	document.querySelector('a').addEventListener('click',linkClick);
+	document.querySelector('textarea').addEventListener('keydown',keyPress);
+	document.querySelector('form').addEventListener('submit',formSubmit);
+	document.querySelector('#box').addEventListener('dragover', boxDrag);
+	document.querySelector('#box').addEventListener('drop', boxDrop);
+	
+	
+    //jqgrid practice
         $(document).ready(function () {
 
             $("#jqGrid").jqGrid({
