@@ -126,7 +126,7 @@
 				container = document.getElementById( 'container' );
 
 				camera = new THREE.PerspectiveCamera( 50, windowHalfX / windowHalfY, 0.1, 3000 );
-				camera.position.x = 5;
+				camera.position.z = 5;
 
 				scene = new THREE.Scene();
 				//camera = new THREE.PerspectiveCamera( 50, window.innerWidth/window.innerHeight, 1, 500 );
@@ -214,7 +214,12 @@
 
 				uniforms.time.value += 0.2 * delta;
 
-				supersun.rotation.y -= 0.05 * delta;
+				
+				camera.position.x = Math.cos( timer ) * 1300;
+				camera.position.z = Math.sin( timer ) * 1300;
+				camera.lookAt( scene.position );
+				
+				//supersun.rotation.y -= 0.05 * delta;
 				//supersun.rotation.x += 0.05 * delta;
 
 				renderer.clear();
