@@ -125,12 +125,12 @@
 
 				container = document.getElementById( 'container' );
 
-				//camera = new THREE.PerspectiveCamera( 35, windowHalfX / windowHalfY, 1, 3000 );
-				//camera.position.z = 4;
+				camera = new THREE.PerspectiveCamera( 35, windowHalfX / windowHalfY, 1, 3000 );
+				camera.position.z = 4;
 
 				scene = new THREE.Scene();
-				camera = new THREE.PerspectiveCamera( 50, window.innerWidth/window.innerHeight, 1, 500 );
-				camera.position.y = 200;
+				//camera = new THREE.PerspectiveCamera( 50, window.innerWidth/window.innerHeight, 1, 500 );
+				//camera.position.y = 200;
 
 				var textureLoader = new THREE.TextureLoader();
 
