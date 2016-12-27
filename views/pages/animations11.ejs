@@ -160,23 +160,16 @@
 				} );
 
 				mesh = new THREE.Mesh( new THREE.SphereGeometry( 1, 50, 50 ), material );
-				mesh.rotation.y = 1;
+				mesh.rotation.x = 1;
 				mesh.position.set( 0, 0, 0 );
 				scene.add( mesh );
 
-				//
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				container.appendChild( renderer.domElement );
 				renderer.autoClear = false;
 
-				//
-
-				//stats = new Stats();
-				//container.appendChild( stats.dom );
-
-				//
 
 				var renderModel = new THREE.RenderPass( scene, camera );
 				var effectBloom = new THREE.BloomPass( 1.25 );
