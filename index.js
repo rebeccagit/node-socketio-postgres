@@ -118,6 +118,10 @@ app.get('/animations9', function(request, response) {
 app.get('/animations10', function(request, response) {
   response.render('pages/animations10');
 });
+app.get('/animations11', function(request, response) {
+  response.render('pages/animations11');
+});
+
 
 // practice grid page
 //app.get('/data.json', function(request, response) {
