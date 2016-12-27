@@ -159,10 +159,10 @@
 
 				} );
 
-				mesh = new THREE.Mesh( new THREE.SphereGeometry( 1, 50, 50 ), material );
-				mesh.rotation.x = 1;
-				mesh.position.set( 0, 0, 0 );
-				scene.add( mesh );
+				supersun = new THREE.Mesh( new THREE.SphereGeometry( 1, 50, 50 ), material );
+				supersun.rotation.x = 1;
+				supersun.position.set( 0, 0, 0 );
+				scene.add( supersun );
 
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
@@ -222,8 +222,8 @@
 
 				uniforms.time.value += 0.2 * delta;
 
-				mesh.rotation.y += 0.0125 * delta;
-				mesh.rotation.x += 0.05 * delta;
+				supersun.rotation.y += 0.0125 * delta;
+				supersun.rotation.x += 0.05 * delta;
 
 				renderer.clear();
 				composer.render( 0.01 );
