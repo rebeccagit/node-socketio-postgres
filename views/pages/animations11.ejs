@@ -126,7 +126,7 @@
 				container = document.getElementById( 'container' );
 
 				camera = new THREE.PerspectiveCamera( 35, windowHalfX / windowHalfY, 1, 3000 );
-				camera.position.z = 4;
+				camera.position.z = 50;
 
 				scene = new THREE.Scene();
 				//camera = new THREE.PerspectiveCamera( 50, window.innerWidth/window.innerHeight, 1, 500 );
@@ -159,7 +159,7 @@
 
 				} );
 
-				mesh = new THREE.Mesh( new THREE.SphereGeometry( 2, 5, 1 ), material );
+				mesh = new THREE.Mesh( new THREE.SphereGeometry( 2, 50, 1 ), material );
 				mesh.rotation.x = 0.6;
 				mesh.position.set( 0, 0, 0 );
 				scene.add( mesh );
