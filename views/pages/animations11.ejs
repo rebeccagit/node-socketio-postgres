@@ -107,7 +107,7 @@
 
 			var camera, scene, renderer, composer;
 
-			var uniforms, material, mesh;
+			var uniforms, material, supersun;
 
 			var mouseX = 0, mouseY = 0,
 			lat = 0, lon = 0, phy = 0, theta = 0;
@@ -222,7 +222,7 @@
 
 				uniforms.time.value += 0.2 * delta;
 
-				supersun.rotation.y += 1.0 * delta;
+				supersun.rotation.y += 0.5 * delta;
 				//supersun.rotation.x += 0.05 * delta;
 
 				renderer.clear();
