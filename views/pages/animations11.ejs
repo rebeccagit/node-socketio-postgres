@@ -135,7 +135,7 @@
 				var textureLoader = new THREE.TextureLoader();
 
 				uniforms = {
-					fogDensity: { value: 0.35 },
+					fogDensity: { value: 0.25 },
 					fogColor:   { value: new THREE.Vector3( 0, 0, 0 ) },
 					time:       { value: 1.0 },
 					resolution: { value: new THREE.Vector2() },
@@ -214,10 +214,10 @@
 
 				uniforms.time.value += 0.2 * delta;
 
-				//var timer = Date.now() * 0.0005;				
-				//camera.position.x = Math.cos( timer ) * 1300;
-				//camera.position.z = Math.sin( timer ) * 1300;
-				//camera.lookAt( scene.position );
+				var timer = Date.now() * 0.0005;				
+				camera.position.x = Math.cos( timer ) * 1300;
+				camera.position.y = Math.sin( timer ) * 1300;
+				camera.lookAt( scene.position );
 				
 				//supersun.rotation.y -= 0.05 * delta;
 				//supersun.rotation.x += 0.05 * delta;
