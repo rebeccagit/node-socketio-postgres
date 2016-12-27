@@ -16,7 +16,7 @@
 	<body>
 
 		<div id="container"></div>
-		<div id="info"><a href="http://threejs.org" target="_blank">three.js</a> - shader material demo. featuring lava shader by <a href="http://irrlicht.sourceforge.net/phpBB2/viewtopic.php?t=21057" target="_blank">TheGameMaker</a></div>
+		<div id="info">Lava shader by <a href="http://irrlicht.sourceforge.net/phpBB2/viewtopic.php?t=21057" target="_blank">TheGameMaker</a></div>
 
 		<script src="myscripts/threejs/three.js"></script>
 
@@ -157,8 +157,8 @@
 
 				} );
 
-				mesh = new THREE.Mesh( new THREE.TorusGeometry( size, 0.3, 30, 30 ), material );
-				mesh.rotation.x = 0.3;
+				mesh = new THREE.Mesh( new THREE.BoxGeometry( 2,2,2 ), material );
+				mesh.rotation.x = 0.6;
 				scene.add( mesh );
 
 				//
