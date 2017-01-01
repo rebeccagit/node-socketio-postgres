@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<style>
-		#container {
+		body {
 			background-image:url("images/anim8bg.jpg");
 			background-repeat:repeat;			
 			margin: 0px;
@@ -121,8 +121,8 @@
 				var textureLoader = new THREE.TextureLoader();
 
 				uniforms = {
-					fogDensity: { value: 0.25 },
-					fogColor:   { value: new THREE.Vector3( 0, 0, 0 ) },
+					//fogDensity: { value: 0.25 },
+					//fogColor:   { value: new THREE.Vector3( 0, 0, 0 ) },
 					time:       { value: 1.0 },
 					resolution: { value: new THREE.Vector2() },
 					uvScale:    { value: new THREE.Vector2( 3.0, 1.0 ) },
