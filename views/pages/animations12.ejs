@@ -109,9 +109,6 @@
 			var windowHalfX = width / 2;
 			var windowHalfY = height / 2;
 
-			init();
-			animate();
-
 			function init() {
 
 				container = document.getElementById( 'container' );
@@ -120,8 +117,6 @@
 				camera.position.z = 6;
 
 				scene = new THREE.Scene();
-				//camera = new THREE.PerspectiveCamera( 50, window.innerWidth/window.innerHeight, 1, 500 );
-				//camera.position.y = 200;
 
 				var textureLoader = new THREE.TextureLoader();
 
@@ -185,8 +180,6 @@
 				composer.reset();
 			}
 
-			
-
 			function animate() {
 				requestAnimationFrame( animate );
 				render();
@@ -197,19 +190,15 @@
 				var delta = 5 * clock.getDelta();
 
 				uniforms.time.value += 0.2 * delta;
-
-				//var timer = Date.now() * 0.0005;				
-				//camera.position.x = Math.cos( timer ) * 1300;
-				//camera.position.y = Math.sin( timer ) * 1300;
-				//camera.lookAt( scene.position );
-				
 				supersun.rotation.y -= 0.05 * delta;
-				//supersun.rotation.x += 0.05 * delta;
 
 				renderer.clear();
 				composer.render( 0.01 );
 
 			}
+			
+			init();
+			animate();			
 
 		</script>
 
