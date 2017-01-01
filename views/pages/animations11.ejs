@@ -102,8 +102,7 @@
 
 			var uniforms, material, supersun;
 
-			var mouseX = 0, mouseY = 0,
-			lat = 0, lon = 0, phy = 0, theta = 0;
+			var mouseX = 0, mouseY = 0;
 
 			var width = window.innerWidth || 2;
 			var height = window.innerHeight || 2;
@@ -173,21 +172,19 @@
 				onWindowResize();
 
 				window.addEventListener( 'resize', onWindowResize, false );
-
 			}
 
 			function onWindowResize( event ) {
-
 				uniforms.resolution.value.x = window.innerWidth;
 				uniforms.resolution.value.y = window.innerHeight;
 
 				renderer.setSize( window.innerWidth, window.innerHeight );
 
 				camera.aspect = window.innerWidth / window.innerHeight;
+				
 				camera.updateProjectionMatrix();
 
 				composer.reset();
-
 			}
 
 			
