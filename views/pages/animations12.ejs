@@ -132,7 +132,7 @@
 				var textureLoader = new THREE.TextureLoader();
 
 				uniforms = {
-					fogDensity: { value: 0.0 },
+					fogDensity: { value: 0.25 },
 					fogColor:   { value: new THREE.Vector3( 0, 0, 0 ) },
 					time:       { value: 1.0 },
 					resolution: { value: new THREE.Vector2() },
@@ -155,6 +155,30 @@
 				supersun = new THREE.Mesh( new THREE.SphereGeometry( 1, 50, 50 ), material );
 				supersun.position.set( 0, 0, 0 );
 				scene.add( supersun );
+				
+								saturn = new THREE.Mesh( new THREE.SphereGeometry( 50, 300, 150 ), material2 );
+				saturn.position.set( -900, 0, 0 );
+				scene.add( saturn );
+			
+				saturnring = new THREE.Mesh( new THREE.RingGeometry( 135, 150, 30, -5, 5, Math.PI * 2 ), material2 );
+				saturnring.position.set( -900, 0, 0 );
+				saturnring.rotateX( Math.PI / 2 );
+				scene.add( saturnring );
+				
+				saturnring2 = new THREE.Mesh( new THREE.RingGeometry( 100, 130, 30, -5, 5, Math.PI * 2 ), material2 );
+				saturnring2.position.set( -900, 0, 0 );
+				saturnring2.rotateX( Math.PI / 2 );
+				scene.add( saturnring2 );
+				
+				saturnring3 = new THREE.Mesh( new THREE.RingGeometry( 80, 90, 30, -5, 5, Math.PI * 2 ), material2 );
+				saturnring3.position.set( -900, 0, 0 );
+				saturnring3.rotateX( Math.PI / 2 );
+				scene.add( saturnring3 );
+				
+				saturnring4 = new THREE.Mesh( new THREE.RingGeometry( 93, 97, 30, -5, 5, Math.PI * 2 ), material2 );
+				saturnring4.position.set( -900, 0, 0 );
+				saturnring4.rotateX( Math.PI / 2 );
+								scene.add( saturnring4 );
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
