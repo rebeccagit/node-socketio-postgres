@@ -117,6 +117,8 @@
 			function init() {
 
 				container = document.getElementById( 'container' );
+				infolink = document.getElementById( 'info' );
+				body.appendchild('infolink');
 
 				camera = new THREE.PerspectiveCamera( 50, windowHalfX / windowHalfY, 0.1, 3000 );
 				camera.position.z = 5;
