@@ -122,7 +122,7 @@ app.get('/animations11', function(request, response) {
   response.render('pages/animations11');
 });
 app.get('/animations12', function(request, response) {
-  response.render('pages/animations11');
+  response.render('pages/animations12');
 });
 
 
