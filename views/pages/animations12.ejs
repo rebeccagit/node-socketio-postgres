@@ -123,6 +123,8 @@
 				scene = new THREE.Scene();
 				//camera = new THREE.PerspectiveCamera( 50, window.innerWidth/window.innerHeight, 1, 500 );
 				//camera.position.y = 200;
+				
+				scene.add( new THREE.AmbientLight( 0xffffff ) );
 
 				var textureLoader = new THREE.TextureLoader();
 
