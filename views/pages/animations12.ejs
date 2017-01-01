@@ -120,7 +120,7 @@
 
 				container = document.getElementById( 'container' );
 
-				camera = new THREE.PerspectiveCamera( 35, windowHalfX / windowHalfY, 0.1, 3000 );
+				camera = new THREE.PerspectiveCamera( 60, windowHalfX / windowHalfY, 0.1, 3000 );
 				camera.position.z = 5;
 
 				scene = new THREE.Scene();
@@ -157,7 +157,7 @@
 				scene.add( supersun );
 				
 								saturn = new THREE.Mesh( new THREE.SphereGeometry( 50, 300, 150 ), material2 );
-				saturn.position.set( 15, 0, 0 );
+				saturn.position.set( -900, 0, 0 );
 				scene.add( saturn );
 			
 				saturnring = new THREE.Mesh( new THREE.RingGeometry( 135, 150, 30, -5, 5, Math.PI * 2 ), material2 );
