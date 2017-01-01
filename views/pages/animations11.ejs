@@ -117,7 +117,7 @@
 
 				container = document.getElementById( 'container' );
 
-				camera = new THREE.PerspectiveCamera( 40, windowHalfX / windowHalfY, 0.1, 3000 );
+				camera = new THREE.PerspectiveCamera( 35, windowHalfX / windowHalfY, 0.1, 3000 );
 				camera.position.z = 5;
 
 				scene = new THREE.Scene();
@@ -148,7 +148,6 @@
 				} );
 
 				supersun = new THREE.Mesh( new THREE.SphereGeometry( 1, 50, 50 ), material );
-				//supersun.rotation.x = 1;
 				supersun.position.set( 0, 0, 0 );
 				scene.add( supersun );
 
