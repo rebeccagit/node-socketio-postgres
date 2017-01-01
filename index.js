@@ -121,6 +121,9 @@ app.get('/animations10', function(request, response) {
 app.get('/animations11', function(request, response) {
   response.render('pages/animations11');
 });
+app.get('/animations12', function(request, response) {
+  response.render('pages/animations11');
+});
 
 
 // practice grid page
