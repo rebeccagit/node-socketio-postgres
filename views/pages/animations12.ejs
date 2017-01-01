@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<style>
-		body {
+		#container {
 			background-image:url("images/anim8bg.jpg");
 			background-repeat:repeat;			
 			margin: 0px;
@@ -113,7 +113,7 @@
 
 				container = document.getElementById( 'container' );
 
-				camera = new THREE.PerspectiveCamera( 70, windowHalfX / windowHalfY, 0.1, 3000 );
+				camera = new THREE.PerspectiveCamera( 40, windowHalfX / windowHalfY, 0.1, 3000 );
 				camera.position.z = 6;
 
 				scene = new THREE.Scene();
