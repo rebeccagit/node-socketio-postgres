@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Down the rabbit hole!</title>
+		<title>Simulation of the Sun</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<style>
@@ -16,34 +16,27 @@
 	<body>
 
 		<div id="container"></div>
-		<div id="info">Lava shader by <a href="http://irrlicht.sourceforge.net/phpBB2/viewtopic.php?t=21057" target="_blank">TheGameMaker</a></div>
-
+		<div id="info" style="color:#fff;">Lava shader by <a href="http://irrlicht.sourceforge.net/phpBB2/viewtopic.php?t=21057" target="_blank">TheGameMaker</a></div>
 		<script src="myscripts/threejs/three.js"></script>
-
 		<script src="myscripts/shaders/ConvolutionShader.js"></script>
 		<script src="myscripts/shaders/CopyShader.js"></script>
 		<script src="myscripts/shaders/FilmShader.js"></script>
-
 		<script src="myscripts/postprocessing/EffectComposer.js"></script>
 		<script src="myscripts/postprocessing/ShaderPass.js"></script>
 		<script src="myscripts/postprocessing/MaskPass.js"></script>
 		<script src="myscripts/postprocessing/RenderPass.js"></script>
 		<script src="myscripts/postprocessing/BloomPass.js"></script>
 		<script src="myscripts/postprocessing/FilmPass.js"></script>
-
 		<script src="myscripts/threejs/Detector.js"></script>
 		
 		<script id="fragmentShader" type="x-shader/x-fragment">
 
 			uniform float time;
 			uniform vec2 resolution;
-
 			uniform float fogDensity;
 			uniform vec3 fogColor;
-
 			uniform sampler2D texture1;
 			uniform sampler2D texture2;
-
 			varying vec2 vUv;
 
 			void main( void ) {
@@ -160,12 +153,10 @@
 				supersun.position.set( 0, 0, 0 );
 				scene.add( supersun );
 
-
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				container.appendChild( renderer.domElement );
 				renderer.autoClear = false;
-
 
 				var renderModel = new THREE.RenderPass( scene, camera );
 				var effectBloom = new THREE.BloomPass( 1.25 );
@@ -178,8 +169,6 @@
 				composer.addPass( renderModel );
 				composer.addPass( effectBloom );
 				composer.addPass( effectFilm );
-
-				//
 
 				onWindowResize();
 
