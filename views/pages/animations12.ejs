@@ -131,7 +131,6 @@
 					geometry.vertices.push( vertex );
 				}
 				
-				
 				parameters = [
 					[ [1, 1, 1.0], 1 ],
 					[ [0.56, 1, 0.92], 1 ],
@@ -139,7 +138,6 @@
 					[ [0.91, 1, 0.92], 1 ],
 					[ [0.49, 1, 0.75], 1 ]
 				];
-				
 				
 				for ( i = 0; i < parameters.length; i ++ ) {
 					color = parameters[i][0];
@@ -228,8 +226,8 @@
 				for ( i = 0; i < scene.children.length; i ++ ) {
 					var object = scene.children[ i ];
 					if ( object instanceof THREE.Points ) {
-						//object.rotation.y = time * ( i < 4 ? i + 1 : - ( i + 1 ) );
-						object.rotation.y = time * ( i );
+						object.rotation.y = time * ( i < 4 ? i + 1 : - ( i + 1 ) );
+						//object.rotation.y = time * ( i );
 					}
 				}
 				
