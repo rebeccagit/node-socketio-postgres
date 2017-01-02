@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 	<head>
-	<title>Simulation of the Sun & Mercury</title>
+	<title>Simulation of the Sun</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<style>
@@ -98,6 +98,8 @@
 			var clock = new THREE.Clock();
 
 			var camera, scene, renderer, composer;
+			
+			var particles, geometry, materials = [], parameters, i, h, color, size; 
 
 			var uniforms, material, supersun;
 
@@ -117,6 +119,40 @@
 				camera.position.z = 6;
 
 				scene = new THREE.Scene();
+				
+								geometry = new THREE.Geometry();
+				
+			
+				for ( i = 0; i < 20000; i ++ ) {
+					var vertex = new THREE.Vector3();
+					vertex.x = Math.random() * 2000 - 1000;
+					vertex.y = Math.random() * 2000 - 1000;
+					vertex.z = Math.random() * 2000 - 1000;
+					geometry.vertices.push( vertex );
+				}
+				
+				
+				parameters = [
+					[ [1, 1, 1.0], 1 ],
+					[ [0.56, 1, 0.92], 1 ],
+					[ [0.16, 1, 0.5], 1 ],
+					[ [0.91, 1, 0.92], 1 ],
+					[ [0.49, 1, 0.75], 1 ]
+				];
+				
+				
+				for ( i = 0; i < parameters.length; i ++ ) {
+					color = parameters[i][0];
+					size  = parameters[i][1];
+					
+					materials[i] = new THREE.PointsMaterial( { size: size } );
+					
+					particles = new THREE.Points( geometry, materials[i] );
+					//particles.rotation.x = Math.random() * 6;
+					//particles.rotation.y = Math.random() * 6;
+					//particles.rotation.z = Math.random() * 6;
+					scene.add( particles );
+				}
 
 				var textureLoader = new THREE.TextureLoader();
 
@@ -187,11 +223,31 @@
 
 			function render() {
 
+				for ( i = 0; i < scene.children.length; i ++ ) {
+					var object = scene.children[ i ];
+					if ( object instanceof THREE.Points ) {
+						//object.rotation.y = time * ( i < 4 ? i + 1 : - ( i + 1 ) );
+						object.rotation.y = time * ( i );
+					}
+				}
+				
+				
+				for ( i = 0; i < materials.length; i ++ ) {
+					color = parameters[i][0];
+					//h = ( 360 * ( color[0] + time ) % 360 ) / 360;
+					h = ( 360 * ( color[0] ) % 360 ) / 360;
+
+					materials[i].color.setHSL( h, color[1], color[2] );
+				}
+			
+			
 				var delta = 5 * clock.getDelta();
 
+				
 				uniforms.time.value += 0.2 * delta;
 				supersun.rotation.y -= 0.05 * delta;
 
+				
 				renderer.clear();
 				composer.render( 0.01 );
 
