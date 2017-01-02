@@ -206,17 +206,10 @@
 				uniforms.resolution.value.y = window.innerHeight;
 
 				renderer.setSize( window.innerWidth, window.innerHeight );
-
 				camera.aspect = window.innerWidth / window.innerHeight;
-				
 				camera.updateProjectionMatrix();
 
 				composer.reset();
-			}
-
-			function animate() {
-				requestAnimationFrame( animate );
-				render();
 			}
 
 			function render() {
@@ -239,17 +232,18 @@
 					materials[i].color.setHSL( h, color[1], color[2] );
 				}
 			
-			
 				var delta = 5 * clock.getDelta();
-
 				uniforms.time.value += 0.2 * delta;
 				supersun.rotation.y -= 0.05 * delta;
-
 				
 				renderer.clear();
 				composer.render( 0.01 );
-
 			}
+			
+			function animate() {
+				requestAnimationFrame( animate );
+				render();
+			}			
 			
 			init();
 			animate();			
