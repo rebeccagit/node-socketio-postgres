@@ -19,77 +19,8 @@
 	<body>  
 	
 		<script src="myscripts/threejs/three.js"></script>
-		<script src="myscripts/shaders/ConvolutionShader.js"></script>
-		<script src="myscripts/shaders/CopyShader.js"></script>
-		<script src="myscripts/shaders/FilmShader.js"></script>
-		<script src="myscripts/postprocessing/EffectComposer.js"></script>
-		<script src="myscripts/postprocessing/ShaderPass.js"></script>
-		<script src="myscripts/postprocessing/MaskPass.js"></script>
-		<script src="myscripts/postprocessing/RenderPass.js"></script>
-		<script src="myscripts/postprocessing/BloomPass.js"></script>
-		<script src="myscripts/postprocessing/FilmPass.js"></script>
 		<script src="myscripts/threejs/Detector.js"></script>
-		
-		<script id="fragmentShader" type="x-shader/x-fragment">
 
-			uniform float time;
-			uniform vec2 resolution;
-			uniform float fogDensity;
-			uniform vec3 fogColor;
-			uniform sampler2D texture1;
-			uniform sampler2D texture2;
-			varying vec2 vUv;
-
-			void main( void ) {
-
-				vec2 position = -1.0 + 2.0 * vUv;
-
-				vec4 noise = texture2D( texture1, vUv );
-				vec2 T1 = vUv + vec2( 1.5, -1.5 ) * time  *0.02;
-				vec2 T2 = vUv + vec2( -0.5, 2.0 ) * time * 0.01;
-
-				T1.x += noise.x * 2.0;
-				T1.y += noise.y * 2.0;
-				T2.x -= noise.y * 0.2;
-				T2.y += noise.z * 0.2;
-
-				float p = texture2D( texture1, T1 * 2.0 ).a;
-
-				vec4 color = texture2D( texture2, T2 * 2.0 );
-				vec4 temp = color * ( vec4( p, p, p, p ) * 2.0 ) + ( color * color - 0.1 );
-
-				if( temp.r > 1.0 ){ temp.bg += clamp( temp.r - 2.0, 0.0, 100.0 ); }
-				if( temp.g > 1.0 ){ temp.rb += temp.g - 1.0; }
-				if( temp.b > 1.0 ){ temp.rg += temp.b - 1.0; }
-
-				gl_FragColor = temp;
-
-				float depth = gl_FragCoord.z / gl_FragCoord.w;
-				const float LOG2 = 1.442695;
-				float fogFactor = exp2( - fogDensity * fogDensity * depth * depth * LOG2 );
-				fogFactor = 1.0 - clamp( fogFactor, 0.0, 1.0 );
-
-				gl_FragColor = mix( gl_FragColor, vec4( fogColor, gl_FragColor.w ), fogFactor );
-
-			}
-
-		</script>
-
-		<script id="vertexShader" type="x-shader/x-vertex">
-
-			uniform vec2 uvScale;
-			varying vec2 vUv;
-
-			void main()
-			{
-
-				vUv = uvScale * uv;
-				vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
-				gl_Position = projectionMatrix * mvPosition;
-
-			}
-
-		</script>
 
 
 		
@@ -105,26 +36,7 @@
 				camera.position.y = 400;
 			
 				scene.add( new THREE.AmbientLight( 0xffffff ) );
-				
-				// for shader
-				var textureLoader = new THREE.TextureLoader();
-
-				uniforms = {
-					fogDensity: { value: 0.25 },
-					fogColor:   { value: new THREE.Vector3( 0, 0, 0 ) },
-					time:       { value: 1.0 },
-					resolution: { value: new THREE.Vector2() },
-					uvScale:    { value: new THREE.Vector2( 3.0, 1.0 ) },
-					texture1:   { value: textureLoader.load( "images/cloud.png" ) },
-					texture2:   { value: textureLoader.load( "images/lavatile.jpg" ) }
-				};
-
-				uniforms.texture1.value.wrapS = uniforms.texture1.value.wrapT = THREE.RepeatWrapping;
-				uniforms.texture2.value.wrapS = uniforms.texture2.value.wrapT = THREE.RepeatWrapping;
-
-				var size = 0.65;
-				
-				
+								
 				//light from the sun to give a realistic look that creates a shadow on the side facing away from the sun
 				var directionalLight = new THREE.DirectionalLight( 0xffffb3, 0.5 );
 				directionalLight.position.set( 1, 0, 0 );
@@ -138,7 +50,6 @@
 				document.body.appendChild( renderer.domElement );
 				
 				
-				/*
 				THE SUN - just a pic
 				var map = new THREE.TextureLoader().load( 'images/sunsurface.jpg' );
 				map.wrapS = map.wrapT = THREE.RepeatWrapping;
@@ -148,17 +59,7 @@
 				sun = new THREE.Mesh( new THREE.SphereGeometry( 200, 500, 100 ), material );
 				sun.position.set( 0, 0, 0 );
 				scene.add( sun );
-				*/
-			
-				material = new THREE.ShaderMaterial( {
-					uniforms: uniforms,
-					vertexShader: document.getElementById( 'vertexShader' ).textContent,
-					fragmentShader: document.getElementById( 'fragmentShader' ).textContent
-				} );
-
-				sun = new THREE.Mesh( new THREE.SphereGeometry( 1, 50, 50 ), material );
-				sun.position.set( 0, 0, 0 );
-				scene.add( sun );			
+		
 			
 				//SATURN
 				var map2 = new THREE.TextureLoader().load( 'images/saturnsurface.jpg' );
@@ -193,10 +94,6 @@
 				
 			//where all the math magic happens
 			var render = function () {
-				
-				var delta = 5 * clock.getDelta();
-
-				uniforms.time.value += 0.2 * delta;
 			
 				//timer used for setting speed of camera rotation around origin
 				var timer = Date.now() * 0.0005
