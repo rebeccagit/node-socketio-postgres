@@ -193,6 +193,10 @@
 				
 			//where all the math magic happens
 			var render = function () {
+				
+				var delta = 5 * clock.getDelta();
+
+				uniforms.time.value += 0.2 * delta;
 			
 				//timer used for setting speed of camera rotation around origin
 				var timer = Date.now() * 0.0005
