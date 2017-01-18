@@ -128,8 +128,8 @@ app.get('/animations11', function(request, response) {
 app.get('/animations12', function(request, response) {
   response.render('pages/animations12');
 });
-app.get('/animations12', function(request, response) {
-  response.render('pages/animations12');
+app.get('/animations12b', function(request, response) {
+  response.render('pages/animations12b');
 });
 
 
