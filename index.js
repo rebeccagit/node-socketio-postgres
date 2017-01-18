@@ -112,6 +112,10 @@ app.get('/animations7', function(request, response) {
 app.get('/animations8', function(request, response) {
   response.render('pages/animations8');
 });
+// practice animation page
+app.get('/animations8b', function(request, response) {
+  response.render('pages/animations8b');
+});
 app.get('/animations9', function(request, response) {
   response.render('pages/animations9');
 });
@@ -120,6 +124,9 @@ app.get('/animations10', function(request, response) {
 });
 app.get('/animations11', function(request, response) {
   response.render('pages/animations11');
+});
+app.get('/animations12', function(request, response) {
+  response.render('pages/animations12');
 });
 app.get('/animations12', function(request, response) {
   response.render('pages/animations12');

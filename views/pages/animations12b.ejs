@@ -93,9 +93,11 @@
 
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
+			var container;
+
 			var clock = new THREE.Clock();
 
-			var container, camera, scene, renderer, composer;
+			var camera, scene, renderer, composer;
 			
 			var particles, geometry, materials = [], parameters, i, h, color, size; 
 
@@ -120,20 +122,20 @@
 				
 				geometry = new THREE.Geometry();
 				
-			
+				//position des etoils
 				for ( i = 0; i < 20000; i ++ ) {
 					var vertex = new THREE.Vector3();
 					vertex.x = THREE.Math.randFloatSpread( 2000 );
-					vertex.y = THREE.Math.randFloatSpread( 2000 );
+					vertex.y = THREE.Math.randFloatSpread( 4000 );
 					vertex.z = THREE.Math.randFloatSpread( 2000 );
 					geometry.vertices.push( vertex );
 				}
 				
 				parameters = [
 					[ [1, 1, 1.0], 0.1 ],
-					[ [0.56, 1, 0.92], 0.5 ],
-					[ [0.16, 1, 0.96], 0.05 ],
-					[ [0.91, 1, 0.92], 0.08 ],
+					[ [0.56, 1, 0.92], 0.2 ],
+					[ [0.16, 1, 0.96], 0.8 ],
+					[ [0.91, 1, 0.92], 0.4 ],
 					[ [0.49, 1, 0.94], 0.3 ]
 				];
 				
@@ -143,9 +145,10 @@
 					
 					materials[i] = new THREE.PointsMaterial( { size: size } );
 					
+					//movement of stars
 					particles = new THREE.Points( geometry, materials[i] );
-					//particles.rotation.x = Math.random() * 6;
-					//particles.rotation.y = Math.random() * 6;
+					//particles.rotation.x = Math.random() * 7.;
+					particles.rotation.y = Math.random() * 10;
 					//particles.rotation.z = Math.random() * 6;
 					scene.add( particles );
 				}
@@ -153,11 +156,11 @@
 				var textureLoader = new THREE.TextureLoader();
 
 				uniforms = {
-					fogDensity: { value: 0.25 },
+					fogDensity: { value: 0.23 },
 					fogColor:   { value: new THREE.Vector3( 0, 0, 0 ) },
 					time:       { value: 1.0 },
 					resolution: { value: new THREE.Vector2() },
-					uvScale:    { value: new THREE.Vector2( 3.0, 1.0 ) },
+					uvScale:    { value: new THREE.Vector2( 2.0, 1.0 ) },
 					texture1:   { value: textureLoader.load( "images/cloud.png" ) },
 					texture2:   { value: textureLoader.load( "images/lavatile.jpg" ) }
 				};
@@ -165,7 +168,7 @@
 				uniforms.texture1.value.wrapS = uniforms.texture1.value.wrapT = THREE.RepeatWrapping;
 				uniforms.texture2.value.wrapS = uniforms.texture2.value.wrapT = THREE.RepeatWrapping;
 
-				var size = 0.65;
+				//var size = 0.65;
 
 				material = new THREE.ShaderMaterial( {
 					uniforms: uniforms,
@@ -173,8 +176,8 @@
 					fragmentShader: document.getElementById( 'fragmentShader' ).textContent
 				} );
 
-				supersun = new THREE.Mesh( new THREE.SphereGeometry( 1, 50, 50 ), material );
-				supersun.position.set( 0, 0, 0 );
+				supersun = new THREE.Mesh( new THREE.SphereGeometry( 1, 30, 30 ), material );
+				supersun.position.set( -1, 0, 0 );
 				scene.add( supersun );
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
@@ -217,7 +220,7 @@
 				for ( i = 0; i < scene.children.length; i ++ ) {
 					var object = scene.children[ i ];
 					if ( object instanceof THREE.Points ) {
-						object.rotation.y = time * ( i < 4 ? i + 1 : - ( i + 1 ) );
+						object.rotation.y = time * ( i < 3 ? i + 1 :  ( i + 3 ) );
 						//object.rotation.y = time * ( i );
 					}
 				}
@@ -225,14 +228,14 @@
 				for ( i = 0; i < materials.length; i ++ ) {
 					color = parameters[i][0];
 					//h = ( 360 * ( color[0] + time ) % 360 ) / 360;
-					h = ( 360 * ( color[0] ) % 360 ) / 360;
+					h = ( 360 * ( color[i] ) % 360 ) / 360;
 
 					materials[i].color.setHSL( h, color[1], color[2] );
 				}
 			
 				var delta = 5 * clock.getDelta();
 				uniforms.time.value += 0.2 * delta;
-				supersun.rotation.y -= 0.05 * delta;
+				supersun.rotation.y -= 0.1 * delta;
 				
 				renderer.clear();
 				composer.render( 0.01 );

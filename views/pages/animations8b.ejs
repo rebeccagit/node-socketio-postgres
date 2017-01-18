@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Saturn orbiting the Sun, Three.js and WebGL</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		
+		<style>
+			body {
+				margin: 0px;
+				overflow: hidden;
+				background-image:url("images/andromeda2.png");
+				background-repeat:no-repeat;
+			}
+			
+		</style>
+	</head>
+	<body>  
+	
+		<script src="myscripts/threejs/three.js"></script>
+		<script src="myscripts/threejs/Detector.js"></script>
+
+		
+		<script>
+				if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+				
+				var particles, geometry, materials = [], parameters, i, h, color, size; 
+								
+				var scene = new THREE.Scene();
+				var camera = new THREE.PerspectiveCamera( 65, window.innerWidth/window.innerHeight, 1, 7000 );
+				camera.position.y = 250;
+			
+				scene.add( new THREE.AmbientLight( 0xffffff ) );
+
+				var directionalLight = new THREE.DirectionalLight( 0xffffb3, 0.5 );
+				directionalLight.position.set( 1, 0, 0 );
+				scene.add( directionalLight );
+
+				
+				//To see my starry background: set alpha to true and use setClearColor so that you can see the background image set with CSS.
+				var renderer = new THREE.WebGLRenderer({ alpha: true });
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.setClearColor( 0x000000, 0 );
+				document.body.appendChild( renderer.domElement );
+				
+				var map = new THREE.TextureLoader().load( 'images/lavatile.jpg' );
+				map.wrapS = map.wrapT = THREE.RepeatWrapping;
+				map.anisotropy = 16;
+				var material = new THREE.MeshLambertMaterial( { map: map, side: THREE.DoubleSide } );
+
+				sun = new THREE.Mesh( new THREE.SphereGeometry( 300, 1000, 100 ), material );
+				sun.position.set( 350, 0, 0 );
+				scene.add( sun );
+			
+				var map2 = new THREE.TextureLoader().load( 'images/saturnsurface.jpg' );
+				map2.wrapS = map.wrapT = THREE.RepeatWrapping;
+				map2.anisotropy = 16;
+				var material2 = new THREE.MeshLambertMaterial( { map: map2, side: THREE.DoubleSide } );
+							
+				var map3 = new THREE.TextureLoader().load( 'images/greyring.jpg' );
+				map3.wrapS = map.wrapT = THREE.RepeatWrapping;
+				map3.anisotropy = 16;
+				var material3 = new THREE.MeshLambertMaterial( { map: map3, side: THREE.DoubleSide } );
+				
+				var map4 = new THREE.TextureLoader().load( 'images/darktanring.jpg' );
+				map4.wrapS = map.wrapT = THREE.RepeatWrapping;
+				map4.anisotropy = 16;
+				var material4 = new THREE.MeshLambertMaterial( { map: map4, side: THREE.DoubleSide } );	
+
+				var map5 = new THREE.TextureLoader().load( 'images/yellowring.jpg' );
+				map5.wrapS = map.wrapT = THREE.RepeatWrapping;
+				map5.anisotropy = 16;
+				var material5 = new THREE.MeshLambertMaterial( { map: map5, side: THREE.DoubleSide } );
+
+				saturn = new THREE.Mesh( new THREE.SphereGeometry( 100, 300, 150 ), material2 );
+				saturn.position.set( -600, 0, 0 );
+				scene.add( saturn );
+			
+				saturnring = new THREE.Mesh( new THREE.RingGeometry( 245, 260, 30, -5, 5, Math.PI * 2 ), material3 );
+				saturnring.position.set( -600, 0, 0 );
+				saturnring.rotateX( Math.PI / 2 );
+				scene.add( saturnring );
+				
+				saturnring2 = new THREE.Mesh( new THREE.RingGeometry( 200, 240, 30, -5, 5, Math.PI * 2 ), material4 );
+				saturnring2.position.set( -600, 0, 0 );
+				saturnring2.rotateX( Math.PI / 2 );
+				scene.add( saturnring2 );
+				
+				saturnring3 = new THREE.Mesh( new THREE.RingGeometry( 185, 195, 30, -5, 5, Math.PI * 2 ), material5 );
+				saturnring3.position.set( -600, 0, 0 );
+				saturnring3.rotateX( Math.PI / 2 );
+				scene.add( saturnring3 );
+				
+				saturnring4 = new THREE.Mesh( new THREE.RingGeometry( 160, 175, 30, -5, 5, Math.PI * 2 ), material3 );
+				saturnring4.position.set( -600, 0, 0 );
+				saturnring4.rotateX( Math.PI / 2 );
+				scene.add( saturnring4 );
+				
+				geometry = new THREE.Geometry();
+				
+				//position des etoils
+				for ( i = 0; i < 1000; i++ ) {
+					var vertex = new THREE.Vector3();
+					vertex.x = THREE.Math.randFloatSpread( 4000 );
+					vertex.y = THREE.Math.randFloatSpread( 4000 );
+					vertex.z = THREE.Math.randFloatSpread( 30000 );
+					geometry.vertices.push( vertex );
+				}
+				
+				parameters = [
+					[ [1, 1, 1.0], 0.1 ],
+					[ [0.56, 1, 0.92], 0.2 ],
+					[ [0.16, 1, 0.96], 0.8 ],
+					[ [0.91, 1, 0.92], 0.4 ],
+					[ [0.49, 1, 0.94], 0.3 ]
+				];
+				
+				for ( i = 0; i < parameters.length; i ++ ) {
+					color = parameters[i][0];
+					size  = parameters[i][1];
+					
+					materials[i] = new THREE.PointsMaterial( { size: size } );
+					
+					//movement of stars
+					particles = new THREE.Points( geometry, materials[i] );
+					//particles.rotation.x = Math.random() * 700;
+					//particles.rotation.y = Math.random() * 700;
+					//particles.rotation.z = Math.random() * 700;
+					scene.add( particles );
+				}				
+				
+				
+				var render = function () {
+				
+					var time = Date.now() * 0.0000000001;
+
+					for ( i = 0; i < scene.children.length; i ++ ) {
+						var object = scene.children[ i ];
+						if ( object instanceof THREE.Points ) {
+							//object.rotation.y = time * ( i < 1000 ? i + 1 :  ( i + 3 ) );
+							object.rotation.y = time * ( i + 5 );
+						}
+					}
+					
+					for ( i = 0; i < materials.length; i ++ ) {
+						color = parameters[i][0];
+						//h = ( 360 * ( color[0] + time ) % 360 ) / 360;
+						h = ( 360 * ( color[i] ) % 360 ) / 360;
+
+						materials[i].color.setHSL( h, color[1], color[2] );
+					}				
+				
+					//timer used for setting speed of camera rotation around origin
+					var timer = Date.now() * 0.0005
+					
+					//camera path around origin
+					camera.position.x = Math.cos( timer ) * 1300;
+					camera.position.z = Math.sin( timer ) * 1300;
+					camera.lookAt( scene.position );
+
+					//rotation on sphere's y-axis
+					//sun.rotation.x += 0.01;
+					sun.rotation.y += 0.005;
+					
+					//rotation on sphere's y-axis
+					saturn.rotation.y += 0.005;
+					
+					saturnring.rotation.z -= 0.05;
+					saturnring2.rotation.z -= 0.03;
+					saturnring3.rotation.z -= 0.05;
+					saturnring4.rotation.z -= 0.04;				
+					
+					renderer.render(scene, camera);
+				
+			};
+
+			var animate = function() {
+			
+				requestAnimationFrame( animate );
+				render();
+				
+				};
+			
+			animate();	
+			
+		</script>
+	</body>
+</html>
