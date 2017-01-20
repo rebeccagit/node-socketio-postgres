@@ -37,8 +37,6 @@
 				directionalLight.position.set( 1, 0, 0 );
 				scene.add( directionalLight );
 
-				
-				//To see my starry background: set alpha to true and use setClearColor so that you can see the background image set with CSS.
 				var renderer = new THREE.WebGLRenderer({ alpha: true });
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				renderer.setClearColor( 0x000000, 0 );
@@ -99,7 +97,6 @@
 				
 				geometry = new THREE.Geometry();
 				
-				//position des etoils
 				for ( i = 0; i < 1000; i++ ) {
 					var vertex = new THREE.Vector3();
 					vertex.x = THREE.Math.randFloatSpread( 4000 );
@@ -122,11 +119,7 @@
 					
 					materials[i] = new THREE.PointsMaterial( { size: size } );
 					
-					//movement of stars
 					particles = new THREE.Points( geometry, materials[i] );
-					//particles.rotation.x = Math.random() * 700;
-					//particles.rotation.y = Math.random() * 700;
-					//particles.rotation.z = Math.random() * 700;
 					scene.add( particles );
 				}				
 				
@@ -138,34 +131,25 @@
 					for ( i = 0; i < scene.children.length; i ++ ) {
 						var object = scene.children[ i ];
 						if ( object instanceof THREE.Points ) {
-							//object.rotation.y = time * ( i < 1000 ? i + 1 :  ( i + 3 ) );
 							object.rotation.y = time * ( i + 5 );
 						}
 					}
 					
 					for ( i = 0; i < materials.length; i ++ ) {
 						color = parameters[i][0];
-						//h = ( 360 * ( color[0] + time ) % 360 ) / 360;
 						h = ( 360 * ( color[i] ) % 360 ) / 360;
 
 						materials[i].color.setHSL( h, color[1], color[2] );
 					}				
 				
-					//timer used for setting speed of camera rotation around origin
 					var timer = Date.now() * 0.0005
 					
-					//camera path around origin
 					camera.position.x = Math.cos( timer ) * 1300;
 					camera.position.z = Math.sin( timer ) * 1300;
 					camera.lookAt( scene.position );
 
-					//rotation on sphere's y-axis
-					//sun.rotation.x += 0.01;
 					sun.rotation.y += 0.005;
-					
-					//rotation on sphere's y-axis
-					saturn.rotation.y += 0.005;
-					
+					saturn.rotation.y += 0.005;					
 					saturnring.rotation.z -= 0.05;
 					saturnring2.rotation.z -= 0.03;
 					saturnring3.rotation.z -= 0.05;
