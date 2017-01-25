@@ -85,7 +85,7 @@
 			var value = document.getElementById('dropdown').value;
 			var segments = parseInt(100);
 			closed2 = document.getElementById('closed').checked;
-			var radiusSegments = parseInt( 20 );
+			var radiusSegments = parseInt( 10 );
 			if (tubeMesh) parent.remove(tubeMesh);
 			extrudePath = splines[value];
 			tube = new THREE.TubeGeometry(extrudePath, segments, 2, radiusSegments, closed2);
