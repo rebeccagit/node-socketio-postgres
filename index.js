@@ -80,11 +80,11 @@ app.get('/chat', function(request, response) {
 //});
 
 // practice animation page
-app.get('animations/animations', function(request, response) {
+app.get('/animations', function(request, response) {
   response.render('pages/animations/animations');
 });
 // practice animation page
-app.get('animations/animations2', function(request, response) {
+app.get('/animations2', function(request, response) {
   response.render('pages/animations/animations2');
 });
 // practice animation page
