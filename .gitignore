@@ -1,5 +1,6 @@
 node_modules
 .env
+extras
 Dockerfile
 docker-compose.yml
 starwars-original-script.js

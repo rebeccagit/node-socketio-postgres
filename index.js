@@ -6,7 +6,6 @@ var router = express.Router(); // on deck
 var cons = require('consolidate'); 
 // favicon icon
 var favicon = require('serve-favicon');
-// chat
 var io = require('socket.io')(http); 
 var config = require('config');
 // database
@@ -82,77 +81,71 @@ app.get('/chat', function(request, response) {
 
 // practice animation page
 app.get('/animations', function(request, response) {
-  response.render('pages/animations');
+  response.render('pages/animations/animations');
 });
 // practice animation page
 app.get('/animations2', function(request, response) {
-  response.render('pages/animations2');
+  response.render('pages/animations/animations2');
 });
 // practice animation page
 app.get('/animations3', function(request, response) {
-  response.render('pages/animations3');
+  response.render('pages/animations/animations3');
 });
 // practice animation page
 app.get('/animations4', function(request, response) {
-  response.render('pages/animations4');
+  response.render('pages/animations/animations4');
 });
 // practice animation page
 app.get('/animations5', function(request, response) {
-  response.render('pages/animations5');
+  response.render('pages/animations/animations5');
 });
 // practice animation page
 app.get('/animations6', function(request, response) {
-  response.render('pages/animations6');
+  response.render('pages/animations/animations6');
 });
 // practice animation page
 app.get('/animations7', function(request, response) {
-  response.render('pages/animations7');
+  response.render('pages/animations/animations7');
 });
 // practice animation page
 app.get('/animations8', function(request, response) {
-  response.render('pages/animations8');
+  response.render('pages/animations/animations8');
 });
 // practice animation page
 app.get('/animations8b', function(request, response) {
-  response.render('pages/animations8b');
+  response.render('pages/animations/animations8b');
 });
 app.get('/animations9', function(request, response) {
-  response.render('pages/animations9');
+  response.render('pages/animations/animations9');
 });
 app.get('/animations10', function(request, response) {
-  response.render('pages/animations10');
+  response.render('pages/animations/animations10');
 });
 app.get('/animations11', function(request, response) {
-  response.render('pages/animations11');
+  response.render('pages/animations/animations11');
 });
 app.get('/animations12', function(request, response) {
-  response.render('pages/animations12');
+  response.render('pages/animations/animations12');
 });
 app.get('/animations12b', function(request, response) {
-  response.render('pages/animations12b');
+  response.render('pages/animations/animations12b');
 });
-
-
-// practice grid page
-//app.get('/data.json', function(request, response) {
-// response.render('myscripts\jgrid\js\data.json');
-//});
 
 // practice animation page
 app.get('/og7', function(request, response) {
-  response.render('pages/og7');
+  response.render('pages/animations/og7');
 });
 // practice animation page
 app.get('/og8', function(request, response) {
-  response.render('pages/og8');
+  response.render('pages/animations/og8');
 });
 // practice animation page
 app.get('/og9', function(request, response) {
-  response.render('pages/og9');
+  response.render('pages/animations/og9');
 });
 
 app.get('/experimental', function(request, response) {
-  response.render('pages/experimental');
+  response.render('pages/animations/experimental');
 });
 
 app.get('/funstuff', function(request, response) {
@@ -164,6 +157,11 @@ app.get('/prac', function(request, response) {
 });
 
 
+
+// practice grid page
+//app.get('/data.json', function(request, response) {
+// response.render('myscripts\jgrid\js\data.json');
+//});
 
 
 // Chatroom via socket.io ... future plans --> move to seperate file
@@ -230,10 +228,9 @@ io.on('connection', function (socket) {
 
 
 
-// err 404 --> no pg found
 app.use(function(req, res, next) {
     //var err = new Error('Not found.  Please try another url.');
-    res.status(404).send('Hmmm. Looks like the page you\'re looking for does not exist!');
+    res.status(404).send('The page you\'re looking for does not exist! Please try another page.');
     next(err);
 });
 
