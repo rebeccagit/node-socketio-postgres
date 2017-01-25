@@ -79,39 +79,31 @@ app.get('/chat', function(request, response) {
 //  response.render('pages/moviereviews');
 //});
 
-// practice animation page
+
 app.get('/animations', function(request, response) {
   response.render('pages/animations/animations');
 });
-// practice animation page
 app.get('/animations2', function(request, response) {
   response.render('pages/animations/animations2');
 });
-// practice animation page
 app.get('/animations3', function(request, response) {
   response.render('pages/animations/animations3');
 });
-// practice animation page
 app.get('/animations4', function(request, response) {
   response.render('pages/animations/animations4');
 });
-// practice animation page
 app.get('/animations5', function(request, response) {
   response.render('pages/animations/animations5');
 });
-// practice animation page
 app.get('/animations6', function(request, response) {
   response.render('pages/animations/animations6');
 });
-// practice animation page
 app.get('/animations7', function(request, response) {
   response.render('pages/animations/animations7');
 });
-// practice animation page
 app.get('/animations8', function(request, response) {
   response.render('pages/animations/animations8');
 });
-// practice animation page
 app.get('/animations8b', function(request, response) {
   response.render('pages/animations/animations8b');
 });
@@ -130,20 +122,15 @@ app.get('/animations12', function(request, response) {
 app.get('/animations12b', function(request, response) {
   response.render('pages/animations/animations12b');
 });
-
-// practice animation page
 app.get('/og7', function(request, response) {
   response.render('pages/animations/og7');
 });
-// practice animation page
 app.get('/og8', function(request, response) {
   response.render('pages/animations/og8');
 });
-// practice animation page
 app.get('/og9', function(request, response) {
   response.render('pages/animations/og9');
 });
-
 app.get('/experimental', function(request, response) {
   response.render('pages/animations/experimental');
 });
@@ -151,7 +138,6 @@ app.get('/experimental', function(request, response) {
 app.get('/funstuff', function(request, response) {
   response.render('pages/funstuff');
 });
-
 app.get('/prac', function(request, response) {
   response.render('pages/prac');
 });
