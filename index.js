@@ -122,6 +122,9 @@ app.get('/animations12', function(request, response) {
 app.get('/animations12b', function(request, response) {
   response.render('pages/animations/animations12b');
 });
+app.get('/animations13', function(request, response) {
+  response.render('pages/animations/animations13');
+});
 app.get('/og7', function(request, response) {
   response.render('pages/animations/og7');
 });
