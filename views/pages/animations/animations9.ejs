@@ -85,7 +85,7 @@
 			var value = document.getElementById('dropdown').value;
 			var segments = parseInt(100);
 			closed2 = document.getElementById('closed').checked;
-			var radiusSegments = parseInt( 10 );
+			var radiusSegments = parseInt( 20 );
 			if (tubeMesh) parent.remove(tubeMesh);
 			extrudePath = splines[value];
 			tube = new THREE.TubeGeometry(extrudePath, segments, 2, radiusSegments, closed2);
@@ -102,8 +102,6 @@
 		
 		
 		function addGeometry( geometry, color ) {
-			// 3d shape
-
 
 			var map = new THREE.TextureLoader().load( 'images/crystals.jpg' );
 			map.wrapS = map.wrapT = THREE.RepeatWrapping;
@@ -119,8 +117,8 @@
 				}),
 				new THREE.MeshBasicMaterial({
 					color: 0x331a00,
-					opacity: 0.1,
-					wireframe: true,
+					opacity: 0.7,
+					wireframe: false,
 					transparent: true
 			})]);
 			
