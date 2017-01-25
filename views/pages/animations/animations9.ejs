@@ -100,7 +100,7 @@
 			var map = new THREE.TextureLoader().load( 'images/crystals.jpg' );
 			map.wrapS = map.wrapT = THREE.RepeatWrapping;
 			//map.anisotropy = 16;
-			map.repeat.set(200,5);
+			map.repeat.set(200,15);
 			
 			tubeMesh = THREE.SceneUtils.createMultiMaterialObject( geometry, [
 				new THREE.MeshLambertMaterial({
