@@ -96,7 +96,7 @@
 		
 		
 		function setScale() {
-			scale = parseInt( 20 );
+			scale = parseInt( 10 );
 			tubeMesh.scale.set( scale, scale, scale );
 		}
 		
@@ -106,7 +106,7 @@
 			var map = new THREE.TextureLoader().load( 'images/crystals.jpg' );
 			map.wrapS = map.wrapT = THREE.RepeatWrapping;
 			//map.anisotropy = 16;
-			map.repeat.set(200,10);
+			map.repeat.set(200,5);
 			
 			tubeMesh = THREE.SceneUtils.createMultiMaterialObject( geometry, [
 				new THREE.MeshLambertMaterial({
