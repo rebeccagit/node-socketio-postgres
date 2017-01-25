@@ -54,8 +54,8 @@
 		// Keep a dictionary of Curve instances.  Keeping for possible future use.
 		var splines = {
 			GrannyKnot: new THREE.Curves.GrannyKnot(),
-			VivianiCurve: new THREE.Curves.VivianiCurve(70),
-			KnotCurve: new THREE.Curves.KnotCurve(),
+		//	VivianiCurve: new THREE.Curves.VivianiCurve(70),
+		//	KnotCurve: new THREE.Curves.KnotCurve(),
 			HelixCurve: new THREE.Curves.HelixCurve(),
 			TorusKnot: new THREE.Curves.TorusKnot(10),
 			CinquefoilKnot: new THREE.Curves.CinquefoilKnot(20),
@@ -178,7 +178,7 @@
 			addTube();
 			
 			// Debug point
-			cameraEye = new THREE.Mesh( new THREE.SphereGeometry( 5 ), new THREE.MeshBasicMaterial( { color: 0xdddddd } ) );
+			cameraEye = new THREE.Mesh( new THREE.SphereGeometry( 5 ), new THREE.MeshBasicMaterial( { color: 0xeeeeee} ) );
 			parent.add( cameraEye );
 			
 			cameraHelper.visible = showCameraHelper;
