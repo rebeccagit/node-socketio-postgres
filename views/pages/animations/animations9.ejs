@@ -23,7 +23,7 @@
 		<script>
 		if ( ! Detector.webgl ) Detector.addGetWebGLMessage();		
 		var container;
-		var camera, scene, renderer, splineCamera, cameraHelper, cameraEye;
+		var camera, scene, renderer, splineCamera;//, cameraHelper, cameraEye;
 		var text, plane;
 		
 		var targetRotation = 0;
@@ -72,7 +72,7 @@
 		var tube, tubeMesh;
 		var animation = false, lookAhead = false;
 		var scale;
-		var showCameraHelper = false;
+		//var showCameraHelper = false;
 		
 		
 		function addTube() {
@@ -127,9 +127,9 @@
 				document.getElementById('animation').value = 'Start Animation: ' + (animation? 'ON': 'OFF');
 			}
 			lookAhead = document.getElementById('lookAhead').checked;
-			showCameraHelper = document.getElementById('cameraHelper').checked;
-			cameraHelper.visible = showCameraHelper;
-			cameraEye.visible = showCameraHelper;
+			//showCameraHelper = document.getElementById('cameraHelper').checked;
+			//cameraHelper.visible = showCameraHelper;
+			//cameraEye.visible = showCameraHelper;
 		}
 
 		
@@ -144,7 +144,8 @@
 			
 			info.innerHTML += dropdown;
 			info.innerHTML += '<br/>Closed:<input id="closed" onchange="addTube()" type="checkbox" checked />';
-			info.innerHTML += '<br/><br/><input id="animation" type="button" onclick="animateCamera(true)" value="Start Animation: OFF"/><br/> Look Ahead <input id="lookAhead" type="checkbox" onchange="animateCamera()" /> Camera Helper <input id="cameraHelper" type="checkbox" onchange="animateCamera()" />';
+			info.innerHTML += '<br/><br/><input id="animation" type="button" onclick="animateCamera(true)" value="Start Animation: OFF"/><br/> Look Ahead <input id="lookAhead" type="checkbox" onchange="animateCamera()" />';
+			//Camera Helper <input id="cameraHelper" type="checkbox" onchange="animateCamera()" />'
 			container.appendChild(info);
 			
 			
@@ -166,17 +167,17 @@
 			splineCamera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.01, 1500 );
 			parent.add( splineCamera );
 			
-			cameraHelper = new THREE.CameraHelper( splineCamera );
-			scene.add( cameraHelper );
+			//cameraHelper = new THREE.CameraHelper( splineCamera );
+			//scene.add( cameraHelper );
 			
 			addTube();
 			
 			// Debug point
-			cameraEye = new THREE.Mesh( new THREE.SphereGeometry( 5 ), new THREE.MeshBasicMaterial( { color: 0xeeeeee} ) );
-			parent.add( cameraEye );
+			//cameraEye = new THREE.Mesh( new THREE.SphereGeometry( 5 ), new THREE.MeshBasicMaterial( { color: 0xeeeeee} ) );
+			//parent.add( cameraEye );
 			
-			cameraHelper.visible = showCameraHelper;
-			cameraEye.visible = showCameraHelper;
+			//cameraHelper.visible = showCameraHelper;
+			//cameraEye.visible = showCameraHelper;
 			
 			
 			//
@@ -254,7 +255,7 @@
 			// We move on a offset on its binormal
 			pos.add( normal.clone().multiplyScalar( offset ) );
 			splineCamera.position.copy( pos );
-			cameraEye.position.copy( pos );
+			// ????????????????cameraEye.position.copy( pos );
 			
 			// Camera Orientation 1 - default look at
 			// splineCamera.lookAt( lookAt );
@@ -267,7 +268,7 @@
 			splineCamera.matrix.lookAt(splineCamera.position, lookAt, normal);
 			splineCamera.rotation.setFromRotationMatrix( splineCamera.matrix, splineCamera.rotation.order );
 			
-			cameraHelper.update();
+			//cameraHelper.update();
 			
 			parent.rotation.y += ( targetRotation - parent.rotation.y ) * 0.05;
 			renderer.render( scene, animation === true ? splineCamera : camera );
