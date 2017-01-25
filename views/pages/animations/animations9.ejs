@@ -96,7 +96,7 @@
 		
 		
 		function setScale() {
-			scale = parseInt( 10 );
+			scale = parseInt( 5 );
 			tubeMesh.scale.set( scale, scale, scale );
 		}
 		
@@ -241,7 +241,7 @@
 		
 			// Try Animate Camera Along Spline
 			var time = Date.now();
-			var looptime = 1000 * 100;
+			var looptime = 1000 * 100; //speed
 			var t = ( time % looptime ) / looptime;
 			var pos = tube.parameters.path.getPointAt( t );
 			pos.multiplyScalar( scale );
