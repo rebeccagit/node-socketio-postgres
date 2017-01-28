@@ -1,4 +1,4 @@
-html, body { font: 13px Tahoma, Arial;color:#000;background:#fff;  height: 100%; margin: 0;padding: 0;}
+html, body { font: 16px Tahoma, Arial;color:#000;background:#fff;  height: 100%; margin: 0;padding: 0;}
 li {list-style-type:none;}
 
 .jumbotron {
@@ -26,17 +26,4 @@ li {list-style-type:none;}
 	margin: 0px;
 	font-size: 11px;
 	}
- /* .jumbotron .lang-logo {
-	color: #ffffff;
-    display: block;
-    background: #B01302;
-    border-radius: 15%;
-    overflow: hidden;
-	width: 175px;
-    height: 100px;
-    margin: auto;
-	padding: 10px;
-    border: 2px solid white; }
-    .jumbotron .lang-logo img {
-      max-width: 100%; } 
-*/
+
