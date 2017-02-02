@@ -4,16 +4,11 @@ var http = require('http').Server(app);
 var router = express.Router(); // on deck
 // Templating library adapter for Express.  Do I still need this?
 var cons = require('consolidate'); 
-// favicon icon
 var favicon = require('serve-favicon');
 var io = require('socket.io')(http); 
 var config = require('config');
-// database
 var pg = require('pg'); 
-// security
 var helmet = require('helmet'); 
-
-// Security 
 app.disable('x-powered-by');
 app.use(helmet());
 app.use(helmet.noSniff());
@@ -37,19 +32,13 @@ app.use(express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 //app.use(express.static('public'));  //for my own future reference
 
-
-
 // Views set up w/ ejs
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-
-
 // Setting up server
 app.set('port', (process.env.PORT || 5000));
 //app.set('port', (3000)); //for my own future reference
-
-
 
 // Database - variable name set for database to be called when moviereviews.ejs page is viewed.
 var moviesdatabase = require('./views/pages/moviesdatabase');
@@ -61,15 +50,12 @@ app.use('/moviereviews', moviesdatabase);
 app.get('/', function(request, response) {
   response.render('pages/index');
 });
-// about moi
 app.get('/aboutme', function(request, response) {
   response.render('pages/aboutme');
 });
-// about making the site
 app.get('/makingsite', function(request, response) {
   response.render('pages/makingsite');
 });
-// chat page - socket.io
 app.get('/chat', function(request, response) {
   response.render('pages/chat');
 });
@@ -143,14 +129,13 @@ app.get('/prac', function(request, response) {
 });
 
 
-
 // practice grid page
 //app.get('/data.json', function(request, response) {
 // response.render('myscripts\jgrid\js\data.json');
 //});
 
 
-// Chatroom via socket.io ... future plans --> move to seperate file
+// Chatroom
 var numUsers = 0;
 
 io.on('connection', function (socket) {
@@ -158,7 +143,6 @@ io.on('connection', function (socket) {
 
   // when the client emits 'new message', this listens and executes
   socket.on('new message', function (data) {
-    // we tell the client to execute 'new message'
     socket.broadcast.emit('new message', {
       username: socket.username,
       message: data
@@ -220,9 +204,6 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-
-
-//Automatically verify in logging that server is listening.
 http.listen(app.get('port'), function() {
   console.log('Node app is running on port and you know that, right?', app.get('port'));
 });

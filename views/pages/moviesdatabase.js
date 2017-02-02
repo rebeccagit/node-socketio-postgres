@@ -51,6 +51,7 @@ router.get('/', function(req, res) {
 		query.on('end', function () {
 			res.write("</ul>");
 			res.write("Number of reviews = " + i + "!");
+			res.write("Number of future pages = " + i/10 + "!");
 			res.write("<br /><br /><br /></div>");
 			res.write("</body></html>");
 
