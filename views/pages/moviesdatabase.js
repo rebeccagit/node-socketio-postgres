@@ -53,7 +53,8 @@ router.get('/', function(req, res) {
 		query.on('end', function () {
 			res.write("</ul>");
 			res.write("Number of reviews = " + i + "!<br />");
-			res.write("Number of future pages = " + i/10 + "!");
+			res.write("Number of future pages = " + i/10 + "!<br /><br />");
+			res.write("I hope you enjoyed the reviews. I update frequently, though not consistently. Sometimes there is nothing to see at the movies. Sometimes, I don't have the time.<br /><br /><br /></div>");			
 			res.write("<br /><br /><br /></div>");
 			res.write("</body></html>");
 
