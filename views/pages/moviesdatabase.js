@@ -38,6 +38,8 @@ router.get('/', function(req, res) {
 			i++; //provide number for total below
 			res.write("<li style='list-style-type:none;'>");
 			res.write("<h3 style='color:#4d004d;'>" + String(row.name) + "&nbsp;&nbsp;=>&nbsp;&nbsp;" + String(row.rating) + "<span class='glyphicon glyphicon-star-empty'></span></h3><br />");
+			res.write("Release Year: " + String(row.year) + "<br /><br />");
+			res.write("Genre: " + String(row.genre) + "<br /><br />");			
 			res.write("Directed By: " + String(row.director) + "<br /><br />");
 			res.write("Cast: " + String(row.actors) + "<br /><br />");
 			res.write("My Review: <br /><br />" + String(row.review) + "<br /><br />");
