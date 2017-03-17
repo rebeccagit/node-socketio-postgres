@@ -25,12 +25,12 @@ router.get('/', function(req, res) {
 	
 	
 	res.write("<div id='top'>")
-	res.write("<h1>My Movie Reviews.  They are based on whatever comes to mind as I watch the film.  Movies are listed in alphabetical order." + "<br /></h1>");
+	res.write("<h1>My Movie Reviews. Movies are listed in alphabetical order." + "<br /></h1>");
 	res.write("</div>");
 	res.write("<div id='rev'>");
 		   
     var i = 0;
-	var query = db.query("SELECT * FROM moviereviewz ORDER BY name ASC");
+	var query = db.query("SELECT name, rating, year, genre, director, actors, review FROM moviereviewz ORDER BY name ASC");
 
 	res.write("<ul>");
 		query.on('row', function(row) {
