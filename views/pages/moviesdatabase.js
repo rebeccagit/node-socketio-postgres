@@ -30,7 +30,7 @@ router.get('/', function(req, res) {
 	res.write("<div id='rev'>");
 		   
     var i = 0;
-	var query = db.query("SELECT name, rating, year, genre, director, actors, review FROM moviereviewz ORDER BY name ASC");
+	var query = db.query("SELECT name, rating, year, genre, director, actors, review FROM moviereviewz ORDER BY name ASC LIMIT 5");
 
 	res.write("<ul>");
 		query.on('row', function(row) {
