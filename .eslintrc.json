@@ -1,6 +1,7 @@
 {
     "env": {
         "browser": true,
+		"node": true,
         "es6": true
     },
     "extends": "eslint:recommended",
@@ -23,6 +24,53 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+		"block-scoped-var": [
+            "error"		
+		],
+		"eqeqeq": [
+            "error",
+			"always"
+		],
+		"no-alert": [
+            "error"
+		],
+		"no-empty-function": [
+            "error"
+		],
+		"no-eval": [
+            "error"
+		],
+		"no-magic-numbers": [
+            "error"
+		],
+		"no-script-url": [
+            "error"
+		],
+		"no-unused-expressions": [
+            "error",
+			{ "allowShortCircuit": true,
+			  "allowTernary": true }
+		],
+		"vars-on-top": [
+            "error"
+		],
+		"camelcase": [
+			"error",
+			{ "properties": "always" }
+		],
+		"no-new-object": [
+            "error"
+		],
+		"semi-spacing": [
+			"error", 
+			{"before": false, "after": true}
+		],
+		"space-in-parens": [
+			"error", "always"
+		],
+		"no-var": [
+			"error"
+		]	
     }
 }
