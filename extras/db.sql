@@ -1,5 +1,5 @@
 --
--- PostgreSQL database dump SOMETHING TO LOOK INTO IN THE FUTURE ... STILL WORKING ON THIS
+-- PostgreSQL database dump SOMETHING TO LOOK INTO IN THE FUTURE ... WIP
 --
 
 -- Dumped from database version 9.5.0

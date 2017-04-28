@@ -7,8 +7,12 @@ starwars-original-script.js
 movies.csv
 movies.txt
 db.txt
+db.sql
 db.csv
 originaldbconnect.txt
 database.js
 indexoriginal.js
-.eslintrc.json
+gruntfile.js
+test
+public/images
+databasemovies.txt

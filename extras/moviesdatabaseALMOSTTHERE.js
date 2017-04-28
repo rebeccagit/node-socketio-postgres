@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var pg = require('pg');
 
-
+//outdated - do not use
 
 router.get('/', function(req, res) {
      
@@ -12,6 +12,7 @@ router.get('/', function(req, res) {
 	var obj = "";	   
     var results = [];
     var i = 0;
+	var tagline = "Any code of your own that you haven't looked at for six or more months..."
 	var query = db.query("SELECT * FROM moviereview ORDER BY -rating");
 
 		query.on('row', function(row) {
