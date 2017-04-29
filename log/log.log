@@ -1,1 +1,5 @@
-{"someKey":"some-value","level":"info","message":"Hello log files!","timestamp":"2017-04-09T11:03:40.815Z"}
+{"level":"info","message":"View engine set.","timestamp":"2017-04-29T05:51:46.324Z"}
+{"level":"info","message":"DB enabled","timestamp":"2017-04-29T05:51:46.324Z"}
+{"level":"info","message":"All pages enabled","timestamp":"2017-04-29T05:51:46.324Z"}
+{"level":"info","message":"Socket.io enabled","timestamp":"2017-04-29T05:51:46.324Z"}
+{"level":"info","message":"Listening on 5000","timestamp":"2017-04-29T05:51:46.339Z"}

@@ -1,13 +1,14 @@
-var express = require('express');
-var app = express();
-var http = require('http').Server(app);
-var router = express.Router(); 
-var cons = require('consolidate'); 
-var favicon = require('serve-favicon');
-var io = require('socket.io')(http); 
-var config = require('config');
-var pg = require('pg'); 
-var helmet = require('helmet'); 
+const express = require('express');
+const app = express();
+const http = require('http').Server(app);
+const router = express.Router(); 
+const cons = require('consolidate'); 
+const favicon = require('serve-favicon');
+const io = require('socket.io')(http); 
+const config = require('config');
+const pg = require('pg'); 
+const helmet = require('helmet'); 
+const logger = require("./logger");
 app.disable('x-powered-by');
 app.use(helmet());
 app.use(helmet.noSniff());
@@ -23,18 +24,21 @@ app.use(helmet.noSniff());
     imgSrc: ['img.com', 'self' "http://cdn.theanimalrescuesite.com"]
 }}));  //pending... */
 
+
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 //app.use(express.static('public'));  //for my own future reference
 
+
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+logger.info("View engine set.")
 
 app.set('port', (process.env.PORT || 5000));
-//app.set('port', (3000)); //for my own future reference
 
 var moviesdatabase = require('./views/pages/moviesdatabase');
 app.use('/moviereviews', moviesdatabase);
+logger.info("DB enabled");
 
 // Site Pages
 app.get('/', function(request, response) {
@@ -115,6 +119,7 @@ app.get('/funstuff', function(request, response) {
 app.get('/prac', function(request, response) {
   response.render('pages/prac');
 });
+logger.info("All pages enabled");
 
 // practice grid page
 //app.get('/data.json', function(request, response) {
@@ -165,6 +170,7 @@ io.on('connection', function (socket) {
     }
   });
 });
+logger.info("Socket.io enabled");
 
 app.use(function(req, res, next) {
     //var err = new Error('Not found.  Please try another url.');
@@ -172,6 +178,8 @@ app.use(function(req, res, next) {
     next(err);
 });
 
+
 http.listen(app.get('port'), function() {
   console.log('Hiya, node is running on port ', app.get('port'));
+  logger.info("Listening on " + app.get('port'));
 });
