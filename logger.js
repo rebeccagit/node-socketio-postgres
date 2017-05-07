@@ -1,23 +1,30 @@
 const winston = require('winston');
 winston.emitErrs = true;
+//const tsFormat = () => (new Date()).toLocaleTimeString();
 
 const logger = new winston.Logger({
     transports: [
         new winston.transports.File({
-            level: 'info',
+            level: 'debug',
             filename: 'log/log.log',
             handleExceptions: true,
             json: true,
+			prettyPrint: true,
             maxsize: 1242880, 
-            maxFiles: 5,
-            colorize: false
+            maxFiles: 1,
+            colorize: false,
+			showLevel: true
+//			timestamp: tsFormat,
         }),
         new winston.transports.Console({
             level: 'debug',
             handleExceptions: true,
             json: false,
-            colorize: true
+            colorize: false
         })
+    ],
+	exceptionHandlers: [
+      new winston.transports.File({ filename: 'log/exceptions.log' })
     ],
     exitOnError: false
 });

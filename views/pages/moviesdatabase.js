@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
 	
 	res.writeHead(200, {"Content-Type": "text/html"});
 	
-	res.write("<!DOCTYPE><html><head><title>Movie Reviews</title><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body {font: 16px verdana;}#top{margin-left:10%;margin-right:10%;margin-top:10%;margin-bottom:5%;padding:0px;}#rev{margin:15%;margin-top:5%;padding:0px;}h3 {color:red;font: 14px Helvetica, Arial, sans-serif;} h3{color:red;}</style>");
+	res.write("<!DOCTYPE><html><head><title>Movie Reviews</title><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body {font: 16px verdana;}#top{margin-left:10%;margin-right:10%;margin-top:10%;margin-bottom:5%;padding:0px;}#rev{margin:15%;margin-top:5%;padding:0px;}h3 {color:red;font: 14px Helvetica, Arial, sans-serif;} h3{color:red;} .moviebutton { width:30px; padding:10px; margin:10px; }</style>");
 	
 	res.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script><link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" /><link rel="stylesheet" type="text/css" href="/stylesheets/main.css" /><meta name="viewport" content="width=device-width, initial-scale=1.0">');
 
@@ -17,17 +17,16 @@ router.get('/', function(req, res) {
 	
 	
 	res.write("<div id='top'>")
-	res.write("<h1>My Movie Reviews. Movies are listed in alphabetical order." + "<br /></h1>");
+	res.write("<h1>My Movie Reviews." + "<br /></h1>");
 	res.write("</div>");
 	res.write("<div id='rev'>");
-		   
-    var i = 0;
-	var query = db.query("SELECT name, rating, year, genre, director, actors, review, video FROM moviereviewz ORDER BY name ASC");
-
+	res.write("<button class='moviebutton'>A</button><button class='moviebutton'>B</button><button class='moviebutton'>C</button><button class='moviebutton'>D</button><button class='moviebutton'>E</button><button class='moviebutton'>F</button><button class='moviebutton'>G</button><button class='moviebutton'>H</button><button class='moviebutton'>I</button><button class='moviebutton'>J</button><button class='moviebutton'>K</button><button class='moviebutton'>L</button><button class='moviebutton'>M</button><button class='moviebutton'>N</button><button class='moviebutton'>O</button><button class='moviebutton'>P</button><button class='moviebutton'>Q</button><button class='moviebutton'>R</button><button class='moviebutton'>S</button><button class='moviebutton'>T</button><button class='moviebutton'>U</button><button class='moviebutton'>V</button><button class='moviebutton'>W</button><button class='moviebutton'>X</button><button class='moviebutton'>Y</button><button class='moviebutton'>Z</button>");
+	res.write("<br /><br /><br /><br />");
+	var query = db.query("SELECT name, rating, year, genre, director, actors, review, video FROM moviereviewz LIMIT 1");
+	
 	res.write("<ul>");
 		query.on('row', function(row) {
 			//console.log(row.name);
-			i++; //provide number for total below
 			res.write("<li style='list-style-type:none;'>");
 			res.write("<h3 style='color:#4d004d;'>" + String(row.name) + "&nbsp;&nbsp;=>&nbsp;&nbsp;" + String(row.rating) + "<span class='glyphicon glyphicon-star-empty'></span></h3><br />");
 			res.write("Release Year: " + String(row.year) + "<br /><br />");
@@ -40,7 +39,28 @@ router.get('/', function(req, res) {
 			res.write("</div>")
 			res.write("<br /><br /><br /><br />");			
 			res.write("</li>");
-			//res.end(); using this would be redundant and extra work ;p
+			res.write("</ul>");
+		});
+		
+		
+    var i = 0;
+	var query = db.query("SELECT name, rating, year, genre, director, actors, review, video FROM moviereviewz ORDER BY random() LIMIT 3");	
+	res.write("<ul>");
+		query.on('row', function(row) {
+			//console.log(row.name);
+			i++; //provide number for total below
+			res.write("<li style='list-style-type:none;'>");		
+			res.write("<h3 style='color:#4d004d;'>" + String(row.name) + "&nbsp;&nbsp;=>&nbsp;&nbsp;" + String(row.rating) + "<span class='glyphicon glyphicon-star-empty'></span></h3><br />");
+			res.write("Release Year: " + String(row.year) + "<br /><br />");
+			res.write("Genre: " + String(row.genre) + "<br /><br />");			
+			res.write("Directed By: " + String(row.director) + "<br /><br />");
+			res.write("Cast: " + String(row.actors) + "<br /><br />");
+			res.write("My Review: <br /><br />" + String(row.review) + "<br /><br />");
+			res.write("<div class='embed-responsive embed-responsive-16by9'>")
+			res.write("<iframe class='embed-responsive-item' src='https://www.youtube.com/embed/" + String(row.video) + "' allowfullscreen></iframe>");
+			res.write("</div>")
+			res.write("<br /><br /><br /><br />");			
+			res.write("</li>");
 		});		
 		query.on('end', function () {
 			res.write("</ul>");
@@ -62,6 +82,10 @@ router.use(function timeLog(req, res, next) {
 // define the home page route - here for my own practice and reference
 router.get('/about', function(req, res) {
     res.send('Birds home page. A hidden page! Squeee!!');
+});
+
+router.get('/a', function(req, res) {
+    res.send('a');
 });
 
 module.exports = router;

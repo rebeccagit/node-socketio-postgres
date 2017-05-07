@@ -12,6 +12,8 @@ const logger = require("./logger");
 app.disable('x-powered-by');
 app.use(helmet());
 app.use(helmet.noSniff());
+require('./routes/routes.js')(app);
+
 
  //for my own future reference ... still a wip
 /*app.use(helmet.csp({
@@ -29,102 +31,21 @@ app.use(express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 //app.use(express.static('public'));  //for my own future reference
 
-
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-logger.info("View engine set.")
+logger.debug("View engine set.")
 
 app.set('port', (process.env.PORT || 5000));
 
 var moviesdatabase = require('./views/pages/moviesdatabase');
 app.use('/moviereviews', moviesdatabase);
-logger.info("DB enabled");
+logger.debug("DB enabled");
 
-// Site Pages
-app.get('/', function(request, response) {
-  response.render('pages/index');
-});
-app.get('/aboutme', function(request, response) {
-  response.render('pages/aboutme');
-});
-app.get('/makingsite', function(request, response) {
-  response.render('pages/makingsite');
-});
-app.get('/chat', function(request, response) {
-  response.render('pages/chat');
-});
+var moviesdatabases = require('./views/pages/movies');
+app.use('/moviepage', moviesdatabases);
 
-// movie review database page
-//app.get('/moviereviews', function(request, response) {
-//  response.render('pages/moviereviews');
-//});
+logger.debug("All pages enabled");
 
-app.get('/animations', function(request, response) {
-  response.render('pages/animations/animations');
-});
-app.get('/animations2', function(request, response) {
-  response.render('pages/animations/animations2');
-});
-app.get('/animations3', function(request, response) {
-  response.render('pages/animations/animations3');
-});
-app.get('/animations4', function(request, response) {
-  response.render('pages/animations/animations4');
-});
-app.get('/animations5', function(request, response) {
-  response.render('pages/animations/animations5');
-});
-app.get('/animations6', function(request, response) {
-  response.render('pages/animations/animations6');
-});
-app.get('/animations7', function(request, response) {
-  response.render('pages/animations/animations7');
-});
-app.get('/animations8', function(request, response) {
-  response.render('pages/animations/animations8');
-});
-app.get('/animations8b', function(request, response) {
-  response.render('pages/animations/animations8b');
-});
-app.get('/animations10', function(request, response) {
-  response.render('pages/animations/animations10');
-});
-app.get('/animations11', function(request, response) {
-  response.render('pages/animations/animations11');
-});
-app.get('/animations12', function(request, response) {
-  response.render('pages/animations/animations12');
-});
-app.get('/animations12b', function(request, response) {
-  response.render('pages/animations/animations12b');
-});
-app.get('/animations13', function(request, response) {
-  response.render('pages/animations/animations9');
-});
-app.get('/og7', function(request, response) {
-  response.render('pages/animations/og7');
-});
-app.get('/og8', function(request, response) {
-  response.render('pages/animations/og8');
-});
-app.get('/og9', function(request, response) {
-  response.render('pages/animations/og9');
-});
-app.get('/experimental', function(request, response) {
-  response.render('pages/animations/experimental');
-});
-app.get('/funstuff', function(request, response) {
-  response.render('pages/funstuff');
-});
-app.get('/prac', function(request, response) {
-  response.render('pages/prac');
-});
-logger.info("All pages enabled");
-
-// practice grid page
-//app.get('/data.json', function(request, response) {
-// response.render('myscripts\jgrid\js\data.json');
-//});
 
 // Chatroom
 var numUsers = 0;
@@ -170,11 +91,11 @@ io.on('connection', function (socket) {
     }
   });
 });
-logger.info("Socket.io enabled");
+logger.debug("Socket.io enabled");
 
 app.use(function(req, res, next) {
-    //var err = new Error('Not found.  Please try another url.');
-    res.status(404).send('The page you\'re looking for does not exist! Please try another page.');
+    //res.status(404).send('The page you\'re looking for does not exist! Please try another page.');
+	res.status(404).render('pages/animations/animations14'); //squee!!
     next(err);
 });
 

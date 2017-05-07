@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Error 404</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		
+		<style>
+			body {
+				background-color: #000000;
+				margin: 0px;
+				overflow: hidden;
+				text:#fff;
+			}
+
+			
+			#intro {
+				position: absolute;
+				top: 0px; width: 100%;
+				padding: 5px;
+				z-index: 100;
+			}
+			
+			p {
+			margin:5%;
+			color:#fff;
+			font-family:Tahoma;
+			font-weight:bold;
+			font-size:1.5em;
+			}
+			
+		</style>
+		
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-33109920-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	</head>
+	<body>  
+
+	
+	
+			<div id="intro">
+			<p>It looks like the page you're looking for may not exist.<br>Please try again.</p>
+			</div>
+	
+	
+		<script src="myscripts/threejs/three.js"></script>
+		<script src="myscripts/threejs/Detector.js"></script>
+		<script src="myscripts/threejs/stats.min.js"></script>
+
+		
+		<script>
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+			
+			
+			var container;
+			// var stats;
+			var camera, scene, renderer, particles, geometry, materials = [], parameters, i, h, color, size;
+			var mouseX = 0, mouseY = 0;
+			var windowHalfX = window.innerWidth / 2;
+			var windowHalfY = window.innerHeight / 2;
+			
+			
+			function init() {
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+				
+				
+				camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 1, 5000 );
+				camera.position.z = 0;
+				//camera.position.y = 400;
+				
+				
+				scene = new THREE.Scene();
+				scene.fog = new THREE.FogExp2( 0x000000, 0.0007 );
+				
+				
+				geometry = new THREE.Geometry();
+				
+			
+				for ( i = 0; i < 20000; i ++ ) {
+					var vertex = new THREE.Vector3();
+					vertex.x = Math.random() * 2000 - 1000;
+					vertex.y = Math.random() * 2000 - 1000;
+					vertex.z = Math.random() * 2000 - 1000;
+					geometry.vertices.push( vertex );
+				}
+				
+				
+				parameters = [
+					[ [1, 1, 1.0], 0.1 ],
+					[ [0.56, 1, 0.92], 0.5 ],
+					[ [0.16, 1, 0.96], 0.05 ],
+					[ [0.91, 1, 0.92], 0.08 ],
+					[ [0.49, 1, 0.94], 0.3 ]
+				];
+				
+				
+				for ( i = 0; i < parameters.length; i ++ ) {
+					color = parameters[i][0];
+					size  = parameters[i][1];
+					
+					materials[i] = new THREE.PointsMaterial( { size: size } );
+					
+					particles = new THREE.Points( geometry, materials[i] );
+
+					scene.add( particles );
+				}
+				
+				
+				renderer = new THREE.WebGLRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild( renderer.domElement );
+				
+			
+				document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+				document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+				
+				window.addEventListener( 'resize', onWindowResize, false );
+			}
+			
+			
+			function onWindowResize() {
+				windowHalfX = window.innerWidth / 2;
+				windowHalfY = window.innerHeight / 2;
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+			}
+			
+			
+			function onDocumentMouseMove( event ) {
+				mouseX = event.clientX - windowHalfX;
+				mouseY = event.clientY - windowHalfY;
+			}
+			
+			
+			function onDocumentTouchStart( event ) {
+				if ( event.touches.length === 1 ) {
+					event.preventDefault();
+					mouseX = event.touches[ 0 ].pageX - windowHalfX;
+					mouseY = event.touches[ 0 ].pageY - windowHalfY;
+				}
+			}
+			
+			
+			function onDocumentTouchMove( event ) {
+				if ( event.touches.length === 1 ) {
+					event.preventDefault();
+					mouseX = event.touches[ 0 ].pageX - windowHalfX;
+					mouseY = event.touches[ 0 ].pageY - windowHalfY;
+				}
+			}
+			
+			
+			//
+			function animate() {
+				requestAnimationFrame( animate );
+				render();
+			}
+			
+			
+			function render() {
+				var time = Date.now() * 0.00005;
+				
+				
+				camera.position.x += ( mouseX - camera.position.x ) * 0.05;
+				camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
+				camera.lookAt( scene.position );
+				
+				
+				for ( i = 0; i < scene.children.length; i ++ ) {
+					var object = scene.children[ i ];
+					if ( object instanceof THREE.Points ) {
+						//object.rotation.y = time * ( i < 4 ? i + 1 : - ( i + 1 ) );
+						object.rotation.y = time * ( i );
+					}
+				}
+				
+				
+				for ( i = 0; i < materials.length; i ++ ) {
+					color = parameters[i][0];
+					//h = ( 360 * ( color[0] + time ) % 360 ) / 360;
+					h = ( 360 * ( color[0] ) % 360 ) / 360;
+
+					materials[i].color.setHSL( h, color[1], color[2] );
+				}
+				
+				
+				renderer.render( scene, camera );
+			}
+			
+			init();
+			animate();			
+			
+			
+		</script>
+
+	</body>
+</html>

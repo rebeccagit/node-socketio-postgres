@@ -11,7 +11,8 @@ Highcharts
 Mocha/Chai
 Angular
 React
+Bootstrap
 
-I'm a vanilla JavaScript fan, by the way. If you don't know vanilla JS, you really can't get anywhere useful with these frameworks.
+I'm a vanilla JavaScript fan. Vanilla JS makes it easier to use other frameworks and makes them less 'brittle' for use.  Any redundancies are intentional as this is a site for experimentation.
 
-It's also a place to list my movie reviews and showcase my animation experiments.
+This site is also a place to list my movie reviews and showcase my animation experiments.
