@@ -37,12 +37,7 @@ logger.debug("View engine set.")
 
 app.set('port', (process.env.PORT || 5000));
 
-var moviesdatabase = require('./views/pages/moviesdatabase');
-app.use('/moviereviews', moviesdatabase);
 logger.debug("DB enabled");
-
-var moviesdatabases = require('./views/pages/movies');
-app.use('/moviepage', moviesdatabases);
 
 logger.debug("All pages enabled");
 
@@ -93,10 +88,10 @@ io.on('connection', function (socket) {
 });
 logger.debug("Socket.io enabled");
 
+
 app.use(function(req, res, next) {
     //res.status(404).send('The page you\'re looking for does not exist! Please try another page.');
-	res.status(404).render('pages/animations/animations14'); //squee!!
-    next(err);
+	res.status(404).render('pages/animations/animations14'); 
 });
 
 
