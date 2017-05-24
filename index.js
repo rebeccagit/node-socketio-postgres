@@ -13,6 +13,12 @@ app.disable('x-powered-by');
 app.use(helmet());
 app.use(helmet.noSniff());
 require('./routes/routes.js')(app);
+logger.debug("All routes enabled");
+
+
+
+
+
 
 
  //for my own future reference ... still a wip
@@ -37,16 +43,12 @@ logger.debug("View engine set.")
 
 app.set('port', (process.env.PORT || 5000));
 
-logger.debug("DB enabled");
-
-logger.debug("All pages enabled");
-
 
 // Chatroom
-var numUsers = 0;
+let numUsers = 0;
 
 io.on('connection', function (socket) {
-  var addedUser = false;
+  let addedUser = false;
   socket.on('new message', function (data) {
     socket.broadcast.emit('new message', {
       username: socket.username,
@@ -99,3 +101,13 @@ http.listen(app.get('port'), function() {
   console.log('Hiya, node is running on port ', app.get('port'));
   logger.info("Listening on " + app.get('port'));
 });
+
+
+/*
+const server = app.listen(app.get('port'), function() {
+    const host = server.address().address;
+    const port = server.address().port;
+
+    console.log('Example app listening at http://%s:%s', host, port);
+});
+*/

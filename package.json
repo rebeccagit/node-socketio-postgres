@@ -2,13 +2,17 @@
   "name": "node-js-getting-started",
   "version": "0.1.5",
   "description": "Experiment to see how Node, Express, Socket.io, Postgres and Heroku work together.",
+  "repository": {
+    "type": "git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
-  "private": "true", 
+  "private": "true",
   "dependencies": {
     "bcrypt-nodejs": "~0.0.3",
+    "body-parser": "^1.10.2",
     "config": "^1.19.0",
     "consolidate": "~0.9.1",
     "ejs": "2.3.3",
@@ -34,9 +38,6 @@
   },
   "engines": {
     "node": "6.10.1"
-  },
-  "repository": {
-    "type": "git"
   },
   "keywords": [
     "node",
