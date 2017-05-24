@@ -4,7 +4,6 @@ var pg = require('pg');
 var db = require("../../config/datab");
 
 
-
 movieRouter.get('/', function(req, res) {
      		
 	res.writeHead(200, {"Content-Type": "text/html"});
@@ -48,10 +47,6 @@ movieRouter.get('/', function(req, res) {
 });
 
 
-
-
-
-
 movieRouter.get('/:id', function(req, res) {
 	
 	res.writeHead(200, {"Content-Type": "text/html"});
@@ -91,14 +86,29 @@ movieRouter.get('/:id', function(req, res) {
 			res.write("</div>");
 	
 			res.write("</li>");
-		});		
+			
+		/*	WIP
+			if (err) {
+				console.error(err);
+				res.statusCode = 500;
+				return res.json({ errors: ['Could not retrieve.'] });
+			}
+	   
+			if (results.rows.length === 0) {
+		  // We are able to set the HTTP status code on the res object
+				res.statusCode = 404;
+				return res.json({ errors: ['Not found'] });
+			}		
+		*/
+		
+			});		
+			
 		query.on('end', function () {
 			res.write("</ul></div>");
 			res.write("</body></html>");
 			photoId = "";
 		});	
 });
-
 
 
 module.exports = movieRouter;

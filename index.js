@@ -16,11 +16,6 @@ require('./routes/routes.js')(app);
 logger.debug("All routes enabled");
 
 
-
-
-
-
-
  //for my own future reference ... still a wip
 /*app.use(helmet.csp({
   // Specify directives as normal. 
@@ -40,6 +35,7 @@ app.use(favicon(__dirname + '/public/favicon.ico'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 logger.debug("View engine set.")
+
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -108,6 +104,6 @@ const server = app.listen(app.get('port'), function() {
     const host = server.address().address;
     const port = server.address().port;
 
-    console.log('Example app listening at http://%s:%s', host, port);
+    console.log('Listening at http://%s:%s', host, port);
 });
 */

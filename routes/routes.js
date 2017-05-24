@@ -89,56 +89,13 @@ module.exports = function(app) {
 	});
 
 
-	//database pages alphabetized
-
-
 	// practice grid page
 	//app.get('/data.json', function(request, response) {
 	// response.render('myscripts\jgrid\js\data.json');
 	//});
 	
-	
-/* function lookupPhoto(req, res) {
-  // We access the ID param on the request object
-  var photoId = req.params.id;
-  // Build an SQL query to select the resource object by ID
-  var sql = 'SELECT name FROM moviereviewz WHERE year = ?';
-  var results = db.query(sql, [ photoId ]);
-  
-     
- results.on('rows', function(row) {
-
-			res.send("Release Year: " + String(rows.name) + "<br /><br />");
-
-		});		
-
-	if (err) {
-      console.error(err);
-      res.statusCode = 500;
-      return res.json({ errors: ['Could not retrieve photo'] });
-    }
-    // No results returned mean the object is not found
-    if (results.rows.length === 0) {
-      // We are able to set the HTTP status code on the res object
-      res.statusCode = 404;
-      return res.json({ errors: ['Photo not found'] });
-    }
-	
-    // By attaching a Photo property to the request
-    // Its data is now made available in our handler function
-res.send( photoId );
-}
-var photoRouter = express.Router();
-photoRouter.get('/', function(req, res) { 
-	res.send('hello');
-});
-photoRouter.get('/:id', lookupPhoto, function(req, res) {
-  res.json(req.name);
-})
-*/
-
-	
-var moviesRouter = require('../views/pages/moviestemplate');
-app.use('/moviereview', moviesRouter);	
+		
+	var moviesRouter = require('../views/pages/moviestemplate');
+	app.use('/moviereview', moviesRouter);	
 
 };
