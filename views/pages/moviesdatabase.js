@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require("../../config/datab");
 
-
+// Old page.  No longer using.
 router.get('/', function(req, res) {
      		
 	res.writeHead(200, {"Content-Type": "text/html"});

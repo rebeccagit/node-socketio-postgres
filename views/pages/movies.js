@@ -2,6 +2,7 @@
 	var router = express.Router();
 	var pg = require('pg');	
 
+	//Old page. No longer using.
 router.get('/', function(req, res) {
      
     var db = new pg.Client(process.env.DB_URL);
