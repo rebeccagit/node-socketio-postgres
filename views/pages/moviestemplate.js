@@ -80,8 +80,12 @@ movieRouter.get("/:id([A-Z])", function(req, res) {
 	
 	let photoId = req.params.id;
 	
-	//let sqlcount = "SELECT count(1) FROM moviereviewz WHERE alpha = $1";
-
+	let sqlcount = "SELECT count(1) FROM moviereviewz WHERE alpha = $1";
+	let querycount = db.query(sqlcount, [ photoId ]);
+	querycount.on("row", function(row) {
+		res.write("<p>Number of movies: " + String(row.count) + "</p>");
+	});
+	
 	let sql = "SELECT name, rating, year, genre, director, actors, review, video FROM moviereviewz WHERE alpha = $1";	
 	let query = db.query(sql, [ photoId ]);
 
