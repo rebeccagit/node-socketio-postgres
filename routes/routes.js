@@ -2,7 +2,6 @@ const express = require('express');
 const photoRouter = express.Router(); 
 
 module.exports = function(app) {
-	
 
 	//main pages
 	app.get('/', function(request, response) {
@@ -17,14 +16,15 @@ module.exports = function(app) {
 	app.get('/chat', function(request, response) {
 	  response.render('pages/chat');
 	});
-	var moviesdatabase = require('../views/pages/moviesdatabase');
-	app.use('/moviereviews', moviesdatabase);
-
-
-	//practice movie page - old page
+	
+	let moviesRouter = require('../views/pages/moviestemplate');
+	app.use('/moviereview', moviesRouter);	
+	
+	//practice movie pages - old pages
+	//var moviesdatabase = require('../views/pages/moviesdatabase');
+	//app.use('/moviereviews', moviesdatabase);
 	//var moviesdatabases = require('../views/pages/movies');
 	//app.use('/moviepage', moviesdatabases);
-
 
 	//animations
 	app.get('/animations', function(request, response) {
@@ -88,14 +88,9 @@ module.exports = function(app) {
 	  response.render('pages/prac');
 	});
 
-
 	// practice grid page
 	//app.get('/data.json', function(request, response) {
 	// response.render('myscripts\jgrid\js\data.json');
 	//});
-	
-		
-	var moviesRouter = require('../views/pages/moviestemplate');
-	app.use('/moviereview', moviesRouter);	
 
 };

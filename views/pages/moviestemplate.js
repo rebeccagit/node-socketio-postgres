@@ -1,11 +1,10 @@
-const express = require('express');
+const express = require("express");
 const movieRouter = express.Router();
-const pg = require('pg'); 
 const db = require("../../config/datab");
 
 
-movieRouter.get('/', function(req, res) {
-     		
+movieRouter.get("/", function(req, res) {
+	
 	res.writeHead(200, {"Content-Type": "text/html"});
 	res.write("<!DOCTYPE><html><head><title>Movie Reviews</title><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body {font: 16px verdana;}#top{margin-left:10%;margin-right:10%;margin-top:10%;margin-bottom:5%;padding:0px;}#rev{margin:15%;margin-top:5%;padding:0px;}h3 {color:red;font: 14px Helvetica, Arial, sans-serif;} h3{color:red;} .moviebutton { width:30px; padding:10px; margin:10px; } a {padding:5px; }</style>");
 	
@@ -13,8 +12,8 @@ movieRouter.get('/', function(req, res) {
 
 	res.write('<nav class="navbar navbar-default navbar-static-top navbar-inverse"><div class="container"><ul class="nav navbar-nav"><li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li><li><a href="https://secure-inlet-7727.herokuapp.com/chat"><span class="glyphicon glyphicon-grain"></span> Mad Hatters Chat Room</a></li><li><a href="https://secure-inlet-7727.herokuapp.com/makingsite"><span class="glyphicon glyphicon-grain"></span> About Making This Site</a></li><li><a href="https://secure-inlet-7727.herokuapp.com/aboutme"><span class="glyphicon glyphicon-grain"></span> About Me</a></li><li><a href="https://secure-inlet-7727.herokuapp.com/moviereview"><span class="glyphicon glyphicon-grain"></span> Movie Reviews</a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-list-alt"></span> More Sites<span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li><a href="http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/">Call Back Functions in Javascript</a></li><li><a href="http://www.codewars.com">Codewars - Fun Coding!</a></li><li><a href="http://www.theanimalrescuesite.com/clickToGive/ars/home">The Animal Rescue Site</a></li><li class="divider"></li><li><a href="http://octoberdays.pythonanywhere.com/">My Django Based Site - Poems!</a></li><li><a href="aceprogrammers.com/demoscapes/">Demo site!</a></li><li><a href="http://www.thigpensdesignlandscaping.com/">Site I Built, Small Business!</a></li><li><a href="http://tggardens.com/">Site I Built, Small Business!</a></li><li><a href="http://playgroundsandmore.com/">Site I Built, Small Business!</a></li><li class="divider"></li><li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Start with Node on Heroku</a></li><li><a href="https://devcenter.heroku.com/articles/getting-started-with-php">Start with PHP on Heroku</a></li><li><a href="https://devcenter.heroku.com/articles/getting-started-with-python">Start with Python on Heroku</a></li></ul></li></ul></div></nav>');
 	
-	res.write("<div id='top'>")
-	res.write("<h1><a href='moviereview'>My Movie Reviews</a>" + "<br /></h1>");
+	res.write("<div id='top'>");
+	res.write("<h1><a href='/moviereview'>My Movie Reviews</a>" + "<br /></h1>");
 	res.write("<p>The following are some reviews.</p>");
 	res.write("</div>");
 	res.write("<div id='rev'>");
@@ -23,19 +22,19 @@ movieRouter.get('/', function(req, res) {
 	
 	let query = db.query("SELECT name, rating, year, genre, director, actors, review, video FROM moviereviewz ORDER BY random() LIMIT 2");	
 	res.write("<ul>");
-		query.on('row', function(row) {
-			res.write("<li style='list-style-type:none;'>");		
-			res.write("<h3 style='color:#4d004d;'>" + String(row.name) + "&nbsp;&nbsp;=>&nbsp;&nbsp;" + String(row.rating) + "<span class='glyphicon glyphicon-star-empty'></span></h3><br />");
-			res.write("Release Year: " + String(row.year) + "<br /><br />");
-			res.write("Genre: " + String(row.genre) + "<br /><br />");			
-			res.write("Directed By: " + String(row.director) + "<br /><br />");
-			res.write("Cast: " + String(row.actors) + "<br /><br />");
-			res.write("My Review: <br /><br />" + String(row.review) + "<br /><br />");
-			res.write("<div class='embed-responsive embed-responsive-16by9'>")
-			res.write("<iframe class='embed-responsive-item' src='https://www.youtube.com/embed/" + String(row.video) + "' allowfullscreen></iframe>");
-			res.write("</div>");
-			res.write("<br /><br /><br /><br />");			
-			res.write("</li>");
+	query.on("row", function(row) {
+		res.write("<li style='list-style-type:none;'>");		
+		res.write("<h3 style='color:#4d004d;'>" + String(row.name) + "&nbsp;&nbsp;=>&nbsp;&nbsp;" + String(row.rating) + "<span class='glyphicon glyphicon-star-empty'></span></h3><br />");
+		res.write("Release Year: " + String(row.year) + "<br /><br />");
+		res.write("Genre: " + String(row.genre) + "<br /><br />");			
+		res.write("Directed By: " + String(row.director) + "<br /><br />");
+		res.write("Cast: " + String(row.actors) + "<br /><br />");
+		res.write("My Review: <br /><br />" + String(row.review) + "<br /><br />");
+		res.write("<div class='embed-responsive embed-responsive-16by9'>");
+		res.write("<iframe class='embed-responsive-item' src='https://www.youtube.com/embed/" + String(row.video) + "' allowfullscreen></iframe>");
+		res.write("</div>");
+		res.write("<br /><br /><br /><br />");			
+		res.write("</li>");
 			
 		/*	WIP
 			if (err) {
@@ -50,19 +49,20 @@ movieRouter.get('/', function(req, res) {
 				return res.json({ errors: ['Not found'] });
 			}		
 		*/
+	});		
 		
-		});		
-		query.on('end', function () {
-			res.write("</ul>");
-			res.write("I hope you enjoyed the reviews. I update frequently, though not consistently. Sometimes there is nothing to see at the movies. Sometimes, I don't have the time.<br /><br /><br /></div>");			
-			res.write("<br /><br /><br /></div>");
-			res.write("</body></html>");
-		});	
+	query.on("end", function () {
+		res.write("</ul>");
+		res.write("I hope you enjoyed the reviews. I update frequently, though not consistently. Sometimes there is nothing to see at the movies. Sometimes, I don't have the time.<br /><br /><br /></div>");			
+		res.write("<br /><br /><br /></div>");
+		res.write("</body></html>");
+	});	
+		
 });
 
 
-movieRouter.get('/:id', function(req, res) {
-	
+movieRouter.get("/:id([A-Z])", function(req, res) {
+
 	res.writeHead(200, {"Content-Type": "text/html"});
 	res.write("<!DOCTYPE><html><head><title>Movie Reviews</title><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body {font: 16px verdana;}#top{margin-left:10%;margin-right:10%;margin-top:10%;margin-bottom:5%;padding:0px;}#rev{margin:15%;margin-top:5%;padding:0px;}h3 {color:red;font: 14px Helvetica, Arial, sans-serif;} h3{color:red;} .moviebutton { width:30px; padding:10px; margin:10px; } a {padding:5px; }</style>");
 	
@@ -70,8 +70,8 @@ movieRouter.get('/:id', function(req, res) {
 
 	res.write('<nav class="navbar navbar-default navbar-static-top navbar-inverse"><div class="container"><ul class="nav navbar-nav"><li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li><li><a href="https://secure-inlet-7727.herokuapp.com/chat"><span class="glyphicon glyphicon-grain"></span> Mad Hatters Chat Room</a></li><li><a href="https://secure-inlet-7727.herokuapp.com/makingsite"><span class="glyphicon glyphicon-grain"></span> About Making This Site</a></li><li><a href="https://secure-inlet-7727.herokuapp.com/aboutme"><span class="glyphicon glyphicon-grain"></span> About Me</a></li><li><a href="https://secure-inlet-7727.herokuapp.com/moviereview"><span class="glyphicon glyphicon-grain"></span> Movie Reviews</a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-list-alt"></span> More Sites<span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li><a href="http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/">Call Back Functions in Javascript</a></li><li><a href="http://www.codewars.com">Codewars - Fun Coding!</a></li><li><a href="http://www.theanimalrescuesite.com/clickToGive/ars/home">The Animal Rescue Site</a></li><li class="divider"></li><li><a href="http://octoberdays.pythonanywhere.com/">My Django Based Site - Poems!</a></li><li><a href="http://aceprogrammers.com/demoscapes">Demo site!</a></li><li><a href="http://www.thigpensdesignlandscaping.com/">Site I Built, Small Business!</a></li><li><a href="http://tggardens.com/">Site I Built, Small Business!</a></li><li><a href="http://playgroundsandmore.com/">Site I Built, Small Business!</a></li><li class="divider"></li><li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Start with Node on Heroku</a></li><li><a href="https://devcenter.heroku.com/articles/getting-started-with-php">Start with PHP on Heroku</a></li><li><a href="https://devcenter.heroku.com/articles/getting-started-with-python">Start with Python on Heroku</a></li></ul></li></ul></div></nav>');
 	
-	res.write("<div id='top'>")
-	res.write("<h1><a href='moviereview'>My Movie Reviews</a>" + "<br /></h1>");
+	res.write("<div id='top'>");
+	res.write("<h1><a href='/moviereview'>My Movie Reviews</a>" + "<br /></h1>");
 	res.write("<p>The following are some reviews.</p>");
 	res.write("</div>");
 	res.write("<div id='rev'>");
@@ -79,26 +79,27 @@ movieRouter.get('/:id', function(req, res) {
 	res.write("<br /><br /><br /><br />");
 	
 	let photoId = req.params.id;
-	//res.write(photoId);
+	
+	//let sqlcount = "SELECT count(1) FROM moviereviewz WHERE alpha = $1";
 
-    let sql = "SELECT name, rating, year, genre, director, actors, review, video FROM moviereviewz WHERE alpha = $1";	
-    let query = db.query(sql, [ photoId ]);
-	
-		res.write("<ul>");
-		query.on('row', function(row) {
-			
-			res.write("<li style='list-style-type:none;'>");		
-			res.write("<h3 style='color:#4d004d;'>" + String(row.name) + "&nbsp;&nbsp;=>&nbsp;&nbsp;" + String(row.rating) + "<span class='glyphicon glyphicon-star-empty'></span></h3><br />");
-			res.write("Release Year: " + String(row.year) + "<br /><br />");
-			res.write("Genre: " + String(row.genre) + "<br /><br />");			
-			res.write("Directed By: " + String(row.director) + "<br /><br />");
-			res.write("Cast: " + String(row.actors) + "<br /><br />");
-			res.write("My Review: <br /><br />" + String(row.review) + "<br /><br />");
-			res.write("<div class='embed-responsive embed-responsive-16by9'>")
-			res.write("<iframe class='embed-responsive-item' src='https://www.youtube.com/embed/" + String(row.video) + "' allowfullscreen></iframe>");
-			res.write("</div>");
-	
-			res.write("</li>");
+	let sql = "SELECT name, rating, year, genre, director, actors, review, video FROM moviereviewz WHERE alpha = $1";	
+	let query = db.query(sql, [ photoId ]);
+
+	res.write("<ul>");
+		
+	query.on("row", function(row) {
+		
+		res.write("<li style='list-style-type:none;'>");		
+		res.write("<h3 style='color:#4d004d;'>" + String(row.name) + "&nbsp;&nbsp;=>&nbsp;&nbsp;" + String(row.rating) + "<span class='glyphicon glyphicon-star-empty'></span></h3><br />");
+		res.write("Release Year: " + String(row.year) + "<br /><br />");
+		res.write("Genre: " + String(row.genre) + "<br /><br />");			
+		res.write("Directed By: " + String(row.director) + "<br /><br />");
+		res.write("Cast: " + String(row.actors) + "<br /><br />");
+		res.write("My Review: <br /><br />" + String(row.review) + "<br /><br />");
+		res.write("<div class='embed-responsive embed-responsive-16by9'>");
+		res.write("<iframe class='embed-responsive-item' src='https://www.youtube.com/embed/" + String(row.video) + "' allowfullscreen></iframe>");
+		res.write("</div>");
+		res.write("</li>");
 			
 		/*	WIP
 			if (err) {
@@ -113,14 +114,14 @@ movieRouter.get('/:id', function(req, res) {
 				return res.json({ errors: ['Not found'] });
 			}		
 		*/
-		
-			});		
+	});		
 			
-		query.on('end', function () {
-			res.write("</ul></div>");
-			res.write("</body></html>");
-			photoId = "";
-		});	
+	query.on("end", function () {
+		res.write("</ul></div>");
+		res.write("</body></html>");
+		photoId = "";
+	});	
+				
 });
 
 

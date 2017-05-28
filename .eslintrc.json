@@ -67,7 +67,7 @@
 			{"before": false, "after": true}
 		],
 		"space-in-parens": [
-			"error", "always"
+			"error", "never"
 		],
 		"no-var": [
 			"error"
