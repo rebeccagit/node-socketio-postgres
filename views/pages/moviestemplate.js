@@ -22,6 +22,11 @@ movieRouter.get("/", function(req, res) {
 	
 	let query = db.query("SELECT name, rating, year, genre, director, actors, review, video FROM moviereviewz ORDER BY random() LIMIT 2");	
 	res.write("<ul>");
+	
+	query.on("error", function(error) {
+      //handle the error - https://github.com/brianc/node-postgres/wiki/Query
+    });	
+	
 	query.on("row", function(row) {
 		res.write("<li style='list-style-type:none;'>");		
 		res.write("<h3 style='color:#4d004d;'>" + String(row.name) + "&nbsp;&nbsp;=>&nbsp;&nbsp;" + String(row.rating) + "<span class='glyphicon glyphicon-star-empty'></span></h3><br />");
@@ -82,6 +87,10 @@ movieRouter.get("/:id([A-Z])", function(req, res) {
 	
 	let sqlcount = "SELECT count(1) FROM moviereviewz WHERE alpha = $1";
 	let querycount = db.query(sqlcount, [ photoId ]);
+	
+	querycount.on("error", function(error) {
+      //handle the error - https://github.com/brianc/node-postgres/wiki/Query
+    });		
 	querycount.on("row", function(row) {
 		res.write("<p>Number of movies: " + String(row.count) + "</p>");
 	});
@@ -89,8 +98,12 @@ movieRouter.get("/:id([A-Z])", function(req, res) {
 	let sql = "SELECT name, rating, year, genre, director, actors, review, video FROM moviereviewz WHERE alpha = $1";	
 	let query = db.query(sql, [ photoId ]);
 
+	query.on("error", function(error) {
+      //handle the error - https://github.com/brianc/node-postgres/wiki/Query
+    });	
+	
 	res.write("<ul>");
-		
+
 	query.on("row", function(row) {
 		
 		res.write("<li style='list-style-type:none;'>");		
