@@ -6,7 +6,7 @@ const logger = new winston.Logger({
 	transports: [
 		new winston.transports.File({
 			level: "debug",
-			filename: "log/log.log",
+			filename: "log/log.log", //dev only at this time, must save in prod db eventually
 			handleExceptions: true,
 			json: true,
 			prettyPrint: true,
@@ -24,7 +24,7 @@ const logger = new winston.Logger({
 		})
 	],
 	exceptionHandlers: [
-		new winston.transports.File({ filename: "log/exceptions.log" })
+		new winston.transports.File({ filename: "log/exceptions.log" })  //dev only at this time, must save in prod db eventually
 	],
 	exitOnError: false
 });

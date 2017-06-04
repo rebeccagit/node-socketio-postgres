@@ -1,5 +1,5 @@
 const express = require('express');
-const photoRouter = express.Router(); 
+const moviesRouter = express.Router(); 
 
 module.exports = function(app) {
 

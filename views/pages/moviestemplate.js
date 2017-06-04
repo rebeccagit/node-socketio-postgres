@@ -1,9 +1,9 @@
 const express = require("express");
-const movieRouter = express.Router();
+const moviesRouter = express.Router();
 const db = require("../../config/datab");
 
 
-movieRouter.get("/", function(req, res) {
+moviesRouter.get("/", function(req, res) {
 	
 	res.writeHead(200, {"Content-Type": "text/html"});
 	res.write("<!DOCTYPE><html><head><title>Movie Reviews</title><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body {font: 16px verdana;}#top{margin-left:10%;margin-right:10%;margin-top:10%;margin-bottom:5%;padding:0px;}#rev{margin:15%;margin-top:5%;padding:0px;}h3 {color:red;font: 14px Helvetica, Arial, sans-serif;} h3{color:red;} .moviebutton { width:30px; padding:10px; margin:10px; } a {padding:5px; }</style>");
@@ -66,7 +66,7 @@ movieRouter.get("/", function(req, res) {
 });
 
 
-movieRouter.get("/:id([A-Z])", function(req, res) {
+moviesRouter.get("/:id([A-Z])", function(req, res) {
 
 	res.writeHead(200, {"Content-Type": "text/html"});
 	res.write("<!DOCTYPE><html><head><title>Movie Reviews</title><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body {font: 16px verdana;}#top{margin-left:10%;margin-right:10%;margin-top:10%;margin-bottom:5%;padding:0px;}#rev{margin:15%;margin-top:5%;padding:0px;}h3 {color:red;font: 14px Helvetica, Arial, sans-serif;} h3{color:red;} .moviebutton { width:30px; padding:10px; margin:10px; } a {padding:5px; }</style>");
@@ -142,4 +142,4 @@ movieRouter.get("/:id([A-Z])", function(req, res) {
 });
 
 
-module.exports = movieRouter;
+module.exports = moviesRouter;
